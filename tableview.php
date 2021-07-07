@@ -3925,7 +3925,7 @@ $.when(call1,call2).done(function(res1,res2){
 		displayedLabelPlural = displayedLabel.slice(0, displayedLabel.length-1) + "ie";
 	}
 	displayedLabelPlural = displayedLabelPlural + "s"; 
-	$("#detailedSearchPlaceholder").text(`${displayedLabel} Label: SOC / Census Code`); // the only instance where the displayedLabel is a hard-coded html element
+	$("#detailedSearchPlaceholder").text(displayedLabel + ' Label: SOC / Census Code'); // the only instance where the displayedLabel is a hard-coded html element
 
 		
 	// table defaults
@@ -3955,17 +3955,17 @@ $.when(call1,call2).done(function(res1,res2){
 			language: {
 				lengthMenu: "Display _MENU_ Rows",
 				search: "Quick Search:",
-				searchPlaceholder: `${displayedLabel} code/keyword`,
+				searchPlaceholder: ${displayedLabel} + ' code/keyword,
 				searchPanes: {
 					clearMessage: 'Clear',
-					collapse: {0: `Detailed ${displayedLabel} Search`, _: `(%d) ${displayedLabelPlural} Selected `},
+					collapse: {0: 'Detailed ' + displayedLabel + ' Search', _: '(%d) ' + displayedLabelPlural + ' Selected'},
 				}
 			},
 			dom: '<"left_c"f><"centerB"B>r<"right"l><t><"bottom"p>',
 			buttons: [
 				{
 					extend: 'searchPanes',
-					titleAttr: `Click to Select Multiple/Many ${displayedLabelPlural}`,
+					titleAttr: 'Click to Select Multiple/Many ' + displayedLabelPlural,
 					className: 'acs_button search_pane',
 					config: {
 						dataLength: 100,
@@ -4080,7 +4080,7 @@ $.when(call1,call2).done(function(res1,res2){
 			}								
 			
 			primaryTable.on('draw.dt', function() {
-			$('.dataTables_filter input').attr('title', `Best for Single ${displayedLabel} Searches`);
+			$('.dataTables_filter input').attr('title', 'Best for Single ' + displayedLabel + ' Searches');
 			$('.dataTables_length select').attr('title', 'Each Label has 6 Rows of Data');
 
 			}) 
