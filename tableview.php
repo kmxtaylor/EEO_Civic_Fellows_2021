@@ -3663,8 +3663,8 @@ $(document).ready(function(){
 		"State/Local Government Job Group"
 	]
 	let descriptionRemainders = [
-		"by Sex and Race/Ethnicity",
-		"by Sex and Race/Ethnicity",
+		" by Sex and Race/Ethnicity",
+		" by Sex and Race/Ethnicity",
 		"s by Sex and Race/Ethnicity",
 		"",
 		"s by Sex and Race/Ethnicity",
@@ -3932,9 +3932,9 @@ $.when(call1,call2).done(function(res1,res2){
 	let numDataPerLabel = Object.keys(data_results).length - 1; // ignore file_info
 	let rowDisplayOptions = [];
 	if (isTableSet1Or2) {
-		const numData = i*numDataPerLabel + numDataPerLabel;
-		let option = 6;
-		for (let i = 6; i <= numData; i=i*2) { // loop until reach numData
+		let option = 0;
+		const max = 100; // unsure if this is too big
+		for (let i = 6; i < 100; i=i*2) { // loop until reach numData
 			for (let j = 0; j < 2; j++) { // loop 2x
 				option = option + i;
 				rowDisplayOptions.push(option);
