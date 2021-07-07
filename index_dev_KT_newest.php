@@ -7133,7 +7133,47 @@ schema.innerText = '';
 					</div>		
   <div class="uscb-margin-B-30"></div>	  
 
+<!-- Start errata section -->
+<div class="row" id="eeo_errate_notes" style="display:block; margin-top:25px; border-top:1px dotted #333;">
+<div class="col-xs-12 col-md-10">
 
+
+<div id="note1Label">
+<h3 id="Missing_geos">Errata Notes</h3>
+<p class="acs_eeo" ><strong>May 19, 2021, updated June 28, 2021</strong></p>
+
+<p class="acs_eeo" ><i>Mismatching occupation codes for resident tables in the 2014-2018 EEO Tabulation</i>.  </p>
+<a href="#"><span class="openErrata">View Details</span> </a></p></div>
+<div id="eeo_errata1" class="errata_content"  style="display:none;">
+<p class="acs_eeo" >Errors were identified for tables EEO-ALL01R, EEO-ALL02R and EEO-CIT02R for all geographies. There was a mismatch between the occupation code and associated estimates for the following Census EEO occupations codes: 1010, 0120, 0110, 0810, 0820, 0830, 0845, 0930, 1050, 1065, 2001, 2015, 2350, 2400, 2700, 2721, 3110, 3120, 3140, 3160, 3200, 3230, 3250, 3255, 3256, 3300, 3401, 3515, 3520, 3900, 3910, 4055, 4110, 4340, 4500, 4530, 4600, 7010, 7140, 9110, 9130, 9510, and 9610.  </p>
+
+<p class="acs_eeo" >This error was related to the EEO Table tool only. Data posted on the Census FTP are correct.  </p></div>
+
+
+</div>
+</div>
+
+					<script>
+					
+			$(document).ready(function(){
+    $('.openErrata').click(function(){
+        var link = $(this);
+        $('#eeo_errata1').slideToggle('slow', function() {
+            if ($(this).is(":visible")) {
+                 link.text('Close Errata');                
+            } else {
+                 link.text('View Errata');                
+            } 
+		
+        });
+         event.preventDefault();    
+    });
+
+    
+
+});
+</script>	
+<!-- End errata section -->
 
 <!-- /* View All Link section */ -->
 <div class="row" id="eeo_index_docu" style="display:block; margin-top:25px; border-top:1px dotted #333;">
