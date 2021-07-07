@@ -3930,10 +3930,25 @@ $.when(call1,call2).done(function(res1,res2){
 
 	// configure row display adjustor
 	let numDataPerLabel = Object.keys(data_results).length - 1; // ignore file_info
-	let rowDisplayOptions;
-	for (let i = 0; i<labelCount; i++) {
-		rowDisplayOptions.append(i*numDataPerLabel + numDataPerLabel);
+	let rowDisplayOptions = [];
+	if (isTableSet1Or2) {
+		const numData = i*numDataPerLabel + numDataPerLabel;
+		let option = 6;
+		for (let i = 6; i <= numData; i=i*2) { // loop until reach numData
+			for (let j = 0; j < 2; j++) { // loop 2x
+				option = option + i;
+				rowDisplayOptions.push(option);
+				console.log('pushing to row display menu: ', option);
+			}
+		}
+	} else { // current max for labelCount is 13
+		for (let i = 0; i<labelCount; i++) {
+			let option = i*numDataPerLabel + numDataPerLabel;
+			rowDisplayOptions.push(option);
+			console.log('pushing to row display menu: ', option);
+		}
 	}
+	console.log('row display options: ', rowDisplayOptions);
 	// let rowDisplayOptions = Object.keys(data_results).length - 1; 
 
 		
@@ -4066,7 +4081,9 @@ $.when(call1,call2).done(function(res1,res2){
 					}
 				], // end columnDefs
 				
-				"lengthMenu": [rowDisplayOptions.append(-1), rowDisplayOptions.append(["All"])],
+				"lengthMenu": [
+					rowDisplayOptions.concat(-1), rowDisplayOptions.concat(["All"])
+				],
 				
 					"createdRow": function( row, data, dataIndex ) {
 				if( data[1].indexOf('Percent') >= 0)
