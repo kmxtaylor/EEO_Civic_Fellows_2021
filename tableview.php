@@ -3958,7 +3958,7 @@ $.when(call1,call2).done(function(res1,res2){
 				searchPlaceholder: ${displayedLabel} + ' code/keyword,
 				searchPanes: {
 					clearMessage: 'Clear',
-					collapse: {0: 'Detailed ' + displayedLabel + ' Search', _: '(%d) ' + displayedLabelPlural + ' Selected'},
+					collapse: {0: displayedLabelPlural, _: '(%d) ' + displayedLabelPlural + ' Selected'},
 				}
 			},
 			dom: '<"left_c"f><"centerB"B>r<"right"l><t><"bottom"p>',
