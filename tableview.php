@@ -3927,6 +3927,15 @@ $.when(call1,call2).done(function(res1,res2){
 	displayedLabelPlural = displayedLabelPlural + "s"; 
 	$("#detailedSearchPlaceholder").text(displayedLabel + ' Label: SOC / Census Code'); // the only instance where the displayedLabel is a hard-coded html element
 
+
+	// configure row display adjustor
+	let numDataPerLabel = Object.keys(data_results).length - 1; // ignore file_info
+	let rowDisplayOptions;
+	for (let i = 0; i<labelCount; i++) {
+		rowDisplayOptions.append(i*numDataPerLabel + numDataPerLabel);
+	}
+	// let rowDisplayOptions = Object.keys(data_results).length - 1; 
+
 		
 	// table defaults
 	$.extend($.fn.dataTable.defaults, {
@@ -4057,7 +4066,7 @@ $.when(call1,call2).done(function(res1,res2){
 					}
 				], // end columnDefs
 				
-				"lengthMenu": [[6, 12, 24, 36, 72, 96, -1], [6, 12, 24, 36, 72, 96, "All"]],
+				"lengthMenu": [rowDisplayOptions.append(-1), rowDisplayOptions.append(["All"])],
 				
 					"createdRow": function( row, data, dataIndex ) {
 				if( data[1].indexOf('Percent') >= 0)
