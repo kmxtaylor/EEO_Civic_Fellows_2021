@@ -3660,7 +3660,7 @@ $(document).ready(function(){
 		"EEO Occupational Group",
 		"EEO-1 Job Category",
 		"Federal Sector Job Group",
-		"State and Local Government Job Group"
+		"State/Local Government Job Group"
 	]
 	let descriptionRemainders = [
 		"by Sex and Race/Ethnicity",
