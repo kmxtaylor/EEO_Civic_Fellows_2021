@@ -3955,7 +3955,7 @@ $.when(call1,call2).done(function(res1,res2){
 			language: {
 				lengthMenu: "Display _MENU_ Rows",
 				search: "Quick Search:",
-				searchPlaceholder: ${displayedLabel} + ' code/keyword,
+				searchPlaceholder: displayedLabel + ' code/keyword',
 				searchPanes: {
 					clearMessage: 'Clear',
 					collapse: {0: displayedLabelPlural, _: '(%d) ' + displayedLabelPlural + ' Selected'},
