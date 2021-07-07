@@ -3932,11 +3932,11 @@ $.when(call1,call2).done(function(res1,res2){
 	let numDataPerLabel = Object.keys(data_results).length - 1; // ignore file_info
 	let rowDisplayOptions = [];
 	let max = 50; // somewhat arbitrary, can change
-	let option = 0;
-	for (let i = 0; i<labelCount && option<max; i++) {
-		option = i*numDataPerLabel + numDataPerLabel;
+	let option = 6;
+	for (let i = 1; i<labelCount && option<max; i++) {
 		rowDisplayOptions.push(option);
 		console.log('pushing to row display menu: ', option);
+		option = i*numDataPerLabel + numDataPerLabel;
 	}
 	console.log('row display options: ', rowDisplayOptions);
 
