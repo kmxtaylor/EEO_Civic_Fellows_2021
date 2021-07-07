@@ -3931,17 +3931,25 @@ $.when(call1,call2).done(function(res1,res2){
 	// configure row display adjustor
 	let numDataPerLabel = Object.keys(data_results).length - 1; // ignore file_info
 	let rowDisplayOptions = [];
-	if (isTableSet1Or2) {
+	if (isTableSet1Or2) { // iteration tables (237 occupations)
+		// generate a reasonable array of number of rows to display (<max)
 		let option = 0;
-		const max = 100; // unsure if this is too big
-		for (let i = 6; i < 100; i=i*2) { // loop until reach numData
-			for (let j = 0; j < 2; j++) { // loop 2x
+		let max = 100;
+		let i = 6;
+		while (true) {
+			for (let j = 0; j < 2; j++) {
 				option = option + i;
+				if (option < max) {
 				rowDisplayOptions.push(option);
-				console.log('pushing to row display menu: ', option);
+					console.log('pushing to row display menu: ', option);
+				} else {
+					break;
+				}
 			}
+			i=i*2;
 		}
-	} else { // current max for labelCount is 13
+	} else { // non-iteration tables (<=13 labels)
+		// generate an array of number of rows to display via linear increments
 		for (let i = 0; i<labelCount; i++) {
 			let option = i*numDataPerLabel + numDataPerLabel;
 			rowDisplayOptions.push(option);
