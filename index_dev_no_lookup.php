@@ -6689,7 +6689,7 @@ schema.innerText = '';
 									</button>
 									<div class="accordionContent">
 										<div class="acs_content col-xs-12">
-											<label for="EEO-ALL03W" id="EEO4W_label" class="acs_np acsNSBootstrap radio">
+											<label for="EEO-ALL04W" id="EEO4W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL04W"  class="acsNSBootstrap radio" name="filegroup2018" value="all4w" />
 												<span class="acs_np">
 													EEO-ALL04W &#8212; Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population
