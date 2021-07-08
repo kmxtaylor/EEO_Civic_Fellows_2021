@@ -1,7 +1,8 @@
 # EEO_Civic_Fellows_2021
+Code repository for work done by Katie Taylor and Rebecca Xun.
 
-# Set Up (Under Construction)
-Before using this, please install PHP from terminal (instructions here: https://www.php.net/manual/en/install.php). 
+# Linux (Debian/Ubuntu) Set Up - Under Construction
+Before using this, please install PHP (instructions here: https://www.php.net/manual/en/install.php). To check if you already have PHP installed, you can use `which php` or `whereis php`.
 
 Then, please clone the repository onto your local machine, by running this in the directory of your choice:
 ```
