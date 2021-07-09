@@ -7675,17 +7675,26 @@ schema.innerText = '';
 	});	// onclick get_EEO_data	
 
 	async function fetchMSAComps(msaName) {
+		//TODO: process msaName to be lowercase 
+
 		//process the json
 		let msaPromise = new Promise(function(res, rej) {
 			let countyEquivs = $.getJSON('msa-components-2018.json', function(json) {
-				console.log(json);
+				// console.log(json);
+				
 				//filter to include only designated MSA 
-				let componentsArr = Object.values(json).filter(msa => msa[0]['CBSA Title'] === msaName)[0];
+				let componentsArr = json[msaName];
+				// let componentsArr = Object.values(json).filter(msa => msa[0]['CBSA Title'] === msaName)[0];
+				console.log(componentsArr);
+				
+				//return all the county components
 				let countyEquivArr = [];
-				componentsArr.forEach((comp) => {
-					countyEquivArr.push(comp['County']['County Equivalent']);
-				});
-				// console.log('The components in', msaName, 'are', countyEquivArr);
+				if (componentsArr.length > 0) {
+					componentsArr.forEach((comp) => {
+						countyEquivArr.push(comp['County']['County Equivalent']);
+					});
+					console.log('The components in', msaName, 'are', countyEquivArr);
+				}
 				res(countyEquivArr);
 			});
 		});
