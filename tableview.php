@@ -3662,13 +3662,13 @@ $(document).ready(function(){
 		"Federal Sector Job Group",
 		"State/Local Government Job Group"
 	]
-	let descriptionRemainders = [
+	let descriptionRemainders = [ // these are all so similar now; consider changing format
 		" by Sex and Race/Ethnicity",
 		" by Sex and Race/Ethnicity",
 		"s by Sex and Race/Ethnicity",
-		"",
+		"by Sex and Race/Ethnicity",
 		"s by Sex and Race/Ethnicity",
-		"s"
+		"s by Sex and Race/Ethnicity"
 	]
     labelIndex = tabletype[3]-1;
 	tableStr += (labelTypes[labelIndex] + descriptionRemainders[labelIndex]);
