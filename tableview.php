@@ -3942,12 +3942,14 @@ $.when(call1,call2).done(function(res1,res2){
 
 	let rowDisplayIndices, rowDisplayDropDown;
 	if (isTableSet1Or2) { // default to # rows/occupation (6)
-		rowDisplayIndices = [-1].concat(rowDisplayOptions);
-		rowDisplayDropDow = ["All"].concat(rowDisplayOptions);
-	} else { // default to ALL
 		rowDisplayIndices = rowDisplayOptions.concat(-1);
-		rowDisplayDropDow = rowDisplayOptions.concat(["All"]);
+		rowDisplayDropDown = rowDisplayOptions.concat(["All"]);
+	} else { // default to ALL
+		rowDisplayIndices = [-1].concat(rowDisplayOptions);
+		rowDisplayDropDown = ["All"].concat(rowDisplayOptions);
 	}
+	console.log("rowDisplayIndices: ", rowDisplayIndices);
+	console.log("rowDisplayDropDown: ", rowDisplayDropDown);
 
 		
 	// table defaults
