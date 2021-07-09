@@ -3940,6 +3940,15 @@ $.when(call1,call2).done(function(res1,res2){
 	}
 	console.log('row display options: ', rowDisplayOptions);
 
+	let rowDisplayIndices, rowDisplayDropDown;
+	if (isTableSet1Or2) { // default to # rows/occupation (6)
+		rowDisplayIndices = [-1].concat(rowDisplayOptions);
+		rowDisplayDropDow = ["All"].concat(rowDisplayOptions);
+	} else { // default to ALL
+		rowDisplayIndices = rowDisplayOptions.concat(-1);
+		rowDisplayDropDow = rowDisplayOptions.concat(["All"]);
+	}
+
 		
 	// table defaults
 	$.extend($.fn.dataTable.defaults, {
@@ -4071,7 +4080,7 @@ $.when(call1,call2).done(function(res1,res2){
 				], // end columnDefs
 				
 				"lengthMenu": [
-					rowDisplayOptions.concat(-1), rowDisplayOptions.concat(["All"])
+					rowDisplayIndices, rowDisplayDropDown
 				],
 				
 					"createdRow": function( row, data, dataIndex ) {
