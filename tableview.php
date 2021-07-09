@@ -3641,7 +3641,7 @@ $(document).ready(function(){
 	};
 
 	/** Build table description string (displayed at top of page) and displayedLabel (displayed throughout the page) */
-	let tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + "0" + tabletype.slice(-2).toUpperCase() + " - ";
+	tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + "0" + tabletype.slice(-2).toUpperCase() + " - ";
 
 	/** Set the displayed label */
 	const labelTypes = [ // used both here and after table initialized (as displayed label)
