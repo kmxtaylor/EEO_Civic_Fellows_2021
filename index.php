@@ -6593,7 +6593,7 @@ schema.innerText = '';
 									<button type="button" class="accordionHeader">
 										<!-- <span class="accordionIcon">+ </span> -->
 										<span class="accordionIcon o-angle-down-1"></span>
-										<span>Detailed Census Occupation Categories by Sex and Race/Ethnicity (incl. Citizenship)</span>
+										<span>Detailed Census Occupation by Sex and Race/Ethnicity (incl. Citizenship)</span>
 									</button>
 									<div class="accordionContent">
 										<div class="acs_content col-xs-12">
@@ -6685,7 +6685,7 @@ schema.innerText = '';
 									<button type="button" class="accordionHeader">
 										<!-- <span class="accordionIcon">+ </span> -->
 										<span class="accordionIcon o-angle-down-1"></span>
-										<span>EEO-1 Job Categories</span>
+										<span>EEO-1 Job Categories by Sex and Race/Ethnicity</span>
 									</button>
 									<div class="accordionContent">
 										<div class="acs_content col-xs-12">
