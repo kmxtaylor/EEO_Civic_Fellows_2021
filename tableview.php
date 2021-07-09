@@ -3639,22 +3639,12 @@ $(document).ready(function(){
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
 		checkGeoName(checkGeoUrl, msaVal, geoStr);
 	};
-					
-	// if (tabletype === "all1w")
-	// 	var tableStr = Table_all1w;
-	// else if (tabletype === "all1r")
-	// 	var tableStr = Table_all1r;
-	// else if (tabletype === "all2r")
-	// 	var tableStr = Table_all2r;
-	// else if (tabletype === "all2w")
-	// 	var tableStr = Table_all2w;
-	// else if (tabletype === "cit2w")
-	// 	var tableStr = Table_cit2w;
-	// else if (tabletype === "cit2r")
-	// 	var tableStr = Table_cit2r;
 
-	tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + "0" + tabletype.slice(-2).toUpperCase() + " - ";
-	const labelTypes = [ // used both here and after table initialized
+	/** Build table description string (displayed at top of page) and displayedLabel (displayed throughout the page) */
+	let tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + "0" + tabletype.slice(-2).toUpperCase() + " - ";
+
+	/** Set the displayed label */
+	const labelTypes = [ // used both here and after table initialized (as displayed label)
 		"Occupation",
 		"Occupation",
 		"EEO Occupational Group",
@@ -3662,28 +3652,30 @@ $(document).ready(function(){
 		"Federal Sector Job Group",
 		"State/Local Government Job Group"
 	]
-	let descriptionRemainders = [ // these are all so similar now; consider changing format
-		" by Sex and Race/Ethnicity",
-		" by Sex and Race/Ethnicity",
-		"s by Sex and Race/Ethnicity",
-		"by Sex and Race/Ethnicity",
-		"s by Sex and Race/Ethnicity",
-		"s by Sex and Race/Ethnicity"
-	]
-    labelIndex = tabletype[3]-1;
-	tableStr += (labelTypes[labelIndex] + descriptionRemainders[labelIndex]);
+	const labelIndex = tabletype[3]-1;
+	let displayedLabel = labelTypes[labelIndex];
+
+	/** Build the rest of the table description */
+	let descriptionRemainder = " by Sex and Race/Ethnicity"; // needs to be saved separately from labelTypes
+	if (displayedLabel.slice(-5) === "Group") {
+		descriptionRemainder = "s" + descriptionRemainder;
+	}
 	if (tabletype.slice(-1) === "r") {
-		tableStr += " for Residence Geography";
+		descriptionRemainder  += " for Residence Geography";
 	} else if (tabletype.slice(-1) === "w") {
-		tableStr += " for Worksite Geography";
+		descriptionRemainder  += " for Worksite Geography";
 	}
 	if (tabletype.slice(-2, -1) !== "1") {
 		if (tabletype.slice(0,3) === "all") {
-		tableStr += ", Total Population";
+		descriptionRemainder  += ", Total Population";
 		} else if (tabletype.slice(0,3) === "cit") {
-			tableStr += ", Citizen";
+			descriptionRemainder  += ", Citizen";
 		}
 	}
+
+	// combine the start of table string, displayed label, & remainder of the description
+	tableStr += (displayedLabel + descriptionRemainder);
+	console.log("tableStr: " + tableStr);
 	
 	$(".table_selected").empty().append(tableStr);
 	
@@ -3918,7 +3910,6 @@ $.when(call1,call2).done(function(res1,res2){
 		
 
 	/* adjust text for labels other than occupations for table sets 3-6	*/		
-	let displayedLabel = labelTypes[labelIndex];
 	let displayedLabelPlural = displayedLabel;
 	// account for irregular plurals
 	if (displayedLabel.slice(-1) === "y") {
