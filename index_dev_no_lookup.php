@@ -6646,7 +6646,7 @@ schema.innerText = '';
 											<label for="EEO-ALL03W" id="EEO3W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL03W"  class="acsNSBootstrap radio" name="filegroup2018" value="all3w" />
 												<span class="acs_np">
-													EEO-ALL03W &#8212; Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population
+													EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6655,7 +6655,7 @@ schema.innerText = '';
 											<label for="EEO-CIT03W" id="CIT3W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-CIT03W"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="cit3w" />
 												<span class="acs_np">
-													EEO-CIT03W &#8212; Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen
+													EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen
 												</span>
 											</label>
 										</div> 
@@ -6664,7 +6664,7 @@ schema.innerText = '';
 											<label for="EEO-ALL03R" id="EEO3R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL03R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="all3r" />
 												<span class="acs_np">
-													EEO-ALL03R &#8212; Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population
+													EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6673,7 +6673,7 @@ schema.innerText = '';
 											<label for="EEO-CIT03R" id="CIT3R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-CIT03R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="cit3r" />
 												<span class="acs_np">
-													EEO-CIT03R &#8212; Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen
+													EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen
 												</span>
 											</label>
 										</div>
@@ -6692,7 +6692,7 @@ schema.innerText = '';
 											<label for="EEO-ALL04W" id="EEO4W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL04W"  class="acsNSBootstrap radio" name="filegroup2018" value="all4w" />
 												<span class="acs_np">
-													EEO-ALL04W &#8212; Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population
+													EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6701,7 +6701,7 @@ schema.innerText = '';
 											<label for="EEO-ALL04R" id="EEO4R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL04R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="all4r" />
 												<span class="acs_np">
-													EEO-ALL04R &#8212; Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population
+													EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population
 												</span>
 											</label>
 										</div>
