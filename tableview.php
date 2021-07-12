@@ -3922,7 +3922,7 @@ $.when(call1,call2).done(function(res1,res2){
 	if (isTableSet1Or2) {
 		detailedSearchPlaceholder = displayedLabel + ' Label: SOC / Census Code';
 	} else {
-		detailedSearchPlaceholder = displayedLabel + ' Label';
+		detailedSearchPlaceholder = displayedLabel;
 	}
 	$("#detailedSearchPlaceholder").text(detailedSearchPlaceholder); // the only instance where the displayedLabel is a hard-coded html element
 
