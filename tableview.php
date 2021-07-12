@@ -3759,7 +3759,7 @@ $.when(call1,call2).done(function(res1,res2){
 		}
 	}
 	console.log("occs only filtered from labels_results", labels_only);
-	var labelCount = labels_only.length -1;
+	var labelCount = labels_only.length;
 	console.log('labelCount: ' + labelCount);
 		$(".label_count").empty().append(labelCount);
 		$("p.loadestmsg" ).fadeIn(4000, "linear" );
