@@ -3916,7 +3916,21 @@ $.when(call1,call2).done(function(res1,res2){
 		displayedLabelPlural = displayedLabel.slice(0, displayedLabel.length-1) + "ie";
 	}
 	displayedLabelPlural = displayedLabelPlural + "s"; 
-	$("#detailedSearchPlaceholder").text(displayedLabel + ' Label: SOC / Census Code'); // the only instance where the displayedLabel is a hard-coded html element
+	let detailedSearchPlaceholder = "";
+	if (isTableSet1Or2) {
+		detailedSearchPlaceholder = displayedLabel + ' Label: SOC / Census Code';
+	} else {
+		detailedSearchPlaceholder = displayedLabel + ' Label';
+	}
+	$("#detailedSearchPlaceholder").text(detailedSearchPlaceholder); // the only instance where the displayedLabel is a hard-coded html element
+
+	let quickSearchPlaceholder = "";
+	if (isTableSet1Or2) {
+		quickSearchPlaceholder = displayedLabel + ' code/keyword';
+	} else {
+		quickSearchPlaceholder = displayedLabel + '/keyword';
+	}
+	
 
 
 	// configure row display adjustor
@@ -3959,7 +3973,7 @@ $.when(call1,call2).done(function(res1,res2){
 		"initComplete": function() {
 				if (!isTableSet1Or2) {
 					$("#numOccsLine").hide(); 
-				}
+				} 
 				$("#View_Est").slideDown(4000);
 				// console.log("this:", this);
 				$("p.loadestmsg" ).fadeOut(2000, "linear",  function(){
@@ -3970,7 +3984,7 @@ $.when(call1,call2).done(function(res1,res2){
 			language: {
 				lengthMenu: "Display _MENU_ Rows",
 				search: "Quick Search:",
-				searchPlaceholder: displayedLabel + ' code/keyword',
+				searchPlaceholder: quickSearchPlaceholder,
 				searchPanes: {
 					clearMessage: 'Clear',
 					collapse: {0: displayedLabelPlural, _: '(%d) ' + displayedLabelPlural + ' Selected'},
