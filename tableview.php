@@ -2944,8 +2944,10 @@ $('-mobileLeftNavigation .menuContent').css('padding-top', sectionTitleRowHeight
 							<div class="eeo-tables col-xs-12 col-md-12 titlecase">
 								<h4 class="eeo-tables">Table: <span style="color:#ff7043;" class="table_selected"></span></h4>
 								<h4 class="eeo-tables">Geography: <span style="color:#ff7043;" class="geo_selected"></span></h4>
-								<h4 id="numOccsLine" class="eeo-tables">Occupations: <span style="color:#ff7043;" class="occupation_count"></span>&nbsp;<span style="color:#ff7043;" class=""></span>
-								<span class="code_list"><a href="https://www2.census.gov/programs-surveys/demo/guidance/eeo/EEO-2014-2018-Occupation-Crosswalk-to-Other-Occupations-Groups-2.22.2021.xlsx">(2014-2018 EEO Occupation Code List)</a></span></h4>
+								<h4 id="numLabelsLine" class="eeo-tables">
+									Occupations: <span style="color:#ff7043;" class="label_count"></span>&nbsp;<span style="color:#ff7043;" class=""></span>
+									<span class="code_list"><a href="https://www2.census.gov/programs-surveys/demo/guidance/eeo/EEO-2014-2018-Occupation-Crosswalk-to-Other-Occupations-Groups-2.22.2021.xlsx">(2014-2018 EEO Occupation Code List)</a></span>
+								</h4>
 							</div>									
 						</div>	
 						
@@ -3758,8 +3760,8 @@ $.when(call1,call2).done(function(res1,res2){
 	}
 	console.log("occs only filtered from labels_results", labels_only);
 	var labelCount = labels_only.length -1;
-	console.log(labelCount);
-		$(".occupation_count").empty().append(labelCount);
+	console.log('labelCount: ' + labelCount);
+		$(".label_count").empty().append(labelCount);
 		$("p.loadestmsg" ).fadeIn(4000, "linear" );
 
   // Get container for each by type 
@@ -3972,8 +3974,11 @@ $.when(call1,call2).done(function(res1,res2){
  		// },
 		"initComplete": function() {
 				if (!isTableSet1Or2) {
-					$("#numOccsLine").hide(); 
-				} 
+					$("#numLabelsLine").html(
+						displayedLabelPlural+ ': <span style="color:#ff7043;" class="label_count">' + labelCount + '</span>'
+					);
+					// $("#numLabelsLine").hide(); 
+				}
 				$("#View_Est").slideDown(4000);
 				// console.log("this:", this);
 				$("p.loadestmsg" ).fadeOut(2000, "linear",  function(){
