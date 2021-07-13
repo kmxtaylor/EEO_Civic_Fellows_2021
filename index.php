@@ -6648,7 +6648,7 @@ schema.innerText = '';
 											<label for="EEO-ALL03W" id="EEO3W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL03W"  class="acsNSBootstrap radio" name="filegroup2018" value="all3w" />
 												<span class="acs_np">
-													EEO-ALL03W &#8212; Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population
+													EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6657,7 +6657,7 @@ schema.innerText = '';
 											<label for="EEO-CIT03W" id="CIT3W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-CIT03W"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="cit3w" />
 												<span class="acs_np">
-													EEO-CIT03W &#8212; Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen
+													EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen
 												</span>
 											</label>
 										</div> 
@@ -6666,7 +6666,7 @@ schema.innerText = '';
 											<label for="EEO-ALL03R" id="EEO3R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL03R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="all3r" />
 												<span class="acs_np">
-													EEO-ALL03R &#8212; Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population
+													EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6675,7 +6675,7 @@ schema.innerText = '';
 											<label for="EEO-CIT03R" id="CIT3R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-CIT03R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="cit3r" />
 												<span class="acs_np">
-													EEO-CIT03R &#8212; Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen
+													EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen
 												</span>
 											</label>
 										</div>
@@ -6694,7 +6694,7 @@ schema.innerText = '';
 											<label for="EEO-ALL04W" id="EEO4W_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL04W"  class="acsNSBootstrap radio" name="filegroup2018" value="all4w" />
 												<span class="acs_np">
-													EEO-ALL04W &#8212; Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population
+													EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -6703,7 +6703,7 @@ schema.innerText = '';
 											<label for="EEO-ALL04R" id="EEO4R_label" class="acs_np acsNSBootstrap radio">
 												<input type="radio" id="EEO-ALL04R"  class="acsNSBootstrap acs_content radio" name="filegroup2018" value="all4r" />
 												<span class="acs_np">
-													EEO-ALL04R &#8212; Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population
+													EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population
 												</span>
 											</label>
 										</div>
@@ -7188,25 +7188,34 @@ schema.innerText = '';
 								
 								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/programs-surveys/demo/guidance/eeo/geographic-overview-eeo-5-year-5-12-2021.xlsx">Geographic Overview of 2014-2018 EEO Tabulation</a></p>
 									
-								<p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are are not included in the EEO table sets because to identify 
+								<p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are not included in the EEO table sets because to identify 
 								them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.</p>
-									
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
 								
-								<p class="acs_eeo">To obtain a list of counties that make up an MSA:</p>
+								<p class="acs_eeo_L_30">
+									<a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>
+								</p>
+								<p class="acs_eeo_L_30">
+									<a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a>
+								</p>
+								
+								<h3>Suppressed MSA Lookup Tool</h3>
 
-								<!-- <form onsubmit="console.log('hello world!');">
-									<input type="text" id="msasearch" class="searchbox" required />
-									<button id="get_MSA_Comps" style="text-transform:uppercase; color: #fff; font-weight: 700;
-										font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" type="button">Get MSA County Components</button>
-								</form> -->
-
-								<div id="cb-ex">
-									<form role="form">
-										<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
+								<p class="acs_eeo">
+									New for MSAs -- Search County Components for Suppressed MSAs
+									<br>
+									<a href="">Read more</a>
+									<!-- You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
+									<br/>
+									<br/>
+									Select the MSA from the dropdown search box above, and then click "Get MSA Components" to view the MSA's counties. -->
+								</p>
+                  
+                <div id="cb-ex">
+						  		<form onsubmit="(e) => {e.preventDefault();}">
+ 										<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
 										<div class = "form-group">
-											<select id="msa-combobox" class="combobox input-large form-control" name="normal">
+                      <label for="msa-combobox">Select an MSA: </label>
+											<select id="msa-combobox msasearch" class="combobox input-large form-control" name="normal">
 												<option value="" selected="selected">Select a State</option>
 												<option value="Abilene, TX">Abilene, TX</option>
 											</select>
@@ -7225,15 +7234,30 @@ schema.innerText = '';
 												});
 											</script>
 										</div>
-										<button id="get_MSA_Comps" style="text-transform:uppercase; color: #fff; font-weight: 700;
-										font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" type="button">Get MSA County Components</button>
+                    <button id="get_MSA_Comps" style="
+                    text-transform: uppercase;
+                    color: #fff;
+                    font-weight: 700;
+                    font-family: Roboto Condensed, sans-serif;
+                    margin: 20px 0;
+                    " class="uscb-primary-button acs_content" type="button">Get MSA Components</button>
 									</form>
-								</div>
+                </div>
 
-								<div id="MSAresults" style="margin-top:1em">
-								
-								</div>
-								
+<!-- 								<form onsubmit="(e) => {e.preventDefault();}">
+									<span>Select an MSA: </span>
+									<input type="text" id="msasearch" class="searchbox" required />
+									<button id="get_MSA_Comps" style="
+									text-transform: uppercase;
+									color: #fff;
+									font-weight: 700;
+									font-family: Roboto Condensed, sans-serif;
+									margin: 20px 0;
+									" class="uscb-primary-button acs_content" type="button">Get MSA Components</button>
+								</form> -->
+
+								<h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results:</h4>
+								<div id="msaResultsList"></div>						
 
 								<h3>Changes to Occupations</h3>
 								
@@ -7706,6 +7730,47 @@ schema.innerText = '';
 		openEEOTable();
 	});	// onclick get_EEO_data	
 
+	function displayLookupResults(res, userSelection) {
+		console.log(res);
+
+		if ($("#msaResultLine").css('display') === 'none') {
+			// alert("sliding down msa results");
+			$("#msaResultLine").slideDown();
+		}
+		$("#msaResultsList").empty();
+		// $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
+
+		if (res === undefined || res.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
+			$("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
+		} else {
+			// display resulting counties
+			$("#msaResultsList").empty();
+			
+			/** display option 1 */
+			// let lastComp = res.pop();
+			// for (let i = 0; i < res.length; i++) {
+			// 	// res[i] = res[i]+",";
+			// 	// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
+			// 	res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
+			// }
+			// res.push("and");
+			// // res.push(lastComp);
+			// // res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
+			// res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
+			// $("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
+
+			/** display option 2 */
+			res.forEach((comp) => {
+				// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
+				// let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
+				let compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none">`); // navy blue
+				$("#msaResultsList").append(compHtml);
+				$(compHtml).slideDown();
+			})
+		}
+		
+	}
+
 	async function fetchMSAComps(msaName) {
 		//TODO: process msaName to be lowercase 
 
@@ -7715,30 +7780,29 @@ schema.innerText = '';
 				// console.log(json);
 				
 				//filter to include only designated MSA 
-				let componentsArr = json[msaName];
+				let componentsArr = json[msaName] || null;
 				// let componentsArr = Object.values(json).filter(msa => msa[0]['CBSA Title'] === msaName)[0];
 				console.log(componentsArr);
 				
 				//return all the county components
 				let countyEquivArr = [];
-				if (componentsArr.length > 0) {
+				if (componentsArr != null) {
 					componentsArr.forEach((comp) => {
 						countyEquivArr.push(comp['County']['County Equivalent']);
 					});
 					console.log('The components in', msaName, 'are', countyEquivArr);
+				} else {
+					alert("There are no MSAs that match that name.\nPlease verify your spelling and try again."); // unsure if this is the best way of handling this
 				}
 				res(countyEquivArr);
 			});
 		});
 
 		let resMSA = await msaPromise;
-		console.log(msaPromise);
+		// console.log(msaPromise);
+		console.log('resMSA: ' + resMSA);
 
-		// display resulting counties
-		$("#MSAresults").empty();
-		resMSA.forEach((comp) => {
-			$("#MSAresults").append($(`<p>${comp}</p>`));
-		})
+		displayLookupResults(resMSA, msaName);
 	} 
 
 	$("#get_MSA_Comps").click(async function() { 	
