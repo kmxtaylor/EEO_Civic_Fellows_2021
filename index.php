@@ -7189,15 +7189,10 @@ schema.innerText = '';
 								<p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are not included in the EEO table sets because to identify 
 								them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.</p>
 									
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
+									
+								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
 								
-								<p class="acs_eeo">
-									As an alternative to the above spreadsheets, you may use the MSA lookup tool below to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
-									<br/>
-									<br/>
-									Select the MSA from the dropdown search box below, and then click "Get MSA Components" to view the MSA's counties.
-								</p>
+								
 
 								<h3>Suppressed MSA Lookup Tool</h3>
 
@@ -7213,12 +7208,21 @@ schema.innerText = '';
 									color: #fff;
 									font-weight: 700;
 									font-family: Roboto Condensed, sans-serif;
-									margin-top: 1rem;
+									margin: 20px 0;
 									" class="uscb-primary-button acs_content" type="button">Get MSA Components</button>
 								</form>
 
-								<h4 id="msaResultLine" style="display: none; margin-bottom: 20px">Results:</h4>
+								<h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results:</h4>
 								<div id="msaResultsList"></div>
+
+								<p class="acs_eeo">
+									You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
+									<br/>
+									<br/>
+									Select the MSA from the dropdown search box above, and then click "Get MSA Components" to view the MSA's counties.
+								</p>
+
+								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
 
 								<!-- <hr> -->
 
@@ -7709,25 +7713,26 @@ schema.innerText = '';
 			$("#msaResultsList").empty();
 			
 			/** display option 1 */
-			let lastComp = res.pop();
-			for (let i = 0; i < res.length; i++) {
-				// res[i] = res[i]+",";
-				// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
-				res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
-			}
-			res.push("and");
-			// res.push(lastComp);
-			// res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
-			res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
-			$("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
+			// let lastComp = res.pop();
+			// for (let i = 0; i < res.length; i++) {
+			// 	// res[i] = res[i]+",";
+			// 	// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
+			// 	res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
+			// }
+			// res.push("and");
+			// // res.push(lastComp);
+			// // res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
+			// res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
+			// $("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
 
 			/** display option 2 */
-			// res.forEach((comp) => {
-			// 	// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
-			// 	let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
-			// 	$("#msaResultsList").append(compHtml);
-			// 	$(compHtml).slideDown();
-			// })
+			res.forEach((comp) => {
+				// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
+				// let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
+				let compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none">`); // navy blue
+				$("#msaResultsList").append(compHtml);
+				$(compHtml).slideDown();
+			})
 		}
 		
 	}
