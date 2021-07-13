@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/common-site.css" type="text/css"/>
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library.css" type="text/css"/>
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
+<link rel="stylesheet" href="bootstrap-combobox.css" type="text/css"/>
 
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
 
@@ -441,6 +442,7 @@ var digitalData = digitalData || {};
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/clientlibs/granite/utils.js"></script>
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/clientlibs/granite/jquery/granite.js"></script>
 <script type="text/javascript" src="https://www.census.gov/libs/clientlibs/granite/lodash/modern.js"></script>
+
 
 
 
@@ -7194,15 +7196,44 @@ schema.innerText = '';
 								
 								<p class="acs_eeo">To obtain a list of counties that make up an MSA:</p>
 
-								<form onsubmit="console.log('hello world!');">
+								<!-- <form onsubmit="console.log('hello world!');">
 									<input type="text" id="msasearch" class="searchbox" required />
 									<button id="get_MSA_Comps" style="text-transform:uppercase; color: #fff; font-weight: 700;
 										font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" type="button">Get MSA County Components</button>
-								</form>
+								</form> -->
 
-								<div id="MSAresults">
+								<div id="cb-ex">
+									<form role="form">
+										<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
+										<div class = "form-group">
+											<select id="msa-combobox" class="combobox input-large form-control" name="normal">
+												<option value="" selected="selected">Select a State</option>
+												<option value="Abilene, TX">Abilene, TX</option>
+											</select>
+
+											<script type="text/javascript">
+												// $(document).ready(function(){
+												// 	$('#testtest').combobox();
+												// });
+
+												$.getJSON("suppressed-msas-100k.json", function(json){
+														$('#msa-combobox').empty();
+														$('#msa-combobox').append($('<option>').text("Select"));
+														$.each(json, function(i, obj){
+																$('#msa-combobox').append($('<option>').text(obj['CBSA description']).attr('value', obj['CBSA description']));
+														});
+												});
+											</script>
+										</div>
+										<button id="get_MSA_Comps" style="text-transform:uppercase; color: #fff; font-weight: 700;
+										font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" type="button">Get MSA County Components</button>
+									</form>
+								</div>
+
+								<div id="MSAresults" style="margin-top:1em">
 								
 								</div>
+								
 
 								<h3>Changes to Occupations</h3>
 								
@@ -7550,13 +7581,14 @@ schema.innerText = '';
 
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/census-core/clientlibs.js"></script>
 
+
 				
 <script src="/acs/www/javascript/jquery-3.4.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/bootstrap.min.js"></script>
 <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 					
-					
+<script type="text/javascript" src="bootstrap-combobox.js"></script>
 	<script> 
 	
 	// Accordion JS
@@ -7710,7 +7742,10 @@ schema.innerText = '';
 	} 
 
 	$("#get_MSA_Comps").click(async function() { 	
-		let msaName = $("#msasearch").val();
+		let msaName = $("#msa-combobox").val();
+		console.log(msaName);
+		msaName = msaName.replace(" Metro Area", "")
+		console.log(msaName);
 		fetchMSAComps(msaName);
 	})	// onclick fetchMSAComps
 
