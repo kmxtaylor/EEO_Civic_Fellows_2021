@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/common-site.css" type="text/css"/>
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library.css" type="text/css"/>
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
+<link rel="stylesheet" href="bootstrap-combobox.css" type="text/css"/>
 
 <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
 
@@ -441,6 +442,7 @@ var digitalData = digitalData || {};
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/clientlibs/granite/utils.js"></script>
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/clientlibs/granite/jquery/granite.js"></script>
 <script type="text/javascript" src="https://www.census.gov/libs/clientlibs/granite/lodash/modern.js"></script>
+
 
 
 
@@ -7188,8 +7190,8 @@ schema.innerText = '';
 									
 								<p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are not included in the EEO table sets because to identify 
 								them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.</p>
-									
-									
+
+               
 								<p class="acs_eeo_L_30">
 									<a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>
 								</p>
@@ -7202,6 +7204,7 @@ schema.innerText = '';
 								<p class="acs_eeo">
 									New for MSAs -- Search County Components for Suppressed MSAs
 									<br>
+
 									<br>
 									<!-- <a href="">Read more</a> -->
 									You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
@@ -7582,13 +7585,14 @@ schema.innerText = '';
 
 <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/census-core/clientlibs.js"></script>
 
+
 				
 <script src="/acs/www/javascript/jquery-3.4.1.min.js"></script>
 <script>window.jQuery || document.write('<script src="bootstrap/js/vendor/jquery.min.js"><\/script>')</script>
 <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/bootstrap.min.js"></script>
 <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js"></script>
 					
-					
+<script type="text/javascript" src="bootstrap-combobox.js"></script>
 	<script> 
 	
 	// Accordion JS
@@ -7815,7 +7819,6 @@ schema.innerText = '';
 			alert("No option selected. Please select an option.");
 		}
 	});	// onclick fetch MSA Comps
-
 
 	// var fileSubstr = eeo_filetype.substring(3,4);
 	//console.log(fileSubstr);
