@@ -7201,8 +7201,11 @@ schema.innerText = '';
 								</p> -->
 
 								<form onsubmit="(e) => {e.preventDefault();}">
-									<span>Select an MSA: </span>
-									<input type="text" id="msasearch" class="searchbox" required />
+									<!-- <span>Select an MSA: </span> -->
+									<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
+									<label for="msas">Choose an MSA:</label>
+									<select name="msas" id="msasearch" class="comboBox">
+									</select>
 									<button id="get_MSA_Comps" style="
 									text-transform: uppercase;
 									color: #fff;
@@ -7696,8 +7699,30 @@ schema.innerText = '';
 		openEEOTable();
 	});	// onclick get_EEO_data	
 
+	/** Populate MSA Lookup Dropdown */
+	async function populateLookupDropDown() {
+		let lookupPromise = new Promise(function(res, rej) {
+			let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
+				json.forEach( (obj) => {
+					let msaName = obj['CBSA description'];
+					let msaVal =  msaName.split(' ').slice(0, -2).join(" "); // remove 'Metro/Micro Area'
+					// msaVal.pop();
+					// msaVal.pop();
+					$("#msasearch").append(`<option value='${msaVal}' class='option'>${msaName}</option>`);
+				});
+				res("MSA Lookup Tool Drop Down Populated"); // unsure what to return, will change later
+			});
+			// rej();
+		});
+
+		console.log(await lookupPromise);
+	}
+
+	populateLookupDropDown();
+
+	/** Display MSA Lookup Results */
 	function displayLookupResults(res, userSelection) {
-		console.log(res);
+		// console.log(res);
 
 		if ($("#msaResultLine").css('display') === 'none') {
 			// alert("sliding down msa results");
@@ -7748,7 +7773,7 @@ schema.innerText = '';
 				//filter to include only designated MSA 
 				let componentsArr = json[msaName] || null;
 				// let componentsArr = Object.values(json).filter(msa => msa[0]['CBSA Title'] === msaName)[0];
-				console.log(componentsArr);
+				// console.log(componentsArr);
 				
 				//return all the county components
 				let countyEquivArr = [];
@@ -7756,7 +7781,7 @@ schema.innerText = '';
 					componentsArr.forEach((comp) => {
 						countyEquivArr.push(comp['County']['County Equivalent']);
 					});
-					console.log('The components in', msaName, 'are', countyEquivArr);
+					// console.log('The components in', msaName, 'are', countyEquivArr);
 				} else {
 					alert("There are no MSAs that match that name.\nPlease verify your spelling and try again."); // unsure if this is the best way of handling this
 				}
@@ -7766,7 +7791,7 @@ schema.innerText = '';
 
 		let resMSA = await msaPromise;
 		// console.log(msaPromise);
-		console.log('resMSA: ' + resMSA);
+		// console.log('resMSA: ' + resMSA);
 
 		displayLookupResults(resMSA, msaName);
 	} 
