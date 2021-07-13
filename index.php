@@ -7190,15 +7190,24 @@ schema.innerText = '';
 								them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.</p>
 									
 									
-								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
+								<p class="acs_eeo_L_30">
+									<a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>
+								</p>
+								<p class="acs_eeo_L_30">
+									<a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a>
+								</p>
 								
-								
-
 								<h3>Suppressed MSA Lookup Tool</h3>
 
-								<!-- <p class="acs_eeo">
-									Select the MSA from the dropdown search box below, and then click "Get MSA Components":
-								</p> -->
+								<p class="acs_eeo">
+									New for MSAs -- Search County Components for Suppressed MSAs
+									<br>
+									<a href="">Read more</a>
+									<!-- You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
+									<br/>
+									<br/>
+									Select the MSA from the dropdown search box above, and then click "Get MSA Components" to view the MSA's counties. -->
+								</p>
 
 								<form onsubmit="(e) => {e.preventDefault();}">
 									<span>Select an MSA: </span>
@@ -7214,15 +7223,6 @@ schema.innerText = '';
 
 								<h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results:</h4>
 								<div id="msaResultsList"></div>
-
-								<p class="acs_eeo">
-									You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
-									<br/>
-									<br/>
-									Select the MSA from the dropdown search box above, and then click "Get MSA Components" to view the MSA's counties.
-								</p>
-
-								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
 
 								<!-- <hr> -->
 
