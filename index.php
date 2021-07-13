@@ -7202,32 +7202,34 @@ schema.innerText = '';
 								<p class="acs_eeo">
 									New for MSAs -- Search County Components for Suppressed MSAs
 									<br>
-									<a href="">Read more</a>
-									<!-- You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geographies.
-									<br/>
+									<br>
+									<!-- <a href="">Read more</a> -->
+									You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
+									<!--<br/>
 									<br/>
 									Select the MSA from the dropdown search box above, and then click "Get MSA Components" to view the MSA's counties. -->
 								</p>
 
-								<form onsubmit="(e) => {e.preventDefault();}">
+								<!-- <form onsubmit="(e) => {e.preventDefault();}"> -->
 									<!-- <span>Select an MSA: </span> -->
-									<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
-									<div class="input-group">
+									<!-- <input type="text" id="msaSearch" class="searchbox" required /> -->
+									<!-- <div class="input-group"> -->
 										<label for="msas">Choose an MSA:</label>
-										<select name="msas" id="msasearch" class="comboBox form-control" placeholder="Select an MSA">
+										<select name="msas" id="msaSearch" class="comboBox form-control" required>
+											<option class='option' value=''>Select an option</option>
 											<!-- <span class="input-group-addon dropdown-toggle" data-dropdown="dropdown">
 												<span class="caret"></span>
 											</span> -->
 										</select>
-									</div>
-									<button id="get_MSA_Comps" style="
+									<!-- </div> -->
+									<button id="getMsaCompsBtn" style="
 									text-transform: uppercase;
 									color: #fff;
 									font-weight: 700;
 									font-family: Roboto Condensed, sans-serif;
 									margin: 20px 0;
 									" class="uscb-primary-button acs_content" type="button">Get MSA Components</button>
-								</form>
+								<!-- </form> -->
 
 								<h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results:</h4>
 								<div id="msaResultsList"></div>
@@ -7713,7 +7715,7 @@ schema.innerText = '';
 					let msaVal =  msaName.split(' ').slice(0, -2).join(" "); // remove 'Metro/Micro Area'
 					// msaVal.pop();
 					// msaVal.pop();
-					$("#msasearch").append(`<option value='${msaVal}' class='option'>${msaName}</option>`);
+					$("#msaSearch").append(`<option value='${msaVal}' class='option'>${msaName}</option>`);
 				});
 				res("MSA Lookup Tool Drop Down Populated"); // unsure what to return, will change later
 			});
@@ -7791,7 +7793,7 @@ schema.innerText = '';
 					});
 					// console.log('The components in', msaName, 'are', countyEquivArr);
 				} else {
-					alert("There are no MSAs that match that name.\nPlease verify your spelling and try again."); // unsure if this is the best way of handling this
+					alert("There are no MSAs that match that name."); // unsure if this is the best way of handling this
 				}
 				res(countyEquivArr);
 			});
@@ -7804,10 +7806,15 @@ schema.innerText = '';
 		displayLookupResults(resMSA, msaName);
 	} 
 
-	$("#get_MSA_Comps").click(async function() { 	
-		let msaName = $("#msasearch").val();
-		fetchMSAComps(msaName);
-	})	// onclick fetchMSAComps
+	$("#getMsaCompsBtn").click(function() { 
+		let msaName = $("#msaSearch").val();	
+		if (msaName != '') {
+			fetchMSAComps(msaName);
+		}
+		else {
+			alert("No option selected. Please select an option.");
+		}
+	});	// onclick fetch MSA Comps
 
 
 	// var fileSubstr = eeo_filetype.substring(3,4);
