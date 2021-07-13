@@ -7725,7 +7725,7 @@ schema.innerText = '';
 
 	$(document).ready(function() {
 		populateLookupDropDown();
-		$('.comboBox').combobox();
+		// $('.comboBox').combobox();
 	});
 
 	/** Display MSA Lookup Results */
