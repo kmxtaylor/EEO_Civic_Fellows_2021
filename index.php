@@ -7203,9 +7203,14 @@ schema.innerText = '';
 								<form onsubmit="(e) => {e.preventDefault();}">
 									<!-- <span>Select an MSA: </span> -->
 									<!-- <input type="text" id="msasearch" class="searchbox" required /> -->
-									<label for="msas">Choose an MSA:</label>
-									<select name="msas" id="msasearch" class="comboBox">
-									</select>
+									<div class="input-group">
+										<label for="msas">Choose an MSA:</label>
+										<select name="msas" id="msasearch" class="comboBox form-control" placeholder="Select an MSA">
+											<!-- <span class="input-group-addon dropdown-toggle" data-dropdown="dropdown">
+												<span class="caret"></span>
+											</span> -->
+										</select>
+									</div>
 									<button id="get_MSA_Comps" style="
 									text-transform: uppercase;
 									color: #fff;
@@ -7718,7 +7723,10 @@ schema.innerText = '';
 		console.log(await lookupPromise);
 	}
 
-	populateLookupDropDown();
+	$(document).ready(function() {
+		populateLookupDropDown();
+		$('.comboBox').combobox();
+	});
 
 	/** Display MSA Lookup Results */
 	function displayLookupResults(res, userSelection) {
