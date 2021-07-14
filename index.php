@@ -7793,9 +7793,11 @@ schema.innerText = '';
 				let countyEquivArr = [];
 				if (componentsArr != null) {
 					componentsArr.forEach((comp) => {
-						countyEquivArr.push(comp['County']['County Equivalent']);
+						let countyName = comp['County']['County Equivalent'];
+						let stateName = comp['State Name'];
+						countyEquivArr.push(`${countyName}, ${stateName}`);
 					});
-					// console.log('The components in', msaName, 'are', countyEquivArr);
+					console.log('The components in', msaName, 'are', countyEquivArr);
 				} else {
 					alert("There are no MSAs that match that name."); // unsure if this is the best way of handling this
 				}
