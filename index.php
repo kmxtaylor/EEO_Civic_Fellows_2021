@@ -8381,6 +8381,8 @@ if(referrer.indexOf('search-results.html')>0){
 <div class="cloudservices servicecomponents"><script type="text/javascript">_satellite.pageBottom();</script>
 </div>
 
+<script type="text/javascript" src="max-counties-in-msa.js"></script>
+
 <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
 <!-----------------------------------------------       Start Javascript Code Area  and Misc Tools               ----------------------------------------------->
 </body>
