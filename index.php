@@ -7726,7 +7726,8 @@ schema.innerText = '';
 			// rej();
 		});
 
-		console.log(await lookupPromise);
+		await lookupPromise;
+		// console.log(await lookupPromise);
 	}
 
 	$(document).ready(function() {
@@ -7768,10 +7769,33 @@ schema.innerText = '';
 			res.forEach((comp) => {
 				// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
 				// let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
-				let compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none">`); // navy blue
-				$("#msaResultsList").append(compHtml);
-				$(compHtml).slideDown();
-			})
+				
+				// check if comp is in list of suppressed counties
+				let isSuppressed = false;
+				$.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
+
+					for (let i = 0; i < json.length; i++) {
+						if (json[i]['NAME'] === comp) {
+							isSuppressed = true; // scope issue
+							console.log(`${comp} is suppressed: ${isSuppressed}`)
+							break;
+						}
+					}
+				}).always( function (data) { // chaining .always() maintains isSuppressed
+					console.log(data);
+					console.log(`isSuppressed === ${isSuppressed}`);
+					let compHtml;
+					if (isSuppressed) {
+						compHtml = $(`<p class="singleResult" style="display: none; color: rgb(255, 112, 67);">${comp} (suppressed)</p><hr style="display: none; font-style: italic;">`); // orange, italic
+						console.log(`Assigning ${comp} suppressed-style html`);
+					} else {
+						compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none;">`); // navy blue
+					}
+					$("#msaResultsList").append(compHtml);
+					$(compHtml).slideDown();
+					isSuppressed = false;
+				});
+			});
 		}
 		
 	}
