@@ -7726,7 +7726,8 @@ schema.innerText = '';
 			// rej();
 		});
 
-		console.log(await lookupPromise);
+		await lookupPromise;
+		// console.log(await lookupPromise);
 	}
 
 	$(document).ready(function() {
@@ -7766,12 +7767,30 @@ schema.innerText = '';
 
 			/** display option 2 */
 			res.forEach((comp) => {
-				// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
-				// let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
-				let compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none">`); // navy blue
-				$("#msaResultsList").append(compHtml);
-				$(compHtml).slideDown();
-			})
+			
+				// check if comp is in list of suppressed counties
+				let countyIsAvailable = true;
+				$.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
+
+				countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
+
+				}).always( function (data) { // chaining .always() maintains countyIsAvailable
+					// console.log(`countyIsAvailable === ${countyIsAvailable}`);
+					let compHtml;
+					if (countyIsAvailable) {
+						compHtml = $(`<p class="singleResult">${comp}</p><hr>`);
+						$(compHtml).css({color: '#112e51'}); // navy blue
+					} else {
+						compHtml = $(`<p class="singleResult">${comp} (suppressed)</p><hr>`);
+						$(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
+					}
+					$(compHtml).css({display: 'none'});
+
+					$("#msaResultsList").append(compHtml);
+					$(compHtml).slideDown();
+					countyIsAvailable = true;
+				});
+			});
 		}
 		
 	}
@@ -7793,7 +7812,9 @@ schema.innerText = '';
 				let countyEquivArr = [];
 				if (componentsArr != null) {
 					componentsArr.forEach((comp) => {
-						countyEquivArr.push(comp['County']['County Equivalent']);
+						let countyName = comp['County']['County Equivalent'];
+						let stateName = comp['State Name'];
+						countyEquivArr.push(`${countyName}, ${stateName}`);
 					});
 					// console.log('The components in', msaName, 'are', countyEquivArr);
 				} else {
