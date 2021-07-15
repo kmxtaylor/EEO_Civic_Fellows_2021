@@ -7767,33 +7767,26 @@ schema.innerText = '';
 
 			/** display option 2 */
 			res.forEach((comp) => {
-				// let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
-				// let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
-				
+			
 				// check if comp is in list of suppressed counties
-				let isSuppressed = false;
+				let countyIsAvailable = true;
 				$.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
 
-					for (let i = 0; i < json.length; i++) {
-						if (json[i]['NAME'] === comp) {
-							isSuppressed = true; // scope issue
-							console.log(`${comp} is suppressed: ${isSuppressed}`)
-							break;
-						}
-					}
-				}).always( function (data) { // chaining .always() maintains isSuppressed
-					console.log(data);
-					console.log(`isSuppressed === ${isSuppressed}`);
+				countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
+
+				}).always( function (data) { // chaining .always() maintains countyIsAvailable
+					// console.log(data);
+					console.log(`countyIsAvailable === ${countyIsAvailable}`);
 					let compHtml;
-					if (isSuppressed) {
-						compHtml = $(`<p class="singleResult" style="display: none; color: rgb(255, 112, 67);">${comp} (suppressed)</p><hr style="display: none; font-style: italic;">`); // orange, italic
-						console.log(`Assigning ${comp} suppressed-style html`);
-					} else {
+					if (countyIsAvailable) {
 						compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}</p><hr style="display: none;">`); // navy blue
+					} else {
+						compHtml = $(`<p class="singleResult" style="display: none; color: rgb(255, 112, 67);">${comp} (suppressed)</p><hr style="display: none; font-style: italic;">`); // orange, italic
+						// console.log(`Assigning ${comp} suppressed-style html`);
 					}
 					$("#msaResultsList").append(compHtml);
 					$(compHtml).slideDown();
-					isSuppressed = false;
+					countyIsAvailable = true;
 				});
 			});
 		}
@@ -7821,7 +7814,7 @@ schema.innerText = '';
 						let stateName = comp['State Name'];
 						countyEquivArr.push(`${countyName}, ${stateName}`);
 					});
-					console.log('The components in', msaName, 'are', countyEquivArr);
+					// console.log('The components in', msaName, 'are', countyEquivArr);
 				} else {
 					alert("There are no MSAs that match that name."); // unsure if this is the best way of handling this
 				}
