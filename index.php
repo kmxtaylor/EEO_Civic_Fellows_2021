@@ -4283,30 +4283,27 @@ content: "-";
     $("#get_EEO_data").click(function() {
       // assumes element with id='button'
       openEEOTable();
-    }
-                            );
+    });
     // onclick get_EEO_data	
     /** Populate MSA Lookup Dropdown */
     async function populateLookupDropDown() {
       let lookupPromise = new Promise(function(res, rej) {
         let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
           json.forEach( (obj) => {
+            let msaCode = obj['CBSA code'];
             let msaName = obj['CBSA description'].trim();
-            console.log("trimmed: " + msaName);
-            let msaVal =  msaName.replace(" Metro Area ", "");
-            $("#msaCombo").append(`<option value='${msaVal}
-        ' class='option'>${msaName}
-            </option>`);
-          }
-                      );
+            // msaName = msaName.replace(" Metro Area", "").replace(" Micro Area", "");
+            // console.log("trimmed: " + msaName);
+            $("#msaCombo").append(
+              `<option value='${msaCode}' class='option'>${msaName}</option>`
+            );
+          });
           $('#msaCombo').combobox({bsVersion:'3'});
           res("MSA Lookup Tool Drop Down Populated");
           // unsure what to return, will change later
-        }
-                                    );
+        });
         // rej();
-      }
-                                     );
+      });
       await lookupPromise;
     }
 
