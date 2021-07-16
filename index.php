@@ -4307,8 +4307,69 @@ content: "-";
         // rej();
       }
                                      );
-      console.log(await lookupPromise);
+      await lookupPromise;
     }
+
+/** Display MSA Lookup Results */
+	function displayLookupResults(res, userSelection) {
+		// console.log(res);
+
+		if ($("#msaResultLine").css('display') === 'none') {
+			// alert("sliding down msa results");
+			$("#msaResultLine").slideDown();
+		}
+		$("#msaResultsList").empty();
+		// $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
+
+		if (res === undefined || res.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
+			$("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
+		} else {
+			// display resulting counties
+			$("#msaResultsList").empty();
+			
+			/** display option 1 */
+			// let lastComp = res.pop();
+			// for (let i = 0; i < res.length; i++) {
+			// 	// res[i] = res[i]+",";
+			// 	// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
+			// 	res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
+			// }
+			// res.push("and");
+			// // res.push(lastComp);
+			// // res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
+			// res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
+			// $("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
+
+			/** display option 2 */
+			res.forEach((comp) => {
+			
+				// check if comp is in list of suppressed counties
+				let countyIsAvailable = true;
+				$.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
+
+				countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
+
+				}).always( function (data) { // chaining .always() maintains countyIsAvailable
+					console.log(`countyIsAvailable === ${countyIsAvailable}`);
+					let compHtml;
+					if (countyIsAvailable) {
+						compHtml = $(`<p class="singleResult">${comp}</p><hr>`);
+						$(compHtml).css({color: '#112e51'}); // navy blue
+            console.log("html: " + compHtml);
+					} else {
+						compHtml = $(`<p class="singleResult">${comp} (suppressed)</p><hr>`);
+						$(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
+					}
+					$(compHtml).css({display: 'none'});
+
+					$("#msaResultsList").append(compHtml);
+					$(compHtml).slideDown();
+					countyIsAvailable = true;
+				});
+			});
+		}
+		
+	}
 
 
     $(document).ready(function() {
@@ -4316,48 +4377,6 @@ content: "-";
     });
 
 
-    /** Display MSA Lookup Results */
-    function displayLookupResults(res, userSelection) {
-      // console.log(res);
-      if ($("#msaResultLine").css('display') === 'none') {
-        // alert("sliding down msa results");
-        $("#msaResultLine").slideDown();
-      }
-      $("#msaResultsList").empty();
-      // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
-      if (res === undefined || res.length === 0) {
-        // shouldn't matter w/ the dropdown, but here just in case
-        $("#msaResultsList").append(`<p>No results found that match "${userSelection}
-"!</p>`);
-      }
-      else {
-        // display resulting counties
-        $("#msaResultsList").empty();
-        /** display option 1 */
-        // let lastComp = res.pop();
-        // for (let i = 0; i < res.length; i++) {
-        // 	// res[i] = res[i]+",";
-        // 	// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
-        // 	res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
-        // }
-        // res.push("and");
-        // // res.push(lastComp);
-        // // res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
-        // res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
-        // $("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
-        /** display option 2 */
-        res.forEach((comp) => {
-          // let compHtml = $(`<p class="singleResult" style="display: none; font-weight:bold;">${comp}</p><hr style="display: none">`); // bold
-          // let compHtml = $(`<p class="singleResult" style="display: none; color: #4b636e;">${comp}</p><hr style="display: none">`); // grey
-          let compHtml = $(`<p class="singleResult" style="display: none; color: #112e51;">${comp}
-    </p><hr style="display: none">`);
-          // navy blue
-          $("#msaResultsList").append(compHtml);
-          $(compHtml).slideDown();
-        }
-                   )
-      }
-    }
     async function fetchMSAComps(msaName) {
       //process the json
       msaName = msaName.replace(" Metro Area", "");
@@ -4372,7 +4391,9 @@ content: "-";
           let countyEquivArr = [];
           if (componentsArr != null) {
             componentsArr.forEach((comp) => {
-              countyEquivArr.push(comp['County']['County Equivalent']);
+              let countyName = comp['County']['County Equivalent'];
+              let stateName = comp['State Name'];
+              countyEquivArr.push(`${countyName}, ${stateName}`);
             }
                                  );
             // console.log('The components in', msaName, 'are', countyEquivArr);
@@ -4387,8 +4408,6 @@ content: "-";
       }
                                   );
       let resMSA = await msaPromise;
-      // console.log(msaPromise);
-      // console.log('resMSA: ' + resMSA);
       displayLookupResults(resMSA, msaName);
     }
     $("#getMsaCompsBtn").click(function() {
