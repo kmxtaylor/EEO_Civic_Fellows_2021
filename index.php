@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/core-overrides.css" type="text/css"/>
     <!-- <link rel="stylesheet" href="https://unpkg.com/select-combobox/dist/combobox.css"> -->
+
     <link href="bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/acs/www/data/eeo-data/eeo-tables-2018/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
 
 
     <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
@@ -4170,7 +4172,9 @@ content: "-";
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
+  
   <script src="bootstrap-combobox.js" type="text/javascript"></script>
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/bootstrap-combobox.js" type="text/javascript"></script>
   
   <script> 
     // Accordion JS
