@@ -9,16 +9,23 @@
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/common-site.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
-    <link rel="stylesheet" href="bootstrap-combobox.css" type="text/css"/>
-    <!-- <link href="bootstrap.min.css" media="screen" rel="stylesheet" type="text/css"> -->
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/core-overrides.css" type="text/css"/>
+    <!-- <link rel="stylesheet" href="https://unpkg.com/select-combobox/dist/combobox.css"> -->
+    <link href="bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+
+
     <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
     <link rel="icon" sizes="256x256" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-256x256.png">
+    
     <link rel="shortcut icon" sizes="32x32" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/favicon.ico">
+    
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/apple-touch-icon-180x180.png">     
+    
     <meta name="msapplication-square150x150logo" content="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/mstile-150x150.png">
+    
     <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
+    
     <title>2014 - 2018 EEO Tables | American Community Survey | US Census Bureau 
     </title>
     <style id="antiClickjack">
@@ -3826,34 +3833,29 @@ content: "-";
                     <!-- <a href="">Read more</a> -->
                     You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
+                  <!-- <form onsubmit="(e) => {e.preventDefault();}"> -->
+                  <!-- <span>Select an MSA: </span> -->
+                  <!-- <input type="text" id="msaSearch" class="searchbox" required /> -->
+                  <!-- <div class="input-group"> -->
+                  
+                  <div class="form-group">
+                    <label for="msaCombo"></label>
+                    <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                      <option value="" selected="selected">Select a Suppressed MSA</option>
+                    </select>
+                    <button id="getMsaCompsBtn" style="
+                                                      text-transform: uppercase;
+                                                      color: #fff;
+                                                      font-weight: 700;
+                                                      font-family: Roboto Condensed, sans-serif;
+                                                      margin: 20px 0;
+                                                      " class="uscb-primary-button acs_content" type="button">Get MSA Components
+                    </button>
+                  </div>
 
-                  <label for="msas">Choose an MSA:
-                  </label>
-                  <select name="msas" id="msaSearch" required>
-                    <option class='option' value=''>Select an option
-                    </option>
-                  </select>
-                  <button id="getMsaCompsBtn" style="
-                                                     text-transform: uppercase;
-                                                     color: #fff;
-                                                     font-weight: 700;
-                                                     font-family: Roboto Condensed, sans-serif;
-                                                     margin: 20px 0;
-                                                     " class="uscb-primary-button acs_content" type="button">Get MSA Components
-                  </button>
                   <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
                   <div id="msaResultsList">
                   </div>
-
-				  <form role="form">
-					  <div class="form-group">
-						  <label>Combobox</label>
-						  <select class="combobox input-large form-control" id="msaCombo">
-							  <option value="" selected="selected">Select a State</option>
-							  <option value="AL">Alabama</option>
-						  </select>
-					  </div>
-				  </form>
 				  
 
                   <h3>Changes to Occupations</h3>
@@ -4172,8 +4174,9 @@ content: "-";
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
-  <script type="text/javascript" src="bootstrap-combobox.js">
-  </script>
+  <!-- <script src="https://unpkg.com/select-combobox/dist/combobox.js"></script> -->
+  <script src="bootstrap-combobox.js" type="text/javascript"></script>
+  
   <script> 
     // Accordion JS
     const acc = document.getElementsByClassName("accordionHeader");
@@ -4294,15 +4297,16 @@ content: "-";
         let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
           json.forEach( (obj) => {
             let msaName = obj['CBSA description'];
-            let msaVal =  msaName.split(' ').slice(0, -2).join(" ");
-            // remove 'Metro/Micro Area'
-            // msaVal.pop();
-            // msaVal.pop();
+            let msaVal =  msaName.replace(" Metro Area ", "");
             $("#msaSearch").append(`<option value='${msaVal}
 ' class='option'>${msaName}
     </option>`);
+            $("#msaCombo").append(`<option value='${msaVal}
+        ' class='option'>${msaName}
+            </option>`);
           }
                       );
+          $('#msaCombo').combobox({bsVersion:'3'});
           res("MSA Lookup Tool Drop Down Populated");
           // unsure what to return, will change later
         }
@@ -4312,15 +4316,13 @@ content: "-";
                                      );
       console.log(await lookupPromise);
     }
-    
-	$(document).ready(function() {
+
+
+    $(document).ready(function() {
       populateLookupDropDown();
-      $('.comboBox').combobox({
-		  bsVersion:'3'
-	  });
-	
-    }
-                     );
+    });
+
+
     /** Display MSA Lookup Results */
     function displayLookupResults(res, userSelection) {
       // console.log(res);
@@ -4364,8 +4366,8 @@ content: "-";
       }
     }
     async function fetchMSAComps(msaName) {
-      //TODO: process msaName to be lowercase 
       //process the json
+      msaName = msaName.replace(" Metro Area", "");
       let msaPromise = new Promise(function(res, rej) {
         let countyEquivs = $.getJSON('msa-components-2018.json', function(json) {
           // console.log(json);
@@ -4397,7 +4399,8 @@ content: "-";
       displayLookupResults(resMSA, msaName);
     }
     $("#getMsaCompsBtn").click(function() {
-      let msaName = $("#msaSearch").val();
+      let msaName = $("#msaCombo").val().trim();
+      console.log("submitting: " + msaName);
       if (msaName != '') {
         fetchMSAComps(msaName);
       }
