@@ -3833,10 +3833,6 @@ content: "-";
                     <!-- <a href="">Read more</a> -->
                     You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
-                  <!-- <form onsubmit="(e) => {e.preventDefault();}"> -->
-                  <!-- <span>Select an MSA: </span> -->
-                  <!-- <input type="text" id="msaSearch" class="searchbox" required /> -->
-                  <!-- <div class="input-group"> -->
                   
                   <div class="form-group">
                     <label for="msaCombo"></label>
@@ -4174,7 +4170,6 @@ content: "-";
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
-  <!-- <script src="https://unpkg.com/select-combobox/dist/combobox.js"></script> -->
   <script src="bootstrap-combobox.js" type="text/javascript"></script>
   
   <script> 
@@ -4296,11 +4291,9 @@ content: "-";
       let lookupPromise = new Promise(function(res, rej) {
         let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
           json.forEach( (obj) => {
-            let msaName = obj['CBSA description'];
+            let msaName = obj['CBSA description'].trim();
+            console.log("trimmed: " + msaName);
             let msaVal =  msaName.replace(" Metro Area ", "");
-            $("#msaSearch").append(`<option value='${msaVal}
-' class='option'>${msaName}
-    </option>`);
             $("#msaCombo").append(`<option value='${msaVal}
         ' class='option'>${msaName}
             </option>`);
