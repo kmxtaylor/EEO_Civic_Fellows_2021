@@ -4323,7 +4323,8 @@ content: "-";
       // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
 
       if (components === undefined || components.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
-        $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
+        $("#msaResultsList").append(`<p>No results found that match!</p>`);
+        // $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
       } else {
         // display resulting counties
         $("#msaResultsList").empty();
