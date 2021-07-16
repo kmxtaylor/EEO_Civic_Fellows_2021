@@ -4308,8 +4308,8 @@ content: "-";
     }
 
     /** Display MSA Lookup Results */
-    function displayLookupResults(res, userSelection) {
-      // console.log(res);
+    function displayLookupResults(components) {
+      // console.log(components);
 
       if ($("#msaResultLine").css('display') === 'none') {
         // alert("sliding down msa results");
@@ -4318,27 +4318,14 @@ content: "-";
       $("#msaResultsList").empty();
       // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
 
-      if (res === undefined || res.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
+      if (components === undefined || components.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
         $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
       } else {
         // display resulting counties
         $("#msaResultsList").empty();
-        
-        /** display option 1 */
-        // let lastComp = res.pop();
-        // for (let i = 0; i < res.length; i++) {
-        // 	// res[i] = res[i]+",";
-        // 	// res[i] = "<span style='font-weight: bold;'>"+res[i]+"</span>,"; // bold
-        // 	res[i] = "<span style='color: rgb(255, 112, 67)'>"+res[i]+"</span>,"; //orange
-        // }
-        // res.push("and");
-        // // res.push(lastComp);
-        // // res.push("<span style='font-weight: bold;'>"+lastComp+"</span>"); // bold
-        // res.push("<span style='color: rgb(255, 112, 67)'>"+lastComp+"</span>"); //orange
-        // $("#msaResultsList").replaceWith(`<p id='msaResultsList'>The MSA "${userSelection}" is composed of ${res.join(' ')}.</p>`);
 
         /** display option 2 */
-        res.forEach((comp) => {
+        components.forEach((comp) => {
         
           // check if comp is in list of suppressed counties
           let countyIsAvailable = true;
@@ -4403,7 +4390,7 @@ content: "-";
       }
                                   );
       let resMSA = await msaPromise;
-      displayLookupResults(resMSA, msaCode);
+      displayLookupResults(resMSA);
     }
     $("#getMsaCompsBtn").click(function() {
       let msaCode = $("#msaCombo").val().trim();
