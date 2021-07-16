@@ -7188,9 +7188,9 @@ schema.innerText = '';
 									
 								<p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are are not included in the EEO table sets because to identify 
 								them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.</p>
-									
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
-									<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
+								
+								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places</a>  </p>
+								<p class="acs_eeo_L_30"><a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)</a> </p>
 								
 								<h3>Changes to Occupations</h3>
 								
