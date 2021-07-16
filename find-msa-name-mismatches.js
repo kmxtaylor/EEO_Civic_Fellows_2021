@@ -2,14 +2,10 @@
 import * as suppressedMsasJson from './suppressed-msas-100k.js';
 import * as msaComponentsJson from './msa-components-2018.js';
 
-// document.body.appendChild(document.createElement("div"));
-// document.body.innerHTML = JSON.stringify(msaComponentsJson);
-
 // console.log('hello world!');
-console.log(suppressedMsasJson);
-console.log(msaComponentsJson);
+// console.log(suppressedMsasJson);
+// console.log(msaComponentsJson);
 
-// let mismatches = {};
 let mismatches = [];
 let componentsMsaNames = Object.keys(msaComponentsJson.msaComponents);
 suppressedMsasJson.suppressedMsas.forEach((obj) => {
@@ -20,9 +16,13 @@ suppressedMsasJson.suppressedMsas.forEach((obj) => {
     });
 
     if (foundMsa === undefined) {
-        mismatches.push(suppressedMsaName);
+        mismatches.push({
+            "CBSA code": obj['CBSA code'],
+            "CBSA description": suppressedMsaName
+        });
     }
 });
 
 // document.body.innerHTML = mismatches;
-console.log(mismatches)
+console.log('mismatched msas:');
+console.log(mismatches);
