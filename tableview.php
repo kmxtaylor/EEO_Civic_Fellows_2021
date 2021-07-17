@@ -1,4 +1,3 @@
-                                   
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 
@@ -3724,7 +3723,7 @@ $(document).ready(function(){
 	var eeoDataUrl = userSelectData; //"/acs/www/data/eeo-data/eeo-tables-2018/data/all1r/010/eeoall1r_01000us_databytype.json";
 	var eeoDataLabels = userSelectLabel; //"/acs/www/data/eeo-data/eeo-tables-2018/data/all1r/010/eeoall1r_01000us_occs.json";
 
- var call1 =   $.ajax({
+var call1 =   $.ajax({
         url: eeoDataUrl,
         type: 'GET',
         datatype: 'json',
@@ -3946,14 +3945,17 @@ $.when(call1,call2).done(function(res1,res2){
 		option = i*numDataPerLabel + numDataPerLabel;
 	}
 	console.log('row display options: ', rowDisplayOptions);
-
+	
+	let domDisplayOption = "";
 	let rowDisplayIndices, rowDisplayDropDown;
 	if (isTableSet1Or2) { // default to # rows/occupation (6)
 		rowDisplayIndices = rowDisplayOptions.concat(-1);
 		rowDisplayDropDown = rowDisplayOptions.concat(["All"]);
+		domDisplayOption = '<"left_c"f><"centerB"B>r<"right"l><t><"bottom"p>'
 	} else { // default to ALL
 		rowDisplayIndices = [-1].concat(rowDisplayOptions);
 		rowDisplayDropDown = ["All"].concat(rowDisplayOptions);
+		domDisplayOption = '<"centerB"B>r<"right"l><t><"bottom"p>'
 	}
 	console.log("rowDisplayIndices: ", rowDisplayIndices);
 	console.log("rowDisplayDropDown: ", rowDisplayDropDown);
@@ -3995,7 +3997,7 @@ $.when(call1,call2).done(function(res1,res2){
 					collapse: {0: displayedLabelPlural, _: '(%d) ' + displayedLabelPlural + ' Selected'},
 				}
 			},
-			dom: '<"left_c"f><"centerB"B>r<"right"l><t><"bottom"p>',
+			dom: domDisplayOption,
 			buttons: [
 				{
 					extend: 'searchPanes',
