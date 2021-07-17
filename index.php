@@ -4209,13 +4209,13 @@ content: "-";
                              );
     }
     // Accordion JS: close all & open all buttons
-    console.log("here i am");
+    // console.log("here i am");
     let closeAcc = document.getElementById("closeAccordions");
     closeAcc.addEventListener("click", function() {
       const accContent = document.getElementsByClassName("accordionContent");
       for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "none";
-        console.log("hiding ", accContent[i]);
+        // console.log("hiding ", accContent[i]);
       }
     }
                              );
@@ -4224,7 +4224,7 @@ content: "-";
       const accContent = document.getElementsByClassName("accordionContent");
       for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "block";
-        console.log("showing ", accContent[i]);
+        // console.log("showing ", accContent[i]);
       }
     }
                             );
@@ -4339,12 +4339,12 @@ content: "-";
           countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
 
           }).always( function (data) { // chaining .always() maintains countyIsAvailable
-            console.log(`countyIsAvailable === ${countyIsAvailable}`);
+            // console.log(`countyIsAvailable === ${countyIsAvailable}`);
             let compHtml;
             if (countyIsAvailable) {
               compHtml = $(`<p class="singleResult">${comp}</p><hr>`);
               $(compHtml).css({color: '#112e51'}); // navy blue
-              console.log("html: " + compHtml);
+              // console.log("html: " + compHtml);
             } else {
               compHtml = $(`<p class="singleResult">${comp} (suppressed)</p><hr>`);
               $(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
@@ -4383,7 +4383,7 @@ content: "-";
               let stateName = comp['State Name'];
               countyEquivArr.push(`${countyName}, ${stateName}`);
             });
-            // console.log('The components in', msaName, 'are', countyEquivArr);
+            // console.log('The components in msa #', msaCode, 'are', countyEquivArr);
           }
           else {
             alert("There are no MSAs that match that name.");
