@@ -3649,7 +3649,7 @@ $(document).ready(function(){
 		"Occupation",
 		"Occupation",
 		"EEO Occupational Group",
-		"EEO-1 Job Category",
+		"EEO-1 Job Categories",
 		"Federal Sector Job Group",
 		"State/Local Government Job Group"
 	]
@@ -3916,7 +3916,9 @@ $.when(call1,call2).done(function(res1,res2){
 	if (displayedLabel.slice(-1) === "y") {
 		displayedLabelPlural = displayedLabel.slice(0, displayedLabel.length-1) + "ie";
 	}
-	displayedLabelPlural = displayedLabelPlural + "s"; 
+	if (displayedLabel.slice(-1) != "s") {
+		displayedLabelPlural = displayedLabelPlural + "s"; 
+	}
 	let detailedSearchPlaceholder = "";
 	if (isTableSet1Or2) {
 		detailedSearchPlaceholder = displayedLabel + ' Label: SOC / Census Code';
