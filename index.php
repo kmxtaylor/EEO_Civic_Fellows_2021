@@ -4369,13 +4369,12 @@ content: "-";
       //process the json
       msaCode = msaCode.replace(" Metro Area", "");
       let msaPromise = new Promise(function(res, rej) {
-        let countyEquivs = $.getJSON('msa-components-2018.json', function(json) {
+        let countyEquivs = $.getJSON('msa-components.json', function(json) {
           // console.log(json);
           //filter to include only designated MSA 
           let componentsArr = json[msaCode] || null;
-          // let componentsArr = Object.values(json).filter(msa => msa[0]['CBSA Title'] === msaName)[0];
           // console.log(componentsArr);
-          //return all the county components
+          /** return all the county components */
           let countyEquivArr = [];
           if (componentsArr != null) {
             componentsArr.forEach((comp) => {
@@ -4386,7 +4385,7 @@ content: "-";
             // console.log('The components in msa #', msaCode, 'are', countyEquivArr);
           }
           else {
-            alert("There are no MSAs that match that name.");
+            alert("No matching MSAs found.");
             // unsure if this is the best way of handling this
           }
           res(countyEquivArr);
