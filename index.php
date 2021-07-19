@@ -3836,7 +3836,8 @@ content: "-";
                     You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
                   
-		  <style>					
+		  <style>
+      /* Dropdown Icon CSS */
 			.combobox-container .glyphicon-remove {
 				display: none;
 			}
@@ -3845,12 +3846,21 @@ content: "-";
 				display: inline-block;
 			}
 		  </style>
+                <div id="MSALookupTool" style="margin-bottom:20px;">
+                  <form class="form">
+                    <div class="form-group row">
+                      <div class="col-sm-8">
+                        <label for="msaCombo"></label>
 
-                  <div class="form-group">
-                    <label for="msaCombo">Select a suppressed MSA:</label>
-                    <select name="msaCombo" id="msaCombo" class="combobox input-small form-control" name="normal" required>
-                      <option value="">Start typing a suppressed MSA's name...</option>
-                    </select>
+                        <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                            <option value="">Start typing a suppressed MSA's name...</option>
+                        </select>
+
+                      </div>
+                      <div class="col-sm">
+
+                      </div>
+                    </div>
                     <button id="getMsaCompsBtn" style="
                                                       text-transform: uppercase;
                                                       color: #fff;
@@ -3859,13 +3869,11 @@ content: "-";
                                                       margin: 20px 0;
                                                       " class="uscb-primary-button acs_content" type="button">Get MSA Components
                     </button>
-					
-			<!-- <input id="test" type="text"> -->
-                  </div>
+                  </form>    
 
                   <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
-                  <div id="msaResultsList">
-                  </div>		  
+                  <div id="msaResultsList"></div>
+                </div>
 
                   <h3>Changes to Occupations</h3>
                   <p class="acs_eeo" >The tools and systems used to measure and describe one’s occupation are periodically updated. 
