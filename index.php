@@ -4310,7 +4310,7 @@ content: "-";
             let msaName = obj['CBSA description'].trim();
             // console.log("trimmed: " + msaName);
             $("#msaCombo").append(
-              `<option value='${msaCode}' class='option'>${msaName}</option>`;
+              `<option value='${msaCode}' class='option'>${msaName}</option>`
             );
           });
           $('#msaCombo').combobox({bsVersion:'3'});
