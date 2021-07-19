@@ -3839,7 +3839,7 @@ content: "-";
                   <div class="form-group">
                     <label for="msaCombo"></label>
                     <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
-                      <option value="" selected="selected">Select a Suppressed MSA</option>
+                      <option value="">Select a Suppressed MSA</option>
                     </select>
                     <button id="getMsaCompsBtn" style="
                                                       text-transform: uppercase;
