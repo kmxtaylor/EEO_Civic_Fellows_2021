@@ -3850,25 +3850,30 @@ content: "-";
                   <form class="form">
                     <div class="form-group row">
                       <div class="col-sm-8">
-                        <label for="msaCombo"></label>
-
+                        
+                        <label for="msaCombo">Select a suppressed MSA:</label>
                         <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
                             <option value="">Start typing a suppressed MSA's name...</option>
                         </select>
+
+                        <button id="getMsaCompsBtn" style="
+                          text-transform: uppercase;
+                          color: #fff;
+                          font-weight: 700;
+                          font-family: Roboto Condensed, sans-serif;
+                          margin: 20px 0;
+                          "
+                          class="uscb-primary-button acs_content"
+                          type="button">
+                          Get MSA Components
+                        </button>
 
                       </div>
                       <div class="col-sm">
 
                       </div>
                     </div>
-                    <button id="getMsaCompsBtn" style="
-                                                      text-transform: uppercase;
-                                                      color: #fff;
-                                                      font-weight: 700;
-                                                      font-family: Roboto Condensed, sans-serif;
-                                                      margin: 20px 0;
-                                                      " class="uscb-primary-button acs_content" type="button">Get MSA Components
-                    </button>
+                    
                   </form>    
 
                   <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
