@@ -3835,25 +3835,39 @@ content: "-";
                     <!-- <a href="">Read more</a> -->
                     You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
-                  
-                  <div class="form-group">
-                    <label for="msaCombo"></label>
-                    <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
-                      <option value="">Select a Suppressed MSA</option>
-                    </select>
-                    <button id="getMsaCompsBtn" style="
-                                                      text-transform: uppercase;
-                                                      color: #fff;
-                                                      font-weight: 700;
-                                                      font-family: Roboto Condensed, sans-serif;
-                                                      margin: 20px 0;
-                                                      " class="uscb-primary-button acs_content" type="button">Get MSA Components
-                    </button>
-                  </div>
 
-                  <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
-                  <div id="msaResultsList">
+                  <div id="MSALookupTool" style="margin-bottom:20px;">
+                    <form class="form">
+                      <div class="form-group row">
+                        <div class="col-sm-8">
+                          <label for="msaCombo"></label>
+                          
+                          <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                            <option value="" selected="selected">Select a Suppressed MSA</option>
+                          </select>
+                          
+                        </div>
+                        <div class="col-sm">
+                          
+                        </div>
+                      </div>
+                      <button id="getMsaCompsBtn" style="
+                                                              text-transform: uppercase;
+                                                              color: #fff;
+                                                              font-weight: 700;
+                                                              font-family: Roboto Condensed, sans-serif;
+                                                              margin: 20px 0;
+                                                              " class="uscb-primary-button acs_content" type="button">Get MSA Components
+                      </button>
+                    </form>
+                    
+
+                    <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
+                    <div id="msaResultsList">
+                    </div>
                   </div>
+                  
+                  
 				  
 
                   <h3>Changes to Occupations</h3>
