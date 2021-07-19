@@ -4330,29 +4330,17 @@ content: "-";
 			$('.combobox-container .glyphicon-remove').hide();
 		});
 	  
-	    // var xTriggered = 0;
-		// $( ".combobox-container input" ).on('keyup click', function( event ) {
-		//$('.combobox-container input, .combobox-container ul').on('keyup click', function( event ) { // works for most cases except clicking the dropdown
-		// $( '[name="msaCombo"]' ).on('change', function( event ) { // works for most cases except clearing by backspace
-		$( '[name="msaCombo"], .combobox-container input' ).on('change keydown', function( event ) {		
-			// $('.combobox-container .caret').hide();
-			// $('.combobox-container .glyphicon-remove').show();
+		$( '[name="msaCombo"], .combobox-container input' ).on('change keydown', function( event ) {
 		
 		  if ($('[name="msaCombo"]').val() != '') { // option selected from dropdown
 			$('.combobox-container .caret').hide();
 			$('.combobox-container .glyphicon-remove').show();
-			console.log('yes option selected: ' + $('[name="msaCombo"]').val());
+			// console.log('yes option selected: ' + $('[name="msaCombo"]').val());
 		  } else {
 			$('.combobox-container .caret').show();
 			$('.combobox-container .glyphicon-remove').hide();
-			console.log('NO option selected: ' + $('[name="msaCombo"]').val());
+			// console.log('NO option selected: ' + $('[name="msaCombo"]').val());
 		  }
-		  
-		  // xTriggered++;
-		  // var msg = "Handler for .keyup() called " + xTriggered + " time(s).";
-		  // $.print( msg, "html" );
-		  // $.print( event );
-		  // console.log(msg, 'html');
 		});
 		
 		// prevent page reload if Enter key pressed
