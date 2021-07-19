@@ -3835,40 +3835,45 @@ content: "-";
                     <!-- <a href="">Read more</a> -->
                     You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
+                  
+		  <style>
+      /* Dropdown Icon CSS */
+			.combobox-container .glyphicon-remove {
+				display: none;
+			}
 
-                  <div id="MSALookupTool" style="margin-bottom:20px;">
-                    <form class="form">
-                      <div class="form-group row">
-                        <div class="col-sm-8">
-                          <label for="msaCombo"></label>
-                          
-                          <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
-                            <option value="" selected="selected">Select a Suppressed MSA</option>
-                          </select>
-                          
-                        </div>
-                        <div class="col-sm">
-                          
-                        </div>
+			.combobox-container .caret {
+				display: inline-block;
+			}
+		  </style>
+                <div id="MSALookupTool" style="margin-bottom:20px;">
+                  <form class="form">
+                    <div class="form-group row">
+                      <div class="col-sm-8">
+                        <label for="msaCombo"></label>
+
+                        <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                            <option value="">Start typing a suppressed MSA's name...</option>
+                        </select>
+
                       </div>
-                      <button id="getMsaCompsBtn" style="
-                                                              text-transform: uppercase;
-                                                              color: #fff;
-                                                              font-weight: 700;
-                                                              font-family: Roboto Condensed, sans-serif;
-                                                              margin: 20px 0;
-                                                              " class="uscb-primary-button acs_content" type="button">Get MSA Components
-                      </button>
-                    </form>
-                    
+                      <div class="col-sm">
 
-                    <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
-                    <div id="msaResultsList">
+                      </div>
                     </div>
-                  </div>
-                  
-                  
-				  
+                    <button id="getMsaCompsBtn" style="
+                                                      text-transform: uppercase;
+                                                      color: #fff;
+                                                      font-weight: 700;
+                                                      font-family: Roboto Condensed, sans-serif;
+                                                      margin: 20px 0;
+                                                      " class="uscb-primary-button acs_content" type="button">Get MSA Components
+                    </button>
+                  </form>    
+
+                  <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
+                  <div id="msaResultsList"></div>
+                </div>
 
                   <h3>Changes to Occupations</h3>
                   <p class="acs_eeo" >The tools and systems used to measure and describe one’s occupation are periodically updated. 
@@ -4303,14 +4308,14 @@ content: "-";
       openEEOTable();
     });
     // onclick get_EEO_data	
-    /** Populate MSA Lookup Dropdown */
+	
+	/** Populate MSA Lookup Dropdown */
     async function populateLookupDropDown() {
       let lookupPromise = new Promise(function(res, rej) {
         let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
           json.forEach( (obj) => {
             let msaCode = obj['CBSA code'];
             let msaName = obj['CBSA description'].trim();
-            // msaName = msaName.replace(" Metro Area", "").replace(" Micro Area", "");
             // console.log("trimmed: " + msaName);
             $("#msaCombo").append(
               `<option value='${msaCode}' class='option'>${msaName}</option>`
@@ -4323,8 +4328,41 @@ content: "-";
         // rej();
       });
       await lookupPromise;
+	  
+	  /**
+		Control dropdown icon shown: X when option selected and caret when no option selected
+		Must occur AFTER combobox has been initialized in order to bind event listener
+	  */
+		$('.dropdown-toggle').on('click', function() {
+			$('.combobox-container .caret').show();
+			$('.combobox-container .glyphicon-remove').hide();
+		});
+	  
+		$( '[name="msaCombo"], .combobox-container input' ).on('change keydown', function( event ) {
+		
+		  if ($('[name="msaCombo"]').val() != '') { // option selected from dropdown
+			$('.combobox-container .caret').hide();
+			$('.combobox-container .glyphicon-remove').show();
+			// console.log('yes option selected: ' + $('[name="msaCombo"]').val());
+		  } else {
+			$('.combobox-container .caret').show();
+			$('.combobox-container .glyphicon-remove').hide();
+			// console.log('NO option selected: ' + $('[name="msaCombo"]').val());
+		  }
+		});
+		
+		// prevent page reload if Enter key pressed
+		$( ".combobox-container input" ).keydown(function( event ) {
+		  if ( event.which == 13 ) {
+		   event.preventDefault();
+		  }
+		});
     }
-
+	
+	$(document).ready(function() {
+      populateLookupDropDown();
+    });
+	
     /** Display MSA Lookup Results */
     function displayLookupResults(components) {
       // console.log(components);
@@ -4337,7 +4375,8 @@ content: "-";
       // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
 
       if (components === undefined || components.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
-        $("#msaResultsList").append(`<p>No results found that match!</p>`);
+        $("#msaResultsList").append('<p>No results found for that match!</p>');
+		//console.log(`No results found for ${}`);
         // $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
       } else {
         // display resulting counties
@@ -4374,11 +4413,6 @@ content: "-";
       
     }
 
-    $(document).ready(function() {
-      populateLookupDropDown();
-    });
-
-
     async function fetchMSAComps(msaCode) {
       //process the json
       msaCode = msaCode.replace(" Metro Area", "");
@@ -4411,7 +4445,7 @@ content: "-";
       displayLookupResults(resMSA);
     }
     $("#getMsaCompsBtn").click(function() {
-      let msaCode = $("#msaCombo").val().trim();
+      let msaCode = $('[name="msaCombo"]').val().trim();
       console.log("submitting: " + msaCode);
       if (msaCode != null && msaCode != '') {
         fetchMSAComps(msaCode);
