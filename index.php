@@ -4364,7 +4364,7 @@ content: "-";
               $(compHtml).css({color: '#112e51'}); // navy blue
               // console.log("html: " + compHtml);
             } else {
-              compHtml = $('<p class="singleResult">'+comp+'(suppressed)</p><hr>');
+              compHtml = $('<p class="singleResult">'+comp+' (suppressed)</p><hr>');
               $(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
             }
             $(compHtml).css({display: 'none'});
