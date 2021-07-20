@@ -8050,7 +8050,7 @@ $("input[name='geoSumLevel']").change(function () {
 											
 	if ( (geo_RadioValue) === "county" ) {
 		$("#viewSecondLevelGeo").slideUp();
-		if (eeo_filetype === "all1w")	{	
+		if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{	
 			loadStates('#firstLevelGeoList', url_state, " to begin");
 			$("#viewFirstLevelGeo").slideDown();
 			$("#viewFirstLevelGeoAlt2").slideUp();
@@ -8058,7 +8058,7 @@ $("input[name='geoSumLevel']").change(function () {
 			$("#viewFirstLevelGeoAlt3").slideUp();
 				
 		//empty?
-		} else if ( isTableSet2 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6 ){ // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
+		} else if ( isTableSet2 ){ // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
 			$("#viewFirstLevelGeoAlt3").slideDown();
 			$("#viewFirstLevelGeo").slideUp();
 			$("#viewFirstLevelGeoAlt2").slideUp();
