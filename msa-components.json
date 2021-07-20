@@ -210,7 +210,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "",
          "County": {
-            "County Equivalent": "A�asco Municipio"
+            "County Equivalent": "Añasco Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -286,7 +286,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "",
          "County": {
-            "County Equivalent": "Rinc�n Municipio"
+            "County Equivalent": "Rincón Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -305,7 +305,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "",
          "County": {
-            "County Equivalent": "San Sebasti�n Municipio"
+            "County Equivalent": "San Sebastián Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -1467,7 +1467,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Arecibo Municipio"
          },
@@ -1486,7 +1486,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Camuy Municipio"
          },
@@ -1505,7 +1505,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Hatillo Municipio"
          },
@@ -1524,7 +1524,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Quebradillas Municipio"
          },
@@ -5635,12 +5635,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 444,
-         "CBSA Title": "Ca�on City, CO",
+         "CBSA Title": "Cañon City, CO",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Micropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Pueblo-Ca�on City, CO",
+         "CSA Title": "Pueblo-Cañon City, CO",
          "County": {
             "County Equivalent": "Fremont County"
          },
@@ -7848,7 +7848,7 @@
             "Micropolitan Statistical Area": "Micropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Salinas Municipio"
          },
@@ -11506,7 +11506,7 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 106,
-         "CBSA Title": "Espa�ola, NM",
+         "CBSA Title": "Española, NM",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Micropolitan Statistical Area"
          },
@@ -14014,7 +14014,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Arroyo Municipio"
          },
@@ -14033,7 +14033,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Guayama Municipio"
          },
@@ -14052,7 +14052,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Patillas Municipio"
          },
@@ -18785,7 +18785,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "El Paso-Las Cruces, TX-NM",
          "County": {
-            "County Equivalent": "Do�a Ana County"
+            "County Equivalent": "Doña Ana County"
          },
          "State Name": "New Mexico",
          "FIPS State Code": 35,
@@ -21188,12 +21188,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "Mayag�ez, PR",
+         "CBSA Title": "Mayagüez, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
             "County Equivalent": "Hormigueros Municipio"
          },
@@ -21207,14 +21207,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "Mayag�ez, PR",
+         "CBSA Title": "Mayagüez, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
-            "County Equivalent": "Las Mar�as Municipio"
+            "County Equivalent": "Las Marías Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -21226,14 +21226,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "Mayag�ez, PR",
+         "CBSA Title": "Mayagüez, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
-            "County Equivalent": "Mayag�ez Municipio"
+            "County Equivalent": "Mayagüez Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -27286,7 +27286,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "Ponce-Yauco-Coamo, PR",
          "County": {
-            "County Equivalent": "Juana D�az Municipio"
+            "County Equivalent": "Juana Díaz Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -28002,7 +28002,7 @@
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Pueblo-Ca�on City, CO",
+         "CSA Title": "Pueblo-Cañon City, CO",
          "County": {
             "County Equivalent": "Pueblo County"
          },
@@ -30796,12 +30796,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "San Germ�n, PR",
+         "CBSA Title": "San Germán, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
             "County Equivalent": "Cabo Rojo Municipio"
          },
@@ -30815,12 +30815,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "San Germ�n, PR",
+         "CBSA Title": "San Germán, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
             "County Equivalent": "Lajas Municipio"
          },
@@ -30834,12 +30834,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "San Germ�n, PR",
+         "CBSA Title": "San Germán, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
             "County Equivalent": "Sabana Grande Municipio"
          },
@@ -30853,14 +30853,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 364,
-         "CBSA Title": "San Germ�n, PR",
+         "CBSA Title": "San Germán, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "Mayag�ez-San Germ�n, PR",
+         "CSA Title": "Mayagüez-San Germán, PR",
          "County": {
-            "County Equivalent": "San Germ�n Municipio"
+            "County Equivalent": "San Germán Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -30914,12 +30914,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Aguas Buenas Municipio"
          },
@@ -30933,12 +30933,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Aibonito Municipio"
          },
@@ -30952,12 +30952,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Barceloneta Municipio"
          },
@@ -30971,12 +30971,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Barranquitas Municipio"
          },
@@ -30990,14 +30990,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Bayam�n Municipio"
+            "County Equivalent": "Bayamón Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31009,12 +31009,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Caguas Municipio"
          },
@@ -31028,14 +31028,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Can�vanas Municipio"
+            "County Equivalent": "Canóvanas Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31047,12 +31047,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Carolina Municipio"
          },
@@ -31066,14 +31066,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Cata�o Municipio"
+            "County Equivalent": "Cataño Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31085,12 +31085,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Cayey Municipio"
          },
@@ -31104,12 +31104,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Ceiba Municipio"
          },
@@ -31123,12 +31123,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Ciales Municipio"
          },
@@ -31142,12 +31142,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Cidra Municipio"
          },
@@ -31161,14 +31161,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Comer�o Municipio"
+            "County Equivalent": "Comerío Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31180,12 +31180,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Corozal Municipio"
          },
@@ -31199,12 +31199,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Dorado Municipio"
          },
@@ -31218,12 +31218,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Fajardo Municipio"
          },
@@ -31237,12 +31237,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Florida Municipio"
          },
@@ -31256,12 +31256,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Guaynabo Municipio"
          },
@@ -31275,12 +31275,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Gurabo Municipio"
          },
@@ -31294,12 +31294,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Humacao Municipio"
          },
@@ -31313,12 +31313,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Juncos Municipio"
          },
@@ -31332,12 +31332,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Las Piedras Municipio"
          },
@@ -31351,14 +31351,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Lo�za Municipio"
+            "County Equivalent": "Loíza Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31370,12 +31370,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Luquillo Municipio"
          },
@@ -31389,14 +31389,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "Manat� Municipio"
+            "County Equivalent": "Manatí Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31408,12 +31408,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Maunabo Municipio"
          },
@@ -31427,12 +31427,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Morovis Municipio"
          },
@@ -31446,12 +31446,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Naguabo Municipio"
          },
@@ -31465,12 +31465,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Naranjito Municipio"
          },
@@ -31484,12 +31484,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Orocovis Municipio"
          },
@@ -31503,14 +31503,14 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
-            "County Equivalent": "R�o Grande Municipio"
+            "County Equivalent": "Río Grande Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -31522,12 +31522,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "San Juan Municipio"
          },
@@ -31541,12 +31541,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "San Lorenzo Municipio"
          },
@@ -31560,12 +31560,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Toa Alta Municipio"
          },
@@ -31579,12 +31579,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Toa Baja Municipio"
          },
@@ -31598,12 +31598,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Trujillo Alto Municipio"
          },
@@ -31617,12 +31617,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Vega Alta Municipio"
          },
@@ -31636,12 +31636,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Vega Baja Municipio"
          },
@@ -31655,12 +31655,12 @@
       {
          "Metropolitan Division Code": null,
          "CSA Code": 490,
-         "CBSA Title": "San Juan-Bayam�n-Caguas, PR",
+         "CBSA Title": "San Juan-Bayamón-Caguas, PR",
          "Metropolitan": {
             "Micropolitan Statistical Area": "Metropolitan Statistical Area"
          },
          "Metropolitan Division Title": "",
-         "CSA Title": "San Juan-Bayam�n, PR",
+         "CSA Title": "San Juan-Bayamón, PR",
          "County": {
             "County Equivalent": "Yabucoa Municipio"
          },
@@ -38010,7 +38010,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "Ponce-Yauco-Coamo, PR",
          "County": {
-            "County Equivalent": "Gu�nica Municipio"
+            "County Equivalent": "Guánica Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
@@ -38048,7 +38048,7 @@
          "Metropolitan Division Title": "",
          "CSA Title": "Ponce-Yauco-Coamo, PR",
          "County": {
-            "County Equivalent": "Pe�uelas Municipio"
+            "County Equivalent": "Peñuelas Municipio"
          },
          "State Name": "Puerto Rico",
          "FIPS State Code": 72,
