@@ -432,16 +432,16 @@
         // Katie: I guessed at the URLs for those below based on the established pattern
       }
       else if (isTableSet3){
-        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t3_msa.json", "");
+        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_msa.json", "");
       }
       else if (isTableSet4){
-        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t4_msa.json", "");
+        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_msa.json", "");
       }
       else if (isTableSet5){
-        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t5_msa.json", "");
+        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_msa.json", "");
       }
       else if (isTableSet6){
-        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t6_msa.json", "");
+        loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_msa.json", "");
       }
       $("#viewFirstLevelGeo").slideDown();
     }
@@ -515,22 +515,22 @@
         loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_place.json", stVal.substring(7));
       }
       else if ( isTableSet3 ) {
-        stVal = $("#firstLevelGeoListAlt").val();
+        stVal = $("#firstLevelGeoListAlt2").val();
         console.log("in places 3s" + stVal);
         loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_place.json", stVal.substring(7));
       }
       else if ( isTableSet4 ) {
-        stVal = $("#firstLevelGeoListAlt").val();
+        stVal = $("#firstLevelGeoListAlt2").val();
         console.log("in places 4s" + stVal);
         loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_place.json", stVal.substring(7));
       }
       else if ( isTableSet5 ) {
-        stVal = $("#firstLevelGeoListAlt").val();
+        stVal = $("#firstLevelGeoListAlt2").val();
         console.log("in places 5s" + stVal);
         loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_place.json", stVal.substring(7));
       }
       else if ( isTableSet6 ) {
-        stVal = $("#firstLevelGeoListAlt").val();
+        stVal = $("#firstLevelGeoListAlt2").val();
         console.log("in places 6s" + stVal);
         loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
       }
@@ -551,22 +551,22 @@
         loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_county.json", stVal.substring(7));
       }
       else if ( isTableSet3 ) {
-        stVal = $("#firstLevelGeoListAlt3").val();
+        stVal = $("#firstLevelGeoList").val();
         console.log("in county 3s" + stVal);
         loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_county.json", stVal.substring(7));
       }
       else if ( isTableSet4 ) {
-        stVal = $("#firstLevelGeoListAlt3").val();
+        stVal = $("#firstLevelGeoList").val();
         console.log("in county 4s" + stVal);
         loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_county.json", stVal.substring(7));
       }
       else if ( isTableSet5 ) {
-        stVal = $("#firstLevelGeoListAlt3").val();
+        stVal = $("#firstLevelGeoList").val();
         console.log("in county 5s" + stVal);
         loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_county.json", stVal.substring(7));
       }
       else if ( isTableSet6 ) {
-        stVal = $("#firstLevelGeoListAlt3").val();
+        stVal = $("#firstLevelGeoList").val();
         console.log("in county 6s" + stVal);
         loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_county.json", stVal.substring(7));
       }
