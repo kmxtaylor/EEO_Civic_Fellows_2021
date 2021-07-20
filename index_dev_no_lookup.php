@@ -3009,19 +3009,6 @@ display: block;;">
                             <button type="button" id="closeAccordions">Hide All
                             </button>	
                           </div>						
-                          <!-- </div> -->
-                          <!-- <div class="acs_content row"> -->
-                          <!-- from orionicons.css -->
-                          <!-- <style type="text/css">
-.roll-down::before {
-/* content: "\11aaa"; */
-content: "+";
-}
-.roll-up::before {
-content: "\11ab0";
-content: "-";
-}
-</style> -->
                           <!-- Table Set 1 -->
                           <div class="accordion">
                             <button type="button" class="accordionHeader">
