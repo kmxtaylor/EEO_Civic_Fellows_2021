@@ -4026,7 +4026,7 @@ display: block;;">
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
   <script src="./index.js"> </script> <!-- for testing only -->
-  <script src="/acs/www/data/eeo-data/eeo-tables-2018/index.js"> </script>
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/index.js"> </script>
   <script type="text/javascript">
     var referrer=document.referrer;
     if(referrer.indexOf('search-results.html')>0){
