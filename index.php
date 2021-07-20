@@ -3830,10 +3830,6 @@ content: "-";
                   </h3>
                   <p class="acs_eeo">
                     New for MSAs -- Search County Components for Suppressed MSAs
-                    <br>
-                    <br>
-                    <!-- <a href="">Read more</a> -->
-                    You may use the MSA lookup tool above to find the counties that are the components that constitute a given suppressed MSA. This tool is currently only available for MSAs, no other geography levels.
                   </p>
                   
                 <div id="MSALookupTool" style="margin-bottom:20px;">
