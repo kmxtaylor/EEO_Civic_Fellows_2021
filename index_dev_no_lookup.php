@@ -8032,14 +8032,14 @@ $("input[name='geoSumLevel']").change(function () {
 											
 	if ( (geo_RadioValue) === "place" ) {
 		$("#viewSecondLevelGeo").slideUp();
-		if (isTableSet1)	{	
+		if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{	
 				$("#viewFirstLevelGeoAlt2").slideDown();
 				$("#viewFirstLevelGeo").slideUp();
 				$("#viewFirstLevelGeoAlt").slideUp();
 				$("#viewFirstLevelGeoAlt3").slideUp();
 				
 		//empty?
-		} else if (isTableSet2 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6){ // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
+		} else if (isTableSet2){ 
 				$("#viewFirstLevelGeoAlt").slideDown();
 				$("#viewFirstLevelGeo").slideUp();
 				$("#viewFirstLevelGeoAlt2").slideUp();
@@ -8058,7 +8058,7 @@ $("input[name='geoSumLevel']").change(function () {
 			$("#viewFirstLevelGeoAlt3").slideUp();
 				
 		//empty?
-		} else if ( isTableSet2 ){ // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
+		} else if ( isTableSet2 ){ 
 			$("#viewFirstLevelGeoAlt3").slideDown();
 			$("#viewFirstLevelGeo").slideUp();
 			$("#viewFirstLevelGeoAlt2").slideUp();
