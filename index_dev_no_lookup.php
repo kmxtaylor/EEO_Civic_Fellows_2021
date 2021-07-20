@@ -17,6 +17,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/apple-touch-icon-180x180.png">     
     <meta name="msapplication-square150x150logo" content="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/mstile-150x150.png">
     <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
+
+	<link rel="stylesheet" href="./index.css" type="text/css"/> <!-- for testing only -->
+	<link rel="stylesheet" href="acs/www/data/eeo-data/eeo-tables-2018/css/index.css" type="text/css"/>
+
     <title>2014 - 2018 EEO Tables | American Community Survey | US Census Bureau 
     </title>
     <style id="antiClickjack">
@@ -33,57 +37,6 @@
         top.location = self.location
       }
     </script>
-    <style type="text/css">
-      .content_area{
-        display:block;
-      }
-      /* Accordion CSS */
-      #tableSelectForm .accordion, .accordionControl {
-        margin: 1rem 0;
-      }
-      #tableSelectForm .accordion, #openAccordions, #closeAccordions {
-        border: thin solid hsl(200, 15%, 72%);
-      }
-      #openAccordions, #closeAccordions {
-        margin-right: .5rem;
-        margin-left: 0;
-        padding: 0.5rem;
-        font-size: 1rem;
-        font-weight: 500;
-      }
-      #tableSelectForm .accordionHeader {
-        width: 100%;
-        border: none;
-        padding: 1rem;
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-      #tableSelectForm button {
-        background-color: #e7eaed;
-        color: #112e51;
-        cursor: pointer;
-        text-align: left;
-        outline: none;
-        /* font-family: "Roboto", sans-serif !important; */
-        transition: 0.4s;
-      }
-      .openPanel, #tableSelectForm button:hover {
-        background-color: #ccc;
-      }
-      .accordionIcon {
-        display: inline-block;
-        padding-right: 0.25rem;
-        vertical-align: middle;
-      }
-      .accordionContent {
-        display: none;
-        padding: 0 18px;
-        background-color: white;
-        color: #333;
-        /* font-family: "Roboto", sans-serif !important; */
-        overflow: hidden;
-      }
-    </style>
     <link href="/etc.clientlibs/census/clientlibs/census-css/resources/print.css" rel="stylesheet" type="text/css" media="print"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="DC.title" property="og:title" content="2014—2018 EEO Tables" />
@@ -748,18 +701,6 @@
 			display: none;
 			max-width: 183px;
 			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 4, 7)'>
-              <style>
-                @media screen and (min-width: 1281px) {
-                  #data-uscb-header-dropdown-links-4 {
-                    left: 732px;
-                  }
-                }
-                @media screen and (max-width: 1281px) {
-                  #data-uscb-header-dropdown-links-4 {
-                    left: 57.142857142857146%;
-                  }
-                }
-              </style>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 100%;">
                 <a href="https://www.census.gov/newsroom.html" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 4);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-4')" tabindex="0">
                   Media (Newsroom)
@@ -779,18 +720,6 @@
 			display: none;
 			max-width: 183px;
 			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 5, 7)'>
-              <style>
-                @media screen and (min-width: 1281px) {
-                  #data-uscb-header-dropdown-links-5 {
-                    left: 915px;
-                  }
-                }
-                @media screen and (max-width: 1281px) {
-                  #data-uscb-header-dropdown-links-5 {
-                    left: 71.42857142857143%;
-                  }
-                }
-              </style>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 100%;">
                 <a href="https://www.census.gov/naics" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 5);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-5')" tabindex="0">
                   NAICS Lookup
@@ -1652,8 +1581,7 @@
                           </a>
                         </li>
                         <li style="margin-left: 0px;" class="uscb-filter-parent ">
-                          <a href="/acs/wwww/data/eeo-data/" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary uscb-selected-filter" tabindex="0" style="font-size: 1rem;
-display: none !important;">
+                          <a href="/acs/wwww/data/eeo-data/" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary uscb-selected-filter" tabindex="0" style="font-size: 1rem; display: none !important;">
                             Equal Employment Opportunity (EEO) Data
                           </a>
                           <ul class="uscb-filter-list display:block!important;">
@@ -1672,8 +1600,7 @@ display: none !important;">
                           </ul>
                         </li>
                         <li style="margin-left: 0px;" class="uscb-filter-parent ">
-                          <a href="/programs-surveys/acs/data/custom-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: none !important;">
+                          <a href="/programs-surveys/acs/data/custom-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: none !important;">
                             Custom Tables
                           </a>
                           <ul style="z-index: 32; display: none;">
