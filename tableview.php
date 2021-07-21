@@ -3967,7 +3967,7 @@ $.when(call1,call2).done(function(res1,res2){
 	if (isTableSet1Or2) {
 		detailedSearchTextPre = 'Search: Detailed Occupations';
 	} else {
-		detailedSearchTextPre = "Search: " + displayedLabelPlural;
+		detailedSearchTextPre = "Select: " + displayedLabelPlural;
 	}
 
 	let detailedSearchTextPost = '(%d) ' + displayedLabelPlural + ' Selected'; // button text post-selection
