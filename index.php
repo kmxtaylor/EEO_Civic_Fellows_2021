@@ -4417,6 +4417,28 @@ content: "-";
     }
                               );
     // onclick fetch MSA Comps
+
+
+    function getTableViewUrl(tableType, componentName, geoId){ // may make this triggered by clicking a button after selecting a table (for all results) and apply to hyperlinks for all of the results
+      let tableViewUrl = '/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?geotype=county&';
+      let geoId = geoId.toLowerCase(); // us needs to be lowercase
+      componentName = encodeURIComponent(componentName);
+      tableViewUrl += `county=${geoId}&filetype=${tabletype}&geoName=${componentName}`;
+      console.log(tableViewUrl);
+      return tableViewUrl; 
+    } // getTableViewUrl()
+
+    $('#msaTableSelectBtn').on('click', function() { // change to match actual btn id
+      let tableSelected = $('[name="msaTableSelect"]').val().trim();
+      $('#msaResultsList .singleResult').each(function(i, el) {
+        let componentName = $(el).text();
+        let componentGeoId = $(el).getAttribute(geoId);
+        let tableViewUrl = getTableViewUrl(tableSelected, componentName, componentGeoId);
+        // set tableViewUrl as href for link for this result
+        // maybe use slideUp() / slideDown() to indicate that the link changed
+      });
+    })
+
     // var fileSubstr = eeo_filetype.substring(3,4);
     //console.log(fileSubstr);
     function loadStates(selobj, url, extra) {
