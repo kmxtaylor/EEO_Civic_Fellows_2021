@@ -3836,31 +3836,57 @@ content: "-";
                   <form class="form">
                     <div class="form-group row">
                       <div class="col-sm-8">	
-						<label for="msaCombo" style='margin-bottom: 20px;'>Select a suppressed MSA:</label>
-                        <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
-                            <option value="">Start typing a suppressed MSA's name...</option>
-                        </select>
-						
-						<button id="getMsaCompsBtn" style="
-                          text-transform: uppercase;
-                          color: #fff;
-                          font-weight: 700;
-                          font-family: Roboto Condensed, sans-serif;
-                          margin-top: 20px;
-                          "
-                          class="uscb-primary-button acs_content"
-                          type="button">
-                          Get MSA Components
-						</button>
-
+                        <label for="msaCombo" style='margin-bottom: 20px;'>Select a suppressed MSA:</label>
+                                    <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                                        <option value="">Start typing a suppressed MSA's name...</option>
+                                    </select>
+                        
+                        <button id="getMsaCompsBtn" style="
+                                      text-transform: uppercase;
+                                      color: #fff;
+                                      font-weight: 700;
+                                      font-family: Roboto Condensed, sans-serif;
+                                      margin-top: 20px;
+                                      "
+                                      class="uscb-primary-button acs_content"
+                                      type="button">
+                                      Get MSA Components
+                        </button>
                       </div>
-					</div>
-					<div class="row">
-					  <div class="col-sm-12">
-						<h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
-						<div id="msaResultsList"></div>
-					  </div>
-					</div>
+					          </div>
+                    <div class="row">
+                      <div class="col-sm">
+                        <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
+                            <option value="">Start typing a Table Type...</option>
+                            <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
+                            <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
+                            <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
+                            <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-sm-12">
+                      <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
+                      <div id="msaResultsList"></div>
+                      </div>
+                    </div>
 					  
                   </form>
                 </div>
