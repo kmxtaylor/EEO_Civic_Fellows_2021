@@ -18,13 +18,12 @@ for (let i = 0; i < acc.length; i++) {
     });
 }
 // Accordion JS: close all & open all buttons
-console.log("here i am");
 let closeAcc = document.getElementById("closeAccordions");
 closeAcc.addEventListener("click", function() {
     const accContent = document.getElementsByClassName("accordionContent");
     for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "none";
-        console.log("hiding ", accContent[i]);
+        // console.log("hiding ", accContent[i]);
     }
 });
 let openAcc = document.getElementById("openAccordions");
@@ -32,6 +31,6 @@ openAcc.addEventListener("click", function() {
     const accContent = document.getElementsByClassName("accordionContent");
     for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "block";
-        console.log("showing ", accContent[i]);
+        // console.log("showing ", accContent[i]);
     }
 });

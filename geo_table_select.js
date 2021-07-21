@@ -537,7 +537,7 @@ $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLeve
 );
 // on change for file or sumlevel
 var dd_str = "";
-console.log("did it empty" + dd_str);
+// console.log("did it empty" + dd_str);
 $.fn.dropdownCh = (function () {
   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
     $("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
