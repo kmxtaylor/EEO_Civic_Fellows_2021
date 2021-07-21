@@ -2984,7 +2984,7 @@ $(document).ready(function(){
 
 				
 					<div class="row" style="display:none; height: 120px;" id="ToolTips" >
-					<div class="eeo-tables col-md-3 titlecase" >
+					<div id='quickSearchGuide' class="eeo-tables col-md-3 titlecase" >
 						<p class="no_padT">"Quick search" &darr;</p>
 						<p class="no_pad">&diams; Better for simple searches</p> 
 						<p class="no_pad">&diams; Best when code/label is <em>known</em></p>  
@@ -3962,7 +3962,18 @@ $.when(call1,call2).done(function(res1,res2){
 	console.log("rowDisplayIndices: ", rowDisplayIndices);
 	console.log("rowDisplayDropDown: ", rowDisplayDropDown);
 
+	// set detailed search text
+	let detailedSearchTextPre; // button text pre-selection
+	if (isTableSet1Or2) {
+		detailedSearchTextPre = 'Search: Detailed Occupations';
+	} else {
+		detailedSearchTextPre = "Search: " + displayedLabelPlural;
+	}
+
+	let detailedSearchTextPost = '(%d) ' + displayedLabelPlural + ' Selected'; // button text post-selection
 		
+	let detailedSearchTextHover = 'Click to Select Multiple/Many ' + displayedLabelPlural; // button text on-hover
+
 	// table defaults
 	$.extend($.fn.dataTable.defaults, {
 		ordering:  false
@@ -3981,7 +3992,7 @@ $.when(call1,call2).done(function(res1,res2){
 					$("#numLabelsLine").html(
 						displayedLabelPlural+ ': <span style="color:#ff7043;" class="label_count">' + labelCount + '</span>'
 					);
-					// $("#numLabelsLine").hide(); 
+					$("#quickSearchGuide").hide(); 
 				}
 				$("#View_Est").slideDown(4000);
 				// console.log("this:", this);
@@ -3996,14 +4007,14 @@ $.when(call1,call2).done(function(res1,res2){
 				searchPlaceholder: quickSearchPlaceholder,
 				searchPanes: {
 					clearMessage: 'Clear',
-					collapse: {0: displayedLabelPlural, _: '(%d) ' + displayedLabelPlural + ' Selected'},
+					collapse: {0: detailedSearchTextPre, _: detailedSearchTextPost},
 				}
 			},
 			dom: domDisplayOption,
 			buttons: [
 				{
 					extend: 'searchPanes',
-					titleAttr: 'Click to Select Multiple/Many ' + displayedLabelPlural,
+					titleAttr: detailedSearchTextHover,
 					className: 'acs_button search_pane',
 					config: {
 						dataLength: 100,
