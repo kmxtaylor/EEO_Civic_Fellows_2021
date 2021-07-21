@@ -19,7 +19,7 @@
     <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
 
 	<link rel="stylesheet" href="./index.css" type="text/css"/> <!-- for testing only -->
-	<link rel="stylesheet" href="/acs/www/data/eeo-data/eeo-tables-2018/css/index.css" type="text/css"/>
+	<link rel="stylesheet" href="/acs/www/data/eeo-data/eeo-tables-2018/css/2018_custom.css" type="text/css"/>
 
     <title>2014 - 2018 EEO Tables | American Community Survey | US Census Bureau 
     </title>
