@@ -3840,6 +3840,30 @@ content: "-";
                                     <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
                                         <option value="">Start typing a suppressed MSA's name...</option>
                                     </select>
+                        <br/>
+                        <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
+                          <option value="">Start typing a Table Type...</option>
+                          <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
+                          <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
+                          <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                          <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                          <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                          <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                          <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
+                          <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                          <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                          <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                          <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                          <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                          <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                          <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                          <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                          <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                          <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                          <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                          <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                          <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                        </select>
                         
                         <button id="getMsaCompsBtn" style="
                                       text-transform: uppercase;
@@ -3854,31 +3878,9 @@ content: "-";
                         </button>
                       </div>
 					          </div>
-                    <div class="row">
-                      <div class="col-sm">
-                        <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
-                            <option value="">Start typing a Table Type...</option>
-                            <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
-                            <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
-                            <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                            <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                            <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                            <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                            <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
-                            <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                            <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                            <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                            <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                            <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                            <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                            <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                            <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                            <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                            <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                            <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                            <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                            <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                        </select>
+                    <div class="form-group row">
+                      <div class="col-lg">
+                        
                       </div>
                     </div>
                     <div class="row">
@@ -4337,7 +4339,7 @@ content: "-";
               "<option value='"+msaCode+"' class='option'>"+msaName+"</option>"
             );
           });
-          $('#msaCombo').combobox({bsVersion:'3'});
+          $('.combobox').combobox({bsVersion:'3'});
           res("MSA Lookup Tool Drop Down Populated");
           // unsure what to return, will change later
         });
