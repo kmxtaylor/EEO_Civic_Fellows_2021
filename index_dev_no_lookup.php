@@ -4053,8 +4053,6 @@ display: block;;">
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
-  <script src="./index.js"> </script> <!-- for testing only -->
-  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/index.js"> </script>
   <script src="./geo_table_select.js"> </script> <!-- for testing only -->
   <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/geo_table_select.js"> </script>
   <script src="./accordions.js"> </script> <!-- for testing only -->
