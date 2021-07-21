@@ -4055,6 +4055,10 @@ display: block;;">
   </script>
   <script src="./index.js"> </script> <!-- for testing only -->
   <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/index.js"> </script>
+  <script src="./geo_table_select.js"> </script> <!-- for testing only -->
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/geo_table_select.js"> </script>
+  <script src="./accordions.js"> </script> <!-- for testing only -->
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/accordions.js"> </script>
   <script type="text/javascript">
     var referrer=document.referrer;
     if(referrer.indexOf('search-results.html')>0){
