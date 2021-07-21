@@ -1,31 +1,4 @@
-/* Census CSS */
-@media screen and (min-width: 1281px) {
-    #data-uscb-header-dropdown-links-4 {
-        left: 732px;
-    }
-}
-@media screen and (max-width: 1281px) {
-    #data-uscb-header-dropdown-links-4 {
-        left: 57.142857142857146%;
-    }
-}
-
-@media screen and (min-width: 1281px) {
-    #data-uscb-header-dropdown-links-5 {
-        left: 915px;
-    }
-}
-@media screen and (max-width: 1281px) {
-    #data-uscb-header-dropdown-links-5 {
-        left: 71.42857142857143%;
-    }
-}
-
-.content_area{
-    display:block;
-}
-
-/* Accordion CSS */
+/* CSS for accordions in index.php; 7/20/2021 */
 #tableSelectForm .accordion, .accordionControl {
     margin: 1rem 0;
 }
@@ -52,7 +25,6 @@
     cursor: pointer;
     text-align: left;
     outline: none;
-    /* font-family: "Roboto", sans-serif !important; */
     transition: 0.4s;
 }
 .openPanel, #tableSelectForm button:hover {
@@ -68,6 +40,5 @@
     padding: 0 18px;
     background-color: white;
     color: #333;
-    /* font-family: "Roboto", sans-serif !important; */
     overflow: hidden;
 }

@@ -37,6 +37,11 @@
         top.location = self.location
       }
     </script>
+	<style>
+		.content_area{
+			display:block;
+		}
+	</style>
     <link href="/etc.clientlibs/census/clientlibs/census-css/resources/print.css" rel="stylesheet" type="text/css" media="print"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="DC.title" property="og:title" content="2014—2018 EEO Tables" />
@@ -701,6 +706,18 @@
 			display: none;
 			max-width: 183px;
 			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 4, 7)'>
+			<style>
+				@media screen and (min-width: 1281px) {
+					#data-uscb-header-dropdown-links-4 {
+						left: 732px;
+					}
+				}
+				@media screen and (max-width: 1281px) {
+					#data-uscb-header-dropdown-links-4 {
+						left: 57.142857142857146%;
+					}
+				}
+			</style>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 100%;">
                 <a href="https://www.census.gov/newsroom.html" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 4);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-4')" tabindex="0">
                   Media (Newsroom)
@@ -720,6 +737,18 @@
 			display: none;
 			max-width: 183px;
 			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 5, 7)'>
+			<style>
+				@media screen and (min-width: 1281px) {
+					#data-uscb-header-dropdown-links-5 {
+						left: 915px;
+					}
+				}
+				@media screen and (max-width: 1281px) {
+					#data-uscb-header-dropdown-links-5 {
+						left: 71.42857142857143%;
+					}
+				}
+			</style>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 100%;">
                 <a href="https://www.census.gov/naics" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 5);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-5')" tabindex="0">
                   NAICS Lookup
