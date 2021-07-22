@@ -4420,7 +4420,8 @@ content: "-";
 
 
     function getTableViewUrl(tableType, componentName, geoId){ // may make this triggered by clicking a button after selecting a table (for all results) and apply to hyperlinks for all of the results
-      let tableViewUrl = '/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?geotype=county&';
+      var hostname = window.location.origin;
+      let tableViewUrl = hostname + '/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?geotype=county&';
       let geoId = geoId.toLowerCase(); // us needs to be lowercase
       componentName = encodeURIComponent(componentName);
       tableViewUrl += `county=${geoId}&filetype=${tabletype}&geoName=${componentName}`;
