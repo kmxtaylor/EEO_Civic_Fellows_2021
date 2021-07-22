@@ -4418,23 +4418,47 @@ content: "-";
                               );
     // onclick fetch MSA Comps
 
+    function getGeoId(tableType, componentName){
+      let geoId = null;
+      let tableSetNum = tableType.slice(3,4);
+      let countiesUrl = `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}`;
+      if (tableSetNum === '1') {
+        tableSetNum += 'w'; // 1r doesn't have counties
+      }
+      countiesUrl += `/t${tableSetNum}_county.json`;
+      $.getJSON(countiesUrl, function (data) {
+        // $.each(data, function (i, obj) { // I don't think this breaks early
+        //   if ( obj[1] === componentName ) {
+        //     geoId = obj[0];
+        //   }
+        // });
 
-    function getTableViewUrl(tableType, componentName, geoId){ // may make this triggered by clicking a button after selecting a table (for all results) and apply to hyperlinks for all of the results
+        let countyObj = data.find(countyObj => { return countyObj[1] === componentName; })
+        console.log('found countyObj:');
+        console.log(countyObj);
+        geoId = countyObj[1];
+      }).always(function() { // maintains value of geoId
+        return geoId;
+      });
+    }
+
+    function getTableViewUrl(tableType, componentName){ // may make this triggered by clicking a button after selecting a table (for all results) and apply to hyperlinks for all of the results
       var hostname = window.location.origin;
       let tableViewUrl = hostname + '/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?geotype=county&';
-      let geoId = geoId.toLowerCase(); // us needs to be lowercase
+      // let geoId = geoId.toLowerCase(); // us needs to be lowercase
+      let geoId = getGeoId(tableType, componentName);
       componentName = encodeURIComponent(componentName);
       tableViewUrl += `county=${geoId}&filetype=${tabletype}&geoName=${componentName}`;
       console.log(tableViewUrl);
-      return tableViewUrl; 
+      return tableViewUrl;
     } // getTableViewUrl()
 
     $('#msaTableSelectBtn').on('click', function() { // change to match actual btn id
       let tableSelected = $('[name="msaTableSelect"]').val().trim();
       $('#msaResultsList .singleResult').each(function(i, el) {
         let componentName = $(el).text();
-        let componentGeoId = $(el).getAttribute(geoId);
-        let tableViewUrl = getTableViewUrl(tableSelected, componentName, componentGeoId);
+        // let componentGeoId = $(el).getAttribute(geoId);
+        let tableViewUrl = getTableViewUrl(tableSelected, componentName);
         // set tableViewUrl as href for link for this result
         // maybe use slideUp() / slideDown() to indicate that the link changed
       });
