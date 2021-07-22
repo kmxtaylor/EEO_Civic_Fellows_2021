@@ -3009,19 +3009,6 @@ display: block;;">
                             <button type="button" id="closeAccordions">Hide All
                             </button>	
                           </div>						
-                          <!-- </div> -->
-                          <!-- <div class="acs_content row"> -->
-                          <!-- from orionicons.css -->
-                          <!-- <style type="text/css">
-.roll-down::before {
-/* content: "\11aaa"; */
-content: "+";
-}
-.roll-up::before {
-content: "\11ab0";
-content: "-";
-}
-</style> -->
                           <!-- Table Set 1 -->
                           <div class="accordion">
                             <button type="button" class="accordionHeader">
@@ -3270,8 +3257,8 @@ content: "-";
                           </h4>
                         </div>	
                         <div class="col-xs-12 col-md-5">
-                          <h4 class="acs_content">
-                            <!-- Release the tables for a new selection -->
+                          <!-- Release the tables for a new selection -->
+                          <h4>
                             <span>
                               <a id="refreshTableSelect" style="display:none;" href='' onclick="return false;">Change Table Selection
                               </a>
