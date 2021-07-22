@@ -4546,16 +4546,16 @@ content: "-";
           // Katie: I guessed at the URLs for those below based on the established pattern
         }
         else if (isTableSet3){
-          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t3_msa.json", "");
+          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_msa.json", "");
         }
         else if (isTableSet4){
-          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t4_msa.json", "");
+          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_msa.json", "");
         }
         else if (isTableSet5){
-          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t5_msa.json", "");
+          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_msa.json", "");
         }
         else if (isTableSet6){
-          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t6_msa.json", "");
+          loadMSA('#firstLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_msa.json", "");
         }
         $("#viewFirstLevelGeo").slideDown();
       }
