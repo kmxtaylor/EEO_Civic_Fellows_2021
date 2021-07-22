@@ -4426,6 +4426,7 @@ content: "-";
         tableSetNum += 'w'; // 1r doesn't have counties
       }
       countiesUrl += `/t${tableSetNum}_county.json`;
+      console.log(`getting json from ${countiesUrl}`);
       $.getJSON(countiesUrl, function (data) {
         // $.each(data, function (i, obj) { // I don't think this breaks early
         //   if ( obj[1] === componentName ) {
@@ -4453,7 +4454,7 @@ content: "-";
       return tableViewUrl;
     } // getTableViewUrl()
 
-    $('#msaTableSelectBtn').on('click', function() { // change to match actual btn id
+    $('[name="msaTableSelect"]').on('change', function() {
       let tableSelected = $('[name="msaTableSelect"]').val().trim();
       $('#msaResultsList .singleResult').each(function(i, el) {
         let componentName = $(el).text();
