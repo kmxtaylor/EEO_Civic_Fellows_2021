@@ -4421,7 +4421,7 @@ content: "-";
     // document.ready
     var eeo_filetype = "";
     var eeo_filetypeL
-    $("input[name='filegroup2018']").change(function () {
+    $("input[name='filegroup2018']").change(function () { // on table selected
       eeo_filetypeL = $("input:radio[name='filegroup2018']:checked").attr('id');
       eeo_filetype = $("input:radio[name='filegroup2018']:checked").attr('value');
       if ((eeo_filetype === "all1r"))
@@ -4448,8 +4448,8 @@ content: "-";
                                            );
     var fileSubstr = eeo_filetype.substring(3,4);
     console.log(fileSubstr);
-    $("#refreshTableSelect").click(function () {
-      $(".file_typeL").text(''); // clear "Selected Table: " displayed
+    $("#refreshTableSelect").click(function () { // on click: Change Table Selection
+      $(".file_typeL").html('<span style="font-style: italic; color: grey; text-transform: lowercase;">pending new selection</span>'); // "Selected Table: pending new selection" displayed
       $("input[name='filegroup2018']").prop('checked',false);
       $('#tableSelectForm').removeClass('disabled');
       $('#Step2Geo').addClass('disabled');
