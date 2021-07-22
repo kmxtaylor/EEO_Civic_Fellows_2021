@@ -3273,7 +3273,7 @@ content: "-";
                           <h4 class="acs_content">
                             <!-- Release the tables for a new selection -->
                             <span>
-                              <a id="refreshTableSelect" style="display:none; color:#FF7043;">Change Table Selection
+                              <a id="refreshTableSelect" style="display:none;" href='' onclick="return false;">Change Table Selection
                               </a>
                             </span>
                           </h4>
@@ -4449,6 +4449,7 @@ content: "-";
     var fileSubstr = eeo_filetype.substring(3,4);
     console.log(fileSubstr);
     $("#refreshTableSelect").click(function () {
+      $(".file_typeL").text(''); // clear "Selected Table: " displayed
       $("input[name='filegroup2018']").prop('checked',false);
       $('#tableSelectForm').removeClass('disabled');
       $('#Step2Geo').addClass('disabled');
