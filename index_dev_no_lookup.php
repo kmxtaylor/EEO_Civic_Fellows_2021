@@ -3261,12 +3261,15 @@ display: block;;">
                         </div>	
                         <div class="col-xs-12 col-md-5">
                           <!-- Release the tables for a new selection -->
-                          <h4>
+                          <!-- Button version -->
+                          <button id="refreshTableSelect" class='uscb-primary-button acs_button1 acs_content' style="display:none;" onclick="return false;">Change Table Selection</button>
+                          <!-- Text version -->
+                          <!-- <h4>
                             <span>
                               <a id="refreshTableSelect" style="display:none;" href='' onclick="return false;">Change Table Selection
                               </a>
                             </span>
-                          </h4>
+                          </h4> -->
                         </div>
                       </div>
                     </div>
