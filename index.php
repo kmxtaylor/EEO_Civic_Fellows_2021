@@ -11,23 +11,16 @@
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/core-overrides.css" type="text/css"/>
-    <!-- <link rel="stylesheet" href="https://unpkg.com/select-combobox/dist/combobox.css"> -->
+    <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
+    <link rel="icon" sizes="256x256" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-256x256.png">
+    <link rel="shortcut icon" sizes="32x32" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/apple-touch-icon-180x180.png">     
+    <meta name="msapplication-square150x150logo" content="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/mstile-150x150.png">
+    <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
 
     <link href="bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
     <link href="/acs/www/data/eeo-data/eeo-tables-2018/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
 
-
-    <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
-    <link rel="icon" sizes="256x256" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-256x256.png">
-    
-    <link rel="shortcut icon" sizes="32x32" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/favicon.ico">
-    
-    <link rel="apple-touch-icon" sizes="180x180" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/apple-touch-icon-180x180.png">     
-    
-    <meta name="msapplication-square150x150logo" content="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/mstile-150x150.png">
-    
-    <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
-    
     <title>2014 - 2018 EEO Tables | American Community Survey | US Census Bureau 
     </title>
     <style id="antiClickjack">
@@ -469,7 +462,7 @@
                 <div id="data-uscb-header-search-typeahead" class="uscb-header-search-typeahead" style="display: none;" data-apiurl="https://www.census.gov/search-results/_http_//search-soa.asd.census.gov/soa-infra/services/searchServices/CensusSearchFlow/TypeAheadHTTPService">
                 </div>
                 <script type="text/javascript">
-                  <!--/* Native onReady */-->
+                  /* Native onReady */
                     document.addEventListener("DOMContentLoaded", function(event) {
                     CensusSearchTypeahead.initSearchTypeahead("https://www.census.gov/suggest?operationName=httpsearch&query=", "https://www.census.gov/search-results.html?searchType=web&cssp=SERP&q=", "false");
                   }
@@ -538,9 +531,7 @@
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-0" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15 uscb-padding-LR-40 uscb-hide-md" style="
-display: none;
-max-width: ;
-width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 0, 7)'>
+			display: none;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 0, 7)'>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 25%;">
                 <a href="https://www.census.gov/topics/population/age-and-sex.html" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 0);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-0')" tabindex="0">
                   Age and Sex
@@ -611,9 +602,7 @@ width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-h
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-1" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15 uscb-padding-LR-40 uscb-hide-md" style="
-display: none;
-max-width: ;
-width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 1, 7)'>
+			display: none;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 1, 7)'>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 25%;">
                 <a href="https://www.census.gov/data" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 1);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-1')" tabindex="0">
                   Explore Data Main
@@ -655,9 +644,7 @@ width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-h
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-2" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15 uscb-padding-LR-40 uscb-hide-md" style="
-display: none;
-max-width: ;
-width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 2, 7)'>
+			display: none;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 2, 7)'>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 25%;">
                 <a href="https://www.census.gov/library.html" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 2);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-2')" tabindex="0">
                   Library Main
@@ -691,9 +678,7 @@ width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-h
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-3" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15 uscb-padding-LR-40 uscb-hide-md" style="
-display: none;
-max-width: ;
-width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 3, 7)'>
+			display: none;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 3, 7)'>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 25%;">
                 <a href="https://www.census.gov/programs-surveys/are-you-in-a-survey.html" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 3);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-3')" tabindex="0">
                   Help for Survey Participants
@@ -764,9 +749,9 @@ width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-h
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-4" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15  uscb-hide-md" style="
-display: none;
-max-width: 183px;
-width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 4, 7)'>
+			display: none;
+			max-width: 183px;
+			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 4, 7)'>
               <style>
                 @media screen and (min-width: 1281px) {
                   #data-uscb-header-dropdown-links-4 {
@@ -795,9 +780,9 @@ width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-5" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15  uscb-hide-md" style="
-display: none;
-max-width: 183px;
-width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 5, 7)'>
+			display: none;
+			max-width: 183px;
+			width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 5, 7)'>
               <style>
                 @media screen and (min-width: 1281px) {
                   #data-uscb-header-dropdown-links-5 {
@@ -823,9 +808,7 @@ width: 14.285714285714286%;" onmouseleave='CensusUniversalHeader.onActivateMenu(
               </div>
             </div>
             <div id="data-uscb-header-dropdown-links-6" class="uscb-header-dropdown-links uscb-layout-row uscb-padding-TB-10 uscb-padding-LR-15 uscb-padding-LR-40 uscb-hide-md" style="
-display: none;
-max-width: ;
-width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 6, 7)'>
+			display: none;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-header-dropdown-links-", "data-uscb-header-nav-item-", "data-uscb-header-nav-item-link-", 6, 7)'>
               <div class="uscb-layout-column uscb-flex-row uscb-padding-LR-0" style="flex-basis: 25%;">
                 <a href="https://www.census.gov/about-us" onclick="linkClick(this, 'Universal Header Component'); navigationLinkClick(this, 'Universal Header', 'Top', 6);" class="data-uscb-header-dropdown-link-item uscb-header-dropdown-link-item uscb-padding-TB-10" onkeydown="CensusUniversalHeader.onKeyChildFirst(event, 'data-uscb-header-nav-item-link-6')" tabindex="0">
                   About the Bureau
@@ -1214,10 +1197,10 @@ width: ;" onmouseleave='CensusUniversalHeader.onActivateMenu(false, "data-uscb-h
       <div class="wrapper wrapperMarginTop">
         <div id="sectionTitleRow" class="belowHeader row no-gutter uscb-margin-B-lg-0">
           <!-- <div class="col-xs-12 uscb-margin-T-5"  data-sly-use.stitle="com.census.common.ui.page.PageBase">
-<span data-sly-unwrap data-sly-resource="breadcrumb"></span>
-</div> -->
-          <!-- Adding -1px top margin to hide empty banner so a white line doesn't show.
-Need to keep min-height at 1px because IE doesn't fully support flexbox and requires a nonzero min-height to function. -->
+			<span data-sly-unwrap data-sly-resource="breadcrumb"></span>
+			</div> -->
+					<!-- Adding -1px top margin to hide empty banner so a white line doesn't show.
+			Need to keep min-height at 1px because IE doesn't fully support flexbox and requires a nonzero min-height to function. -->
           <div id="infoBannerSection" class="col-xs-12 uscb-padding-LR-0" style="margin-top: -1px !important;">
             <script type="text/javascript">
               function getBanners() {
@@ -1325,18 +1308,18 @@ Need to keep min-height at 1px because IE doesn't fully support flexbox and requ
           </div>
           <!-- <sly data-sly-resource="sectiontitle" ></sly> -->
           <!-- <div data-sly-test="false" data-sly-unwrap>
-<div id="mobileLeftNavButton" class="col-xs-3 hidden-lg">
-<div class="refineButtonContainer">
-<button onclick="toggleFacetSelection();" class="btn btn-primary btnRefine uscb-bg-primary uscb-border-0 hidden-xs hidden-sm" data-toggle="collapse" data-target="-leftColumn">Filter</button>
-<button class="btn btn-primary btnRefine uscb-bg-primary uscb-border-0 visible-xs visible-sm hidden-md hidden-lg" onclick="openMobileFacetSelection();">Filter</button>
-</div>
-</div>
-</div> -->
-          <!-- <div class="hidden-xs hidden-sm hidden-md uscb-padding-R-0">
-<div id="desktopLanguageSelectorContainer" class="pull-right uscb-margin-T--20">
-<span data-sly-unwrap data-sly-resource="languageselector"></span>
-</div>
-</div> -->
+			<div id="mobileLeftNavButton" class="col-xs-3 hidden-lg">
+			<div class="refineButtonContainer">
+			<button onclick="toggleFacetSelection();" class="btn btn-primary btnRefine uscb-bg-primary uscb-border-0 hidden-xs hidden-sm" data-toggle="collapse" data-target="-leftColumn">Filter</button>
+			<button class="btn btn-primary btnRefine uscb-bg-primary uscb-border-0 visible-xs visible-sm hidden-md hidden-lg" onclick="openMobileFacetSelection();">Filter</button>
+			</div>
+			</div>
+			</div> -->
+					<!-- <div class="hidden-xs hidden-sm hidden-md uscb-padding-R-0">
+			<div id="desktopLanguageSelectorContainer" class="pull-right uscb-margin-T--20">
+			<span data-sly-unwrap data-sly-resource="languageselector"></span>
+			</div>
+			</div> -->
           <script type="text/javascript">
             $(document).ready(function(){
               $(document).click(function(event) {
@@ -1435,12 +1418,12 @@ Need to keep min-height at 1px because IE doesn't fully support flexbox and requ
             </div>
             <!-- End breadcrumbs customization -->
             <!--comment out language selector
-<div class="uscb-padding-LR-0 uscb-margin-L-auto pull-right">
-<div class="languageselector list parbase"><div>
-</div>
-</div>
-</div>
--->
+			<div class="uscb-padding-LR-0 uscb-margin-L-auto pull-right">
+			<div class="languageselector list parbase"><div>
+			</div>
+			</div>
+			</div>
+			-->
           </div>
         </div>  
         <!-- end of sectionRowTitle?-->
@@ -1580,8 +1563,7 @@ Need to keep min-height at 1px because IE doesn't fully support flexbox and requ
                       </ul>
                       <ul class="uscb-filter-list display: none;" >
                         <li style="margin-left: 0px;" class="uscb-filter-parent ">
-                          <a href="/programs-surveys/acs/data/data-tables-and-tools.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: none !important;" >
+                          <a href="/programs-surveys/acs/data/data-tables-and-tools.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: none !important;" >
                             Data Tables &amp; Tools
                           </a>
                           <ul style="z-index: 32; display: none;">
@@ -1630,8 +1612,7 @@ display: none !important;" >
                           </ul>
                         </li>
                         <li style="margin-left: 0px;" class="uscb-filter-parent ">
-                          <a href="/programs-surveys/acs/data/data-via-ftp.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: none !important;">
+                          <a href="/programs-surveys/acs/data/data-via-ftp.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: none !important;">
                             Data via FTP
                           </a>
                           <ul style="z-index: 32; display: none;">
@@ -1656,8 +1637,7 @@ display: none !important;">
                           </ul>
                         </li>
                         <li style="margin-left: 0px;" class="uscb-filter-parent ">
-                          <a href="/programs-surveys/acs/data/summary-file.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: none !important;">
+                          <a href="/programs-surveys/acs/data/summary-file.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: none !important;">
                             Summary File Data
                           </a>
                         </li>
@@ -2280,8 +2260,7 @@ display: none !important;">
                           </ul>
                           <ul class="uscb-filter-list">
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/data-tables-and-tools.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/data-tables-and-tools.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 Data Tables &amp; Tools
                               </a>
                               <ul style="z-index: 32; display: none;">
@@ -2330,8 +2309,7 @@ display: block;;">
                               </ul>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/data-via-ftp.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/data-via-ftp.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 Data via FTP
                               </a>
                               <ul style="z-index: 32; display: none;">
@@ -2356,20 +2334,17 @@ display: block;;">
                               </ul>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/summary-file.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/summary-file.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 Summary File Data
                               </a>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/pums.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/pums.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 PUMS Data
                               </a>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/variance-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/variance-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 Variance Replicate Tables
                               </a>
                             </li>
@@ -2380,16 +2355,14 @@ display: block;;">
                               </a>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/acs/www/data/eeo-data/" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary uscb-selected-filter" tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/acs/www/data/eeo-data/" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary uscb-selected-filter" tabindex="0" style="font-size: 1rem; display: block;;">
                                 <span class="uscb-filter-parent uscb-color-primary">
                                   Equal Employment Opportunity (EEO) Data
                                 </span>
                               </a>
                             </li>
                             <li style="height: auto" class=" uscb-filter-parent uscb-padding-0 uscb-border-0">
-                              <a href="/programs-surveys/acs/data/custom-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem;
-display: block;;">
+                              <a href="/programs-surveys/acs/data/custom-tables.html" onclick="linkClick(this, 'Left Nav Component'); leftNavLinkClick(this);" class="uscb-color-primary " tabindex="0" style="font-size: 1rem; display: block;;">
                                 Custom Tables
                               </a>
                               <ul style="z-index: 32; display: none;">
@@ -2994,8 +2967,8 @@ display: block;;">
                 <input type='hidden' id='current_page'/> 
                 <input type='hidden' id='show_per_page'/>
                 <div id="">
-                  <div style="color: " class="uscb-text-image-text uscb-text-media-text uscb-padding-LR-0">
-                    <p class="uscb-body-text" style="color: ;">
+                  <div class="uscb-text-image-text uscb-text-media-text uscb-padding-LR-0">
+                    <p class="uscb-body-text">
                     </p>
                     <script>
                       $(document).ready( function() {
@@ -3017,6 +2990,9 @@ display: block;;">
                     </script>
                   </div>
                 </div>
+				<div>
+					<h5 style='font-size:80%; width: auto;'>Supported Browsers: Firefox, Chrome, and Microsoft Edge</h5>
+				</div>
                 <div class="uscb-margin-B-30">
                 </div>
                 <div id="listItems">
@@ -3027,7 +3003,7 @@ display: block;;">
                         <h4 class="acs_content">
                           Step 1.  &#8212; Select a Table
                         </h4>
-                        <p style="font-size:80%;">Note: Availability of geographies depends upon the file selected.  
+                        <p style="font-size:80%;">Note: Availability of geographies depends upon the table selected.  
                         </p>
                       </div>
                     </div>
@@ -3040,19 +3016,6 @@ display: block;;">
                             <button type="button" id="closeAccordions">Hide All
                             </button>	
                           </div>						
-                          <!-- </div> -->
-                          <!-- <div class="acs_content row"> -->
-                          <!-- from orionicons.css -->
-                          <!-- <style type="text/css">
-.roll-down::before {
-/* content: "\11aaa"; */
-content: "+";
-}
-.roll-up::before {
-content: "\11ab0";
-content: "-";
-}
-</style> -->
                           <!-- Table Set 1 -->
                           <div class="accordion">
                             <button type="button" class="accordionHeader">
@@ -3301,10 +3264,10 @@ content: "-";
                           </h4>
                         </div>	
                         <div class="col-xs-12 col-md-5">
-                          <h4 class="acs_content">
-                            <!-- Release the tables for a new selection -->
+                          <!-- Release the tables for a new selection -->
+                          <h4>
                             <span>
-                              <a id="refreshTableSelect" style="display:none; color:#FF7043;">Change Table Selection
+                              <a id="refreshTableSelect" style="display:none;" href='' onclick="return false;">Change Table Selection
                               </a>
                             </span>
                           </h4>
@@ -3739,8 +3702,7 @@ content: "-";
                       <div id="viewResults">
                         <div class="row">
                           <div class="col-md-8 col-xs-12">
-                            <button id="get_EEO_data" style="text-transform:uppercase; color: #fff; font-weight: 700;
-                                                             font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" title="Table Opens in New Tab or Window" type="button">Get EEO Table
+                            <button id="get_EEO_data" style="text-transform:uppercase; color: #fff; font-weight: 700; font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" title="Table Opens in New Tab or Window" type="button">Get EEO Table
                             </button>
                           </div>
                           <div class="col-md-8">
@@ -3815,85 +3777,87 @@ content: "-";
                     <a href="https://www2.census.gov/programs-surveys/demo/guidance/eeo/geographic-overview-eeo-5-year-5-12-2021.xlsx">Geographic Overview of 2014-2018 EEO Tabulation
                     </a>
                   </p>
-                  <p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are not included in the EEO table sets because to identify 
+                  <p class="acs_eeo">Some geographies are not available due to population thresholds for select sub-state geographies.   In addition, a subset of metropolitan areas (CBSA's) and places are are not included in the EEO table sets because to identify 
                     them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.
                   </p>
                   <p class="acs_eeo_L_30">
                     <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places
-                    </a>
+                    </a>  
                   </p>
                   <p class="acs_eeo_L_30">
                     <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)
-                    </a>
+                    </a> 
                   </p>
+
                   <h3>Suppressed MSA Lookup Tool
                   </h3>
                   <p class="acs_eeo">
                     New for MSAs -- Search County Components for Suppressed MSAs
                   </p>
-                  
-                <div id="MSALookupTool" style="margin-bottom:20px;">
-                  <form class="form">
-                    <div class="form-group row">
-                      <div class="col-sm-8">	
-                        <label for="msaCombo" style='margin-bottom: 20px;'>Select a suppressed MSA:</label>
-                                    <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
-                                        <option value="">Start typing a suppressed MSA's name...</option>
-                                    </select>
-                        <br/>
-                        <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
-                          <option value="">Start typing a Table Type...</option>
-                          <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
-                          <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
-                          <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                          <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                          <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                          <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                          <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
-                          <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                          <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                          <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                          <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                          <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                          <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                          <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                          <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                          <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                          <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
-                          <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
-                          <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
-                          <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
-                        </select>
-                        
-                        <button id="getMsaCompsBtn" style="
-                                      text-transform: uppercase;
-                                      color: #fff;
-                                      font-weight: 700;
-                                      font-family: Roboto Condensed, sans-serif;
-                                      margin-top: 20px;
-                                      "
-                                      class="uscb-primary-button acs_content"
-                                      type="button">
-                                      Get MSA Components
-                        </button>
-                      </div>
-					          </div>
-                    <div class="form-group row">
-                      <div class="col-lg">
-                        
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-sm-12">
-                      <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
-                      <div id="msaResultsList"></div>
-                      </div>
-                    </div>
-					  
-                  </form>
-                </div>
 
-                  <h3>Changes to Occupations</h3>
+                  <div id="MSALookupTool" style="margin-bottom:20px;">
+                    <form class="form">
+                      <div class="form-group row">
+                        <div class="col-sm-8">	
+                          <label for="msaCombo" style='margin-bottom: 20px;'>Select a suppressed MSA:</label>
+                                      <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                                          <option value="">Start typing a suppressed MSA's name...</option>
+                                      </select>
+                          <br/>
+                          <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
+                            <option value="">Start typing a Table Type...</option>
+                            <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
+                            <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
+                            <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
+                            <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                          </select>
+                          
+                          <button id="getMsaCompsBtn" style="
+                                        text-transform: uppercase;
+                                        color: #fff;
+                                        font-weight: 700;
+                                        font-family: Roboto Condensed, sans-serif;
+                                        margin-top: 20px;
+                                        "
+                                        class="uscb-primary-button acs_content"
+                                        type="button">
+                                        Get MSA Components
+                          </button>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg">
+                          
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                        <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
+                        <div id="msaResultsList"></div>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+
+                  <h3>Changes to Occupations
+                  </h3>
                   <p class="acs_eeo" >The tools and systems used to measure and describe one’s occupation are periodically updated. 
                     The 2014-2018 EEO Tabulation Occupation code list is an aggregated version of the 2018 ACS PUMS Occupation Code 
                     list and is not directly comparable to older versions of the EEO Tabulation due to changes in occupation classifications. 
@@ -4209,10 +4173,14 @@ content: "-";
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
-  
+
+  <!-- lookup tool related js -->
   <script src="bootstrap-combobox.js" type="text/javascript"></script>
   <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/bootstrap-combobox.js" type="text/javascript"></script>
-  
+
+  <script src="lookup.js" type="text/javascript"></script>
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/lookup.js" type="text/javascript"></script>
+
   <script> 
     // Accordion JS
     const acc = document.getElementsByClassName("accordionHeader");
@@ -4246,13 +4214,13 @@ content: "-";
                              );
     }
     // Accordion JS: close all & open all buttons
-    // console.log("here i am");
+    console.log("here i am");
     let closeAcc = document.getElementById("closeAccordions");
     closeAcc.addEventListener("click", function() {
       const accContent = document.getElementsByClassName("accordionContent");
       for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "none";
-        // console.log("hiding ", accContent[i]);
+        console.log("hiding ", accContent[i]);
       }
     }
                              );
@@ -4261,7 +4229,7 @@ content: "-";
       const accContent = document.getElementsByClassName("accordionContent");
       for (var i = 0; i < accContent.length; i++) {
         accContent[i].style.display = "block";
-        // console.log("showing ", accContent[i]);
+        console.log("showing ", accContent[i]);
       }
     }
                             );
@@ -4324,127 +4292,9 @@ content: "-";
     $("#get_EEO_data").click(function() {
       // assumes element with id='button'
       openEEOTable();
-    });
+    }
+                            );
     // onclick get_EEO_data	
-	
-	/** Populate MSA Lookup Dropdown */
-    async function populateLookupDropDown() {
-      let lookupPromise = new Promise(function(res, rej) {
-        let countyEquivs = $.getJSON('suppressed-msas-100k.json', function(json) {
-          json.forEach( (obj) => {
-            let msaCode = obj['CBSA code'];
-            let msaName = obj['CBSA description'].trim();
-            // console.log("trimmed: " + msaName);
-            $("#msaCombo").append(
-              "<option value='"+msaCode+"' class='option'>"+msaName+"</option>"
-            );
-          });
-          $('.combobox').combobox({bsVersion:'3'});
-          res("MSA Lookup Tool Drop Down Populated");
-          // unsure what to return, will change later
-        });
-        // rej();
-      });
-      await lookupPromise;
-    }
-	
-	$(document).ready(function() {
-      populateLookupDropDown();
-    });
-	
-    /** Display MSA Lookup Results */
-    function displayLookupResults(components) {
-      // console.log(components);
-
-      if ($("#msaResultLine").css('display') === 'none') {
-        // alert("sliding down msa results");
-        $("#msaResultLine").slideDown();
-      }
-      $("#msaResultsList").empty();
-      // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
-
-      if (components === undefined || components.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
-        $("#msaResultsList").append('<p>No results found for that match!</p>');
-		//console.log(`No results found for ${}`);
-        // $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
-      } else {
-        // display resulting counties
-        $("#msaResultsList").empty();
-
-        /** display option 2 */
-        components.forEach((comp) => {
-        
-          // check if comp is in list of suppressed counties
-          let countyIsAvailable = true;
-          $.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
-
-          countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
-
-          }).always( function (data) { // chaining .always() maintains countyIsAvailable
-            // console.log(`countyIsAvailable === ${countyIsAvailable}`);
-            let compHtml;
-            if (countyIsAvailable) {
-              compHtml = $('<p class="singleResult">'+comp+'</p><hr>');
-              $(compHtml).css({color: '#112e51'}); // navy blue
-              // console.log("html: " + compHtml);
-            } else {
-              compHtml = $('<p class="singleResult">'+comp+' (suppressed)</p><hr>');
-              $(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
-            }
-            $(compHtml).css({display: 'none'});
-
-            $("#msaResultsList").append(compHtml);
-            $(compHtml).slideDown();
-            countyIsAvailable = true;
-          });
-        });
-      }
-      
-    }
-
-    async function fetchMSAComps(msaCode) {
-      //process the json
-      msaCode = msaCode.replace(" Metro Area", "");
-      let msaPromise = new Promise(function(res, rej) {
-        let countyEquivs = $.getJSON('msa-components.json', function(json) {
-          // console.log(json);
-          //filter to include only designated MSA 
-          let componentsArr = json[msaCode] || null;
-          // console.log(componentsArr);
-          /** return all the county components */
-          let countyEquivArr = [];
-          if (componentsArr != null) {
-            componentsArr.forEach((comp) => {
-              let countyName = comp['County']['County Equivalent'];
-              let stateName = comp['State Name'];
-              countyEquivArr.push(`${countyName}, ${stateName}`);
-            });
-            // console.log('The components in msa #', msaCode, 'are', countyEquivArr);
-          }
-          else {
-            alert("No matching MSAs found.");
-            // unsure if this is the best way of handling this
-          }
-          res(countyEquivArr);
-        }
-                                    );
-      }
-                                  );
-      let resMSA = await msaPromise;
-      displayLookupResults(resMSA);
-    }
-    $("#getMsaCompsBtn").click(function() {
-      let msaCode = $('[name="msaCombo"]').val().trim();
-      console.log("submitting: " + msaCode);
-      if (msaCode != null && msaCode != '') {
-        fetchMSAComps(msaCode);
-      }
-      else {
-        alert("No option selected. Please select an option.");
-      }
-    }
-                              );
-    // onclick fetch MSA Comps
     // var fileSubstr = eeo_filetype.substring(3,4);
     //console.log(fileSubstr);
     function loadStates(selobj, url, extra) {
@@ -4641,7 +4491,7 @@ content: "-";
     // document.ready
     var eeo_filetype = "";
     var eeo_filetypeL
-    $("input[name='filegroup2018']").change(function () {
+    $("input[name='filegroup2018']").change(function () { // on table selected
       eeo_filetypeL = $("input:radio[name='filegroup2018']:checked").attr('id');
       eeo_filetype = $("input:radio[name='filegroup2018']:checked").attr('value');
       if ((eeo_filetype === "all1r"))
@@ -4668,7 +4518,8 @@ content: "-";
                                            );
     var fileSubstr = eeo_filetype.substring(3,4);
     console.log(fileSubstr);
-    $("#refreshTableSelect").click(function () {
+    $("#refreshTableSelect").click(function () { // on click: Change Table Selection
+      $(".file_typeL").html('<span style="font-style: italic; color: grey; text-transform: lowercase;">pending new selection</span>'); // "Selected Table: pending new selection" displayed
       $("input[name='filegroup2018']").prop('checked',false);
       $('#tableSelectForm').removeClass('disabled');
       $('#Step2Geo').addClass('disabled');
@@ -4781,15 +4632,14 @@ content: "-";
       }
       if ( (geo_RadioValue) === "place" ) {
         $("#viewSecondLevelGeo").slideUp();
-        if (isTableSet1)	{
+        if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
           $("#viewFirstLevelGeoAlt2").slideDown();
           $("#viewFirstLevelGeo").slideUp();
           $("#viewFirstLevelGeoAlt").slideUp();
           $("#viewFirstLevelGeoAlt3").slideUp();
           //empty?
         }
-        else if (isTableSet2 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6){
-          // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
+        else if (isTableSet2){
           $("#viewFirstLevelGeoAlt").slideDown();
           $("#viewFirstLevelGeo").slideUp();
           $("#viewFirstLevelGeoAlt2").slideUp();
@@ -4798,7 +4648,7 @@ content: "-";
       }
       if ( (geo_RadioValue) === "county" ) {
         $("#viewSecondLevelGeo").slideUp();
-        if (eeo_filetype === "all1w")	{
+        if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
           loadStates('#firstLevelGeoList', url_state, " to begin");
           $("#viewFirstLevelGeo").slideDown();
           $("#viewFirstLevelGeoAlt2").slideUp();
@@ -4806,8 +4656,7 @@ content: "-";
           $("#viewFirstLevelGeoAlt3").slideUp();
           //empty?
         }
-        else if ( isTableSet2 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6 ){
-          // unsure which Geo dropdown the other tablesets should use: isTableSet4 || isTableSet5 || isTableSet6
+        else if ( isTableSet2 ){
           $("#viewFirstLevelGeoAlt3").slideDown();
           $("#viewFirstLevelGeo").slideUp();
           $("#viewFirstLevelGeoAlt2").slideUp();
@@ -4851,22 +4700,22 @@ content: "-";
           loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_place.json", stVal.substring(7));
         }
         else if ( isTableSet3 ) {
-          stVal = $("#firstLevelGeoListAlt").val();
+          stVal = $("#firstLevelGeoListAlt2").val();
           console.log("in places 3s" + stVal);
           loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_place.json", stVal.substring(7));
         }
         else if ( isTableSet4 ) {
-          stVal = $("#firstLevelGeoListAlt").val();
+          stVal = $("#firstLevelGeoListAlt2").val();
           console.log("in places 4s" + stVal);
           loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_place.json", stVal.substring(7));
         }
         else if ( isTableSet5 ) {
-          stVal = $("#firstLevelGeoListAlt").val();
+          stVal = $("#firstLevelGeoListAlt2").val();
           console.log("in places 5s" + stVal);
           loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_place.json", stVal.substring(7));
         }
         else if ( isTableSet6 ) {
-          stVal = $("#firstLevelGeoListAlt").val();
+          stVal = $("#firstLevelGeoListAlt2").val();
           console.log("in places 6s" + stVal);
           loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
         }
@@ -4887,22 +4736,22 @@ content: "-";
           loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_county.json", stVal.substring(7));
         }
         else if ( isTableSet3 ) {
-          stVal = $("#firstLevelGeoListAlt3").val();
+          stVal = $("#firstLevelGeoList").val();
           console.log("in county 3s" + stVal);
           loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_county.json", stVal.substring(7));
         }
         else if ( isTableSet4 ) {
-          stVal = $("#firstLevelGeoListAlt3").val();
+          stVal = $("#firstLevelGeoList").val();
           console.log("in county 4s" + stVal);
           loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_county.json", stVal.substring(7));
         }
         else if ( isTableSet5 ) {
-          stVal = $("#firstLevelGeoListAlt3").val();
+          stVal = $("#firstLevelGeoList").val();
           console.log("in county 5s" + stVal);
           loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_county.json", stVal.substring(7));
         }
         else if ( isTableSet6 ) {
-          stVal = $("#firstLevelGeoListAlt3").val();
+          stVal = $("#firstLevelGeoList").val();
           console.log("in county 6s" + stVal);
           loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_county.json", stVal.substring(7));
         }
@@ -4920,7 +4769,7 @@ content: "-";
         $.fn.dropdownCh();
       }
     }
-                                                                                                         );
+	);
     // on change for file or sumlevel
     var dd_str = "";
     console.log("did it empty" + dd_str);
