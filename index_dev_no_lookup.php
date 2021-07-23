@@ -2986,6 +2986,9 @@ display: block;;">
                     </script>
                   </div>
                 </div>
+				<div>
+					<h5 style='font-size:80%; width: auto;'>Supported Browsers: Firefox, Chrome, and Microsoft Edge</h5>
+				</div>
                 <div class="uscb-margin-B-30">
                 </div>
                 <div id="listItems">
@@ -2993,13 +2996,10 @@ display: block;;">
                     <!-- Table List starts -->
                     <div class="row">
                       <div class="col-xs-12 hidden-print">
-                        <p style='text-align: right; font-size:80%;'>
-                        EEO Tables can be viewed in Firefox, Chrome, and Microsoft Edge browsers.
-                        </p>
                         <h4 class="acs_content">
                           Step 1.  &#8212; Select a Table
                         </h4>
-                        <p style="font-size:80%;">Note: Availability of geographies depends upon the file selected.  
+                        <p style="font-size:80%;">Note: Availability of geographies depends upon the table selected.  
                         </p>
                       </div>
                     </div>
