@@ -17,6 +17,10 @@
     <link rel="apple-touch-icon" sizes="180x180" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/apple-touch-icon-180x180.png">     
     <meta name="msapplication-square150x150logo" content="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/mstile-150x150.png">
     <link rel="canonical" href="https://www.census.gov/programs-surveys/acs/data/eeo-data/eeo-tables-2018/" />
+
+    <link href="bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+    <link href="/acs/www/data/eeo-data/eeo-tables-2018/css/bootstrap-combobox.css" media="screen" rel="stylesheet" type="text/css">
+
     <title>2014 - 2018 EEO Tables | American Community Survey | US Census Bureau 
     </title>
     <style id="antiClickjack">
@@ -3784,6 +3788,74 @@ display: block;;">
                     <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)
                     </a> 
                   </p>
+
+                  <h3>Suppressed MSA Lookup Tool
+                  </h3>
+                  <p class="acs_eeo">
+                    New for MSAs -- Search County Components for Suppressed MSAs
+                  </p>
+
+                  <div id="MSALookupTool" style="margin-bottom:20px;">
+                    <form class="form">
+                      <div class="form-group row">
+                        <div class="col-sm-8">	
+                          <label for="msaCombo" style='margin-bottom: 20px;'>Select a suppressed MSA:</label>
+                                      <select name="msaCombo" id="msaCombo" class="combobox input-large form-control" name="normal" required>
+                                          <option value="">Start typing a suppressed MSA's name...</option>
+                                      </select>
+                          <br/>
+                          <select name="msaTableSelect" id="msaTableSelect" class="combobox input-large form-control">
+                            <option value="">Start typing a Table Type...</option>
+                            <option value="EEO-ALL01R">EEO-ALL01R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography</option>
+                            <option value="EEO-ALL01W">EEO-ALL01W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography</option>
+                            <option value="EEO-ALL02W">EEO-ALL02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT02W">EEO-CIT02W &#8212; Occupation by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL02R">EEO-ALL02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT02R">EEO-CIT02R &#8212; Occupation by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL03W">EEO-ALL03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Total Populatio</option>
+                            <option value="EEO-CIT03W">EEO-CIT03W &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL03R">EEO-ALL03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT03R">EEO-CIT03R &#8212; EEO Occupational Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL04W">EEO-ALL04W &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-ALL04R">EEO-ALL04R &#8212; EEO-1 Job Categories by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-ALL05W">EEO-ALL05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT05W">EEO-CIT05W &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL05R">EEO-ALL05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT05R">EEO-CIT05R &#8212; Federal Sector Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                            <option value="EEO-ALL06W">EEO-ALL06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Total Population</option>
+                            <option value="EEO-CIT06W">EEO-CIT06W &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Worksite Geography, Citizen</option>
+                            <option value="EEO-ALL06R">EEO-ALL06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Total Population</option>
+                            <option value="EEO-CIT06R">EEO-CIT06R &#8212; State and Local Government Job Groups by Sex and Race/Ethnicity for Residence Geography, Citizen</option>
+                          </select>
+                          
+                          <button id="getMsaCompsBtn" style="
+                                        text-transform: uppercase;
+                                        color: #fff;
+                                        font-weight: 700;
+                                        font-family: Roboto Condensed, sans-serif;
+                                        margin-top: 20px;
+                                        "
+                                        class="uscb-primary-button acs_content"
+                                        type="button">
+                                        Get MSA Components
+                          </button>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <div class="col-lg">
+                          
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="col-sm-12">
+                        <h4 id="msaResultLine" style="display: none; margin-bottom: 20px; text-decoration: underline;">Results: </h4>
+                        <div id="msaResultsList"></div>
+                        </div>
+                      </div>
+
+                    </form>
+                  </div>
+
                   <h3>Changes to Occupations
                   </h3>
                   <p class="acs_eeo" >The tools and systems used to measure and describe one’s occupation are periodically updated. 
@@ -4101,6 +4173,14 @@ display: block;;">
   </script>
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
+
+  <!-- lookup tool related js -->
+  <script src="bootstrap-combobox.js" type="text/javascript"></script>
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/bootstrap-combobox.js" type="text/javascript"></script>
+
+  <script src="lookup.js" type="text/javascript"></script>
+  <script src="/acs/www/data/eeo-data/eeo-tables-2018/js/lookup.js" type="text/javascript"></script>
+
   <script> 
     // Accordion JS
     const acc = document.getElementsByClassName("accordionHeader");
