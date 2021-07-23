@@ -2993,6 +2993,9 @@ display: block;;">
                     <!-- Table List starts -->
                     <div class="row">
                       <div class="col-xs-12 hidden-print">
+                        <p style='text-align: right; font-size:80%;'>
+                        EEO Tables can be viewed in Firefox, Chrome, and Microsoft Edge browsers.
+                        </p>
                         <h4 class="acs_content">
                           Step 1.  &#8212; Select a Table
                         </h4>
