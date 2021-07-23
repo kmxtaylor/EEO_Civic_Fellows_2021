@@ -3615,14 +3615,17 @@ $(document).ready(function(){
 	}
 
 	else if ( (sumlevel) === "county") {
-		if (tabletype === "all1w")
-			{var geosloc = "table1/t1w_"}
+		let geosloc;
+		if (tabletype === "all1w"){
+			geosloc = "table1/t1w_";
+		}
 		else {
 			let tableSetNum = tabletype.slice(3,4);
-			let geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
+			geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		}
 		var geoCall = '050/eeo'  + tabletype + "_" +   coVal;
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
+		//console.log(`checkGeoUrl: ${checkGeoUrl}, coVal: ${coVal}, geoStr: ${geoStr}`);
 		checkGeoName(checkGeoUrl, coVal, geoStr);
 	} 
 	
