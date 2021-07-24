@@ -4455,15 +4455,16 @@ display: block;;">
     var geo_RadioValue = "";
     // Keeping these variables globals a temporary fix for multiple functions below needing to use them
     const numTableSets = 6 // could probably make this not a constant
-    let [
-      isTableSet1,
-      isTableSet2,
-      isTableSet3,
-      isTableSet4,
-      isTableSet5,
-      isTableSet6
-    ] = Array(numTableSets).fill(false);
+    let isTableSet1, isTableSet2, isTableSet3, isTableSet4, isTableSet5, isTableSet6;
     $("input[name='geoSumLevel']").change(function () {
+	  let [
+		  isTableSet1,
+		  isTableSet2,
+		  isTableSet3,
+		  isTableSet4,
+		  isTableSet5,
+		  isTableSet6
+	  ] = Array(numTableSets).fill(false);
       geo_RadioValue = $("input:radio[name='geoSumLevel']:checked").attr('id');
       $('#tableSelectForm').addClass('disabled');
       $('#refreshTableSelect').slideDown();
