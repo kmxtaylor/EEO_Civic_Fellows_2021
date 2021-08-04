@@ -54,131 +54,189 @@
             dataType: 'json',
             error: () => {console.log(`cannot get data from ${geoTypesFile}`);}
         }); 
-        // Prepare example data
-        // let data = [
-        //     ['Alabama',10],
-        //     ['Alaska',11],
-        //     ['Arizona',12],
-        //     ['Arkansas',13],
-        //     ['California',14],
-        //     ['Colorado',15],
-        //     ['Connecticut',16],
-        //     ['Delaware',17],
-        //     // ['District of Columbia',18],
-        //     ['Florida',19],
-        //     ['Georgia',110],
-        //     ['Hawaii',111],
-        //     ['Idaho',112],
-        //     ['Illinois',113],
-        //     ['Indiana',114],
-        //     ['Iowa',115],
-        //     ['Kansas',116],
-        //     ['Kentucky',117],
-        //     ['Louisiana',118],
-        //     ['Maine',119],
-        //     ['Maryland',120],
-        //     ['Massachusetts',121],
-        //     ['Michigan',122],
-        //     ['Minnesota',123],
-        //     ['Mississippi',124],
-        //     ['Missouri',125],
-        //     ['Montana',126],
-        //     ['Nebraska',127],
-        //     ['Nevada',128],
-        //     ['New Hampshire',129],
-        //     ['New Jersey',130],
-        //     ['New Mexico',131],
-        //     ['New York',132],
-        //     ['North Carolina',133],
-        //     ['North Dakota',134],
-        //     ['Ohio',135],
-        //     ['Oklahoma',136],
-        //     ['Oregon',137],
-        //     ['Pennsylvania',138],
-        //     ['Rhode Island',139],
-        //     ['South Carolina',140],
-        //     ['South Dakota',141],
-        //     ['Tennessee',142],
-        //     ['Texas',143],
-        //     ['Utah',144],
-        //     ['Vermont',145],
-        //     ['Virginia',146],
-        //     ['Washington',147],
-        //     ['West Virginia',148],
-        //     ['Wisconsin',149],
-        //     ['Wyoming',150],
-        //     ['Puerto Rico',151]
-        // ];
 
         let csvFile = './data/all1r_010_all_occs_2.csv';
         let parsedData = Papa.parse(csvFile, {
             // worker: true,
-            download: true,
+            download: true, // makes the parsing confusingly async, requires complete()
             header: true,
-            step: function(row) {
-                console.log("Row:", row.data);
-            },
-            complete: function() {
-                console.log("All done!");
+            dynamicTyping: true, // make numbers not strs
+            // step: function(row) { // process row-by-row
+            //     console.log("Row:", row.data);
+            // },
+            complete: function(result) {
+                console.log("All done! Raw result:");
+                console.log(result);
+                let data = result.data;
+                displayData(data);
             }
         });
 
-        let data = parsedData;
-        console.log(data);
+        // var parsedData = Papa.parse(csvFile, {
+        //     header: true
+        // });
 
-        // Create the chart
-        Highcharts.mapChart('highMapsContainer1', {
-            // chart: {
-                // map: 'countries/us/custom/us-all-territories'
-                // map: geoJson
-            // },
+        function displayData(data) {
+            console.log('parsed data:');
+            console.log(data);
 
-            title: {
-                text: 'Highmaps using local geojson'
-            },
+            // manipulate data into correct form
 
-            subtitle: {
-                // text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/custom/us-all-territories.js">United States of America with Territories</a>'
-            },
-
-            mapNavigation: {
-                enabled: true,
-                buttonOptions: {
-                    verticalAlign: 'bottom'
+            // e.g. ignore non-data rows
+            let newData = [];
+            data.forEach((obj) => {
+                if (obj['ESTIMATE_1'] != null) {// no data
+                    newData.push(obj);
                 }
-            },
+            })
+            data = newData;
 
-            colorAxis: {
-                min: 0
-            },
+            // let data = parsedData;
+            console.log('filtered data:');
+            console.log(data);
 
-            series: [{
-                data: data,
-                keys: ['name', 'value'], // labels columns in data array (for joinBy)
-                mapData: geoJson,
-                name: 'Random data',
-                joinBy: 'name', // shared data: name
-                // keys: ['nameTest', 'value'], // labels columns in data array (for joinBy); for testing only
-                // joinBy: ['name', 'nameTest'], // maps mapData property key to data column ; for testing only
-                states: {
-                    hover: {
-                        color: '#BADA55'
+            // Example data for testing
+            // data = [
+            //     ['Alabama',10],
+            //     ['Alaska',11],
+            //     ['Arizona',12],
+            //     ['Arkansas',13],
+            //     ['California',14],
+            //     ['Colorado',15],
+            //     ['Connecticut',16],
+            //     ['Delaware',17],
+            //     // ['District of Columbia',18],
+            //     ['Florida',19],
+            //     ['Georgia',110],
+            //     ['Hawaii',111],
+            //     ['Idaho',112],
+            //     ['Illinois',113],
+            //     ['Indiana',114],
+            //     ['Iowa',115],
+            //     ['Kansas',116],
+            //     ['Kentucky',117],
+            //     ['Louisiana',118],
+            //     ['Maine',119],
+            //     ['Maryland',120],
+            //     ['Massachusetts',121],
+            //     ['Michigan',122],
+            //     ['Minnesota',123],
+            //     ['Mississippi',124],
+            //     ['Missouri',125],
+            //     ['Montana',126],
+            //     ['Nebraska',127],
+            //     ['Nevada',128],
+            //     ['New Hampshire',129],
+            //     ['New Jersey',130],
+            //     ['New Mexico',131],
+            //     ['New York',132],
+            //     ['North Carolina',133],
+            //     ['North Dakota',134],
+            //     ['Ohio',135],
+            //     ['Oklahoma',136],
+            //     ['Oregon',137],
+            //     ['Pennsylvania',138],
+            //     ['Rhode Island',139],
+            //     ['South Carolina',140],
+            //     ['South Dakota',141],
+            //     ['Tennessee',142],
+            //     ['Texas',143],
+            //     ['Utah',144],
+            //     ['Vermont',145],
+            //     ['Virginia',146],
+            //     ['Washington',147],
+            //     ['West Virginia',148],
+            //     ['Wisconsin',149],
+            //     ['Wyoming',150],
+            //     ['Puerto Rico',151]
+            // ];
+
+            // example data test w/ objs; don't forget to enable correct series configs
+            // data = [
+            //     {
+            //         GEONAME: "Alabama",
+            //         value: 10,
+            //     },
+            //     {
+            //         GEONAME: "Alaska",
+            //         value: 100,
+            //     },
+            //     {
+            //         GEONAME: "Arizona",
+            //         value: 50,
+            //     },
+            //     {
+            //         GEONAME: "Arkansas",
+            //         value: 11,
+            //     },
+            //     {
+            //         GEONAME: "California",
+            //         value: 90,
+            //     }
+            // ];
+
+            // Create the chart
+            Highcharts.mapChart('highMapsContainer1', {
+                // chart: {
+                    // map: 'countries/us/custom/us-all-territories'
+                    // map: geoJson
+                // },
+
+                title: {
+                    text: 'Highmaps using local geojson'
+                },
+
+                subtitle: {
+                    // text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/custom/us-all-territories.js">United States of America with Territories</a>'
+                },
+
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
                     }
                 },
-                dataLabels: {
-                    enabled: true,
-                    format: '{point.name}'
-                }
-            // }, {
-            //     name: 'Separators',
-            //     type: 'mapline',
-            //     data: Highcharts.geojson(Highcharts.maps['countries/us/custom/us-all-territories'], 'mapline'),
-            //     color: 'silver',
-            //     nullColor: 'silver',
-            //     showInLegend: false,
-            //     enableMouseTracking: false
-            }]
-        });
+
+                colorAxis: {
+                    min: 0
+                },
+
+                series: [{
+                    data: data,
+
+                    // example simple arr data configs:
+                    // keys: ['name', 'value'], // labels columns in data array (for joinBy); works for example data
+                    // joinBy: 'name', // shared data: name; works for example data
+
+                    // example obj data configs:
+                    joinBy: ['name', 'GEONAME'],
+
+                    // eeo data configs
+                    // joinBy: ['name', 'GEONAME'], // maps mapData property key to data column;
+
+                    mapData: geoJson,
+                    name: 'Random data',
+
+                    states: {
+                        hover: {
+                            color: '#BADA55'
+                        }
+                    },
+                    dataLabels: {
+                        enabled: true,
+                        format: '{point.name}'
+                    }
+                // }, {
+                //     name: 'Separators',
+                //     type: 'mapline',
+                //     data: Highcharts.geojson(Highcharts.maps['countries/us/custom/us-all-territories'], 'mapline'),
+                //     color: 'silver',
+                //     nullColor: 'silver',
+                //     showInLegend: false,
+                //     enableMouseTracking: false
+                }]
+            });
+        }
 
         return;
     }
