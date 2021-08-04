@@ -1,0 +1,586 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="author" content="Katie Taylor">
+  <!-- <meta name="description" content=""> -->
+  <!-- <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.25/css/jquery.dataTables.css"> -->
+  <!-- <link rel="icon" type="" href=""> -->
+  <title>High Charts Test</title>
+
+  <!-- <script src="https://code.highcharts.com/highcharts.js"></script> -->
+  <script src="https://code.highcharts.com/maps/highmaps.js"></script>
+  <!-- <script src="https://code.highcharts.com/mapdata/countries/us/us-all.js"></script> -->
+  <!-- <script src="https://code.highcharts.com/mapdata/countries/us/us-all-all.js"></script> -->
+  <script src="https://code.highcharts.com/mapdata/countries/us/custom/us-all-territories.js"></script>
+  <script src="https://code.highcharts.com/mapdata/custom/world.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/data.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/exporting.js"></script>
+  <script src="https://code.highcharts.com/maps/modules/offline-exporting.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="//github.com/downloads/lafeber/world-flags-sprite/flags32.css" />
+
+    <!-- Census Downloads from 3rd Parties -->
+    <link rel='stylesheet' href='https://www.census.gov/etc.clientlibs/census/clientlibs/bootstrap.css' type='text/css'/>
+
+</head>
+<body>
+
+  <style>
+    .container {
+      width: 100%;
+    }
+
+
+    * {
+        font-family: sans-serif;
+    }
+    #wrapper {
+        height: 500px;
+        width: 1000px;
+        margin: 0 auto;
+        padding: 0;
+        overflow:visible;
+    }
+    #container {
+        float: left;
+        height: 500px; 
+        width: 700px; 
+        margin: 0;
+    }
+    #info {
+        float: left;
+        width: 270px;
+        padding-left: 20px;
+        /* margin: 100px 0 0 0; */
+        border-left: 1px solid silver;
+    }
+    #info h2 {
+        display: inline;
+        font-size: 13pt;
+    }
+    #info .f32 .flag {
+        vertical-align: bottom !important;
+    }
+
+    #info h4 {
+        margin: 1em 0 0 0;
+    }
+
+    @media screen and (max-width: 920px) {
+        #wrapper, #container,  #info {
+            float: none;
+            width: 100%;
+            height: auto;
+            margin: 0.5em 0;
+            padding: 0;
+            border: none;
+        }
+    }
+  </style>
+
+
+  <h2>Chart #1: Custom map from local geojson </h2>
+  <div id="highMapsContainer1" class="container"> </div>
+
+  <h2>Chart #2: Basic map w/ PR</h2>
+  <div id="highMapsContainer2" class="container"> </div>
+
+  <h2>Chart #3: Map displays info on-click in separate chart</h2>
+  <div id="highMapsContainer3" class="container"> </div>
+  <div id="info">
+    <span class="f32"><span id="flag"></span></span>
+    <h2></h2>
+    <div class="subheader">Click countries to view history</div>
+    <div id="country-chart"></div>
+  </div>
+  <br>
+
+    <!-- Census Downloads from 3rd Parties -->
+    <script type='text/javascript' src='https://www.census.gov/etc.clientlibs/clientlibs/granite/jquery.js'></script> <!-- actual jQuery, not jQuery UI-->
+    <script type='text/javascript' src='https://www.census.gov/etc.clientlibs/census/clientlibs/bootstrap.js'></script>
+  <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    
+    // Chart #1: Custom map from local geojson
+    async function renderLocalMap() {
+        // let geoTypesFile = './data/us-with-territories.json';
+        let geoTypesFile = './data/us-with-pr.json';
+        const geoJson = await $.ajax({
+            url: geoTypesFile,
+            dataType: 'json',
+            error: () => {console.log(`cannot get data from ${geoTypesFile}`);}
+        }); 
+        // Prepare demo data
+        // Data is joined to map using value of 'hc-key' property by default.
+        // See API docs for 'joinBy' for more info on linking data and map.
+        var data = [
+            ['us-ma', 0],
+            ['us-wa', 1],
+            ['us-ca', 2],
+            ['us-or', 3],
+            ['us-wi', 4],
+            ['us-me', 5],
+            ['us-mi', 6],
+            ['us-nv', 7],
+            ['us-nm', 8],
+            ['us-co', 9],
+            ['us-wy', 10],
+            ['us-ks', 11],
+            ['us-ne', 12],
+            ['us-ok', 13],
+            ['us-mo', 14],
+            ['us-il', 15],
+            ['us-in', 16],
+            ['us-vt', 17],
+            ['us-ar', 18],
+            ['us-tx', 19],
+            ['us-ri', 20],
+            ['us-al', 21],
+            ['us-ms', 22],
+            ['us-nc', 23],
+            ['us-va', 24],
+            ['us-ia', 25],
+            ['us-md', 26],
+            ['us-de', 27],
+            ['us-pa', 28],
+            ['us-nj', 29],
+            ['us-ny', 30],
+            ['us-id', 31],
+            ['us-sd', 32],
+            ['us-ct', 33],
+            ['us-nh', 34],
+            ['us-ky', 35],
+            ['us-oh', 36],
+            ['us-tn', 37],
+            ['us-wv', 38],
+            ['us-dc', 39],
+            ['us-la', 40],
+            ['us-fl', 41],
+            ['us-ga', 42],
+            ['us-sc', 43],
+            ['us-mn', 44],
+            ['us-mt', 45],
+            ['us-nd', 46],
+            ['us-az', 47],
+            ['us-ut', 48],
+            ['us-hi', 49],
+            ['us-ak', 50],
+            // ['gu-3605', 51],
+            ['mp-ti', 52],
+            ['mp-sa', 53],
+            ['mp-ro', 54],
+            ['as-6515', 55],
+            ['as-6514', 56],
+            ['pr-3614', 57],
+            ['vi-3617', 58],
+            ['vi-6398', 59],
+            ['vi-6399', 60]
+        ];
+
+        // Create the chart
+        Highcharts.mapChart('highMapsContainer1', {
+            chart: {
+                // map: 'countries/us/custom/us-all-territories'
+                // map: geoJson
+            },
+
+            title: {
+                text: 'Highmaps using local geojson'
+            },
+
+            subtitle: {
+                text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/custom/us-all-territories.js">United States of America with Territories</a>'
+            },
+
+            mapNavigation: {
+                enabled: true,
+                buttonOptions: {
+                    verticalAlign: 'bottom'
+                }
+            },
+
+            colorAxis: {
+                min: 0
+            },
+
+            series: [{
+                data: data,
+                mapData: geoJson,
+                name: 'Random data',
+                joinBy: 'hc-key', // shared data: high charts key
+                // joinBy: 'name', // shared data: name (doesn't i)
+                states: {
+                    hover: {
+                        color: '#BADA55'
+                    }
+                },
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.name}'
+                }
+            // }, {
+            //     name: 'Separators',
+            //     type: 'mapline',
+            //     data: Highcharts.geojson(Highcharts.maps['countries/us/custom/us-all-territories'], 'mapline'),
+            //     color: 'silver',
+            //     nullColor: 'silver',
+            //     showInLegend: false,
+            //     enableMouseTracking: false
+            }]
+        });
+
+        return;
+    }
+    renderLocalMap();
+
+
+    // Chart #2: Basic Map w/ PR:
+    // Prepare demo data
+    // Data is joined to map using value of 'hc-key' property by default.
+    // See API docs for 'joinBy' for more info on linking data and map.
+    var data = [
+        ['us-ma', 0],
+        ['us-wa', 1],
+        ['us-ca', 2],
+        ['us-or', 3],
+        ['us-wi', 4],
+        ['us-me', 5],
+        ['us-mi', 6],
+        ['us-nv', 7],
+        ['us-nm', 8],
+        ['us-co', 9],
+        ['us-wy', 10],
+        ['us-ks', 11],
+        ['us-ne', 12],
+        ['us-ok', 13],
+        ['us-mo', 14],
+        ['us-il', 15],
+        ['us-in', 16],
+        ['us-vt', 17],
+        ['us-ar', 18],
+        ['us-tx', 19],
+        ['us-ri', 20],
+        ['us-al', 21],
+        ['us-ms', 22],
+        ['us-nc', 23],
+        ['us-va', 24],
+        ['us-ia', 25],
+        ['us-md', 26],
+        ['us-de', 27],
+        ['us-pa', 28],
+        ['us-nj', 29],
+        ['us-ny', 30],
+        ['us-id', 31],
+        ['us-sd', 32],
+        ['us-ct', 33],
+        ['us-nh', 34],
+        ['us-ky', 35],
+        ['us-oh', 36],
+        ['us-tn', 37],
+        ['us-wv', 38],
+        ['us-dc', 39],
+        ['us-la', 40],
+        ['us-fl', 41],
+        ['us-ga', 42],
+        ['us-sc', 43],
+        ['us-mn', 44],
+        ['us-mt', 45],
+        ['us-nd', 46],
+        ['us-az', 47],
+        ['us-ut', 48],
+        ['us-hi', 49],
+        ['us-ak', 50],
+        ['gu-3605', 51],
+        ['mp-ti', 52],
+        ['mp-sa', 53],
+        ['mp-ro', 54],
+        ['as-6515', 55],
+        ['as-6514', 56],
+        ['pr-3614', 57],
+        ['vi-3617', 58],
+        ['vi-6398', 59],
+        ['vi-6399', 60]
+    ];
+
+    // Create the chart
+    Highcharts.mapChart('highMapsContainer2', {
+        chart: {
+            map: 'countries/us/custom/us-all-territories'
+        },
+
+        title: {
+            text: 'Highmaps basic demo'
+        },
+
+        subtitle: {
+            text: 'Source map: <a href="http://code.highcharts.com/mapdata/countries/us/custom/us-all-territories.js">United States of America with Territories</a>'
+        },
+
+        mapNavigation: {
+            enabled: true,
+            buttonOptions: {
+                verticalAlign: 'bottom'
+            }
+        },
+
+        colorAxis: {
+            min: 0
+        },
+
+        series: [{
+            data: data,
+            name: 'Random data',
+            joinBy: 'hc-key', // shared data: high charts key
+            // joinBy: 'name', // shared data: name (doesn't i)
+            states: {
+                hover: {
+                    color: '#BADA55'
+                }
+            },
+            dataLabels: {
+                enabled: true,
+                format: '{point.name}'
+            }
+        }, {
+            name: 'Separators',
+            type: 'mapline',
+            data: Highcharts.geojson(Highcharts.maps['countries/us/custom/us-all-territories'], 'mapline'),
+            color: 'silver',
+            nullColor: 'silver',
+            showInLegend: false,
+            enableMouseTracking: false
+        }]
+    });
+
+    // Chart #3: Map displays info on-click in separate chart
+    Highcharts.ajax({
+    url: 'https://cdn.jsdelivr.net/gh/highcharts/highcharts@v7.0.0/samples/data/world-population-history.csv',
+    dataType: 'csv',
+    success: function (csv) {
+
+        // Parse the CSV Data
+        /*Highcharts.data({
+            csv: data,
+            switchRowsAndColumns: true,
+            parsed: function () {
+                console.log(this.columns);
+            }
+        });*/
+
+        // Very simple and case-specific CSV string splitting
+        function CSVtoArray(text) {
+            return text.replace(/^"/, '')
+                .replace(/",$/, '')
+                .split('","');
+        }
+
+        csv = csv.split(/\n/);
+
+        var countries = {},
+            mapChart,
+            countryChart,
+            numRegex = /^[0-9\.]+$/,
+            lastCommaRegex = /,\s$/,
+            quoteRegex = /\"/g,
+            categories = CSVtoArray(csv[2]).slice(4);
+
+        // Parse the CSV into arrays, one array each country
+        csv.slice(3).forEach(function (line) {
+            var row = CSVtoArray(line),
+                data = row.slice(4);
+
+            data.forEach(function (val, i) {
+                val = val.replace(quoteRegex, '');
+                if (numRegex.test(val)) {
+                    val = parseInt(val, 10);
+                } else if (!val || lastCommaRegex.test(val)) {
+                    val = null;
+                }
+                data[i] = val;
+            });
+
+            countries[row[1]] = {
+                name: row[0],
+                code3: row[1],
+                data: data
+            };
+        });
+
+        // For each country, use the latest value for current population
+        var data = [];
+        for (var code3 in countries) {
+            if (Object.hasOwnProperty.call(countries, code3)) {
+                var value = null,
+                    year,
+                    itemData = countries[code3].data,
+                    i = itemData.length;
+
+                while (i--) {
+                    if (typeof itemData[i] === 'number') {
+                        value = itemData[i];
+                        year = categories[i];
+                        break;
+                    }
+                }
+                data.push({
+                    name: countries[code3].name,
+                    code3: code3,
+                    value: value,
+                    year: year
+                });
+            }
+        }
+
+        // Add lower case codes to the data set for inclusion in the tooltip.pointFormat
+        var mapData = Highcharts.geojson(Highcharts.maps['custom/world']);
+        mapData.forEach(function (country) {
+            country.id = country.properties['hc-key']; // for Chart.get()
+            country.flag = country.id.replace('UK', 'GB').toLowerCase();
+        });
+
+        // Wrap point.select to get to the total selected points
+        Highcharts.wrap(Highcharts.Point.prototype, 'select', function (proceed) {
+
+            proceed.apply(this, Array.prototype.slice.call(arguments, 1));
+
+            var points = mapChart.getSelectedPoints();
+            if (points.length) {
+                if (points.length === 1) {
+                    document.querySelector('#info #flag')
+                        .className = 'flag ' + points[0].flag;
+                    document.querySelector('#info h2').innerHTML = points[0].name;
+                } else {
+                    document.querySelector('#info #flag')
+                        .className = 'flag';
+                    document.querySelector('#info h2').innerHTML = 'Comparing countries';
+
+                }
+                document.querySelector('#info .subheader')
+                    .innerHTML = '<h4>Historical population</h4><small><em>Shift + Click on map to compare countries</em></small>';
+
+                if (!countryChart) {
+                    countryChart = Highcharts.chart('country-chart', {
+                        chart: {
+                            height: 250,
+                            spacingLeft: 0
+                        },
+                        credits: {
+                            enabled: false
+                        },
+                        title: {
+                            text: null
+                        },
+                        subtitle: {
+                            text: null
+                        },
+                        xAxis: {
+                            tickPixelInterval: 50,
+                            crosshair: true
+                        },
+                        yAxis: {
+                            title: null,
+                            opposite: true
+                        },
+                        tooltip: {
+                            split: true
+                        },
+                        plotOptions: {
+                            series: {
+                                animation: {
+                                    duration: 500
+                                },
+                                marker: {
+                                    enabled: false
+                                },
+                                threshold: 0,
+                                pointStart: parseInt(categories[0], 10)
+                            }
+                        }
+                    });
+                }
+
+                countryChart.series.slice(0).forEach(function (s) {
+                    s.remove(false);
+                });
+                points.forEach(function (p) {
+                    countryChart.addSeries({
+                        name: p.name,
+                        data: countries[p.code3].data,
+                        type: points.length > 1 ? 'line' : 'area'
+                    }, false);
+                });
+                countryChart.redraw();
+
+                } else {
+                    document.querySelector('#info #flag').className = '';
+                    document.querySelector('#info h2').innerHTML = '';
+                    document.querySelector('#info .subheader').innerHTML = '';
+                    if (countryChart) {
+                        countryChart = countryChart.destroy();
+                    }
+                }
+            });
+
+            // Initiate the map chart
+            mapChart = Highcharts.mapChart('highMapsContainer3', {
+
+                title: {
+                    text: 'Population history by country'
+                },
+
+                subtitle: {
+                    text: 'Source: <a href="http://data.worldbank.org/indicator/SP.POP.TOTL/countries/1W?display=default">The World Bank</a>'
+                },
+
+                mapNavigation: {
+                    enabled: true,
+                    buttonOptions: {
+                        verticalAlign: 'bottom'
+                    }
+                },
+
+                colorAxis: {
+                    type: 'logarithmic',
+                    endOnTick: false,
+                    startOnTick: false,
+                    min: 50000
+                },
+
+                tooltip: {
+                    footerFormat: '<span style="font-size: 10px">(Click for details)</span>'
+                },
+
+                series: [{
+                    data: data,
+                    mapData: mapData,
+                    joinBy: ['iso-a3', 'code3'],
+                    name: 'Current population',
+                    allowPointSelect: true,
+                    cursor: 'pointer',
+                    states: {
+                        select: {
+                            color: '#a4edba',
+                            borderColor: 'black',
+                            dashStyle: 'shortdot'
+                        }
+                    },
+                    borderWidth: 0.5
+                }]
+            });
+
+            // Pre-select a country
+            mapChart.get('us').select();
+        }
+    });
+
+
+
+        return;
+    });
+    </script>
+
+</body>
+</html>
