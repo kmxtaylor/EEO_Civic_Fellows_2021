@@ -4042,8 +4042,8 @@ display: block;;">
   <script src="/acs/www/about/why-we-ask-each-question/bootstrap/js/ie10-viewport-bug-workaround.js">
   </script>
   
-  <!-- Geography and table selection -->
-  <script src="js/geo_table_select_v3.js"> </script>
+  <!-- Geography and table selection JS -->
+  <script src="js/geo_select.js"> </script>
   
   <script type="text/javascript">
     var referrer=document.referrer;

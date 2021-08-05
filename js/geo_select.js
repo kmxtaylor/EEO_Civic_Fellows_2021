@@ -16,22 +16,11 @@ for (let i = 0; i < acc.length; i++) {
 	  accordionContent.style.display = "none";
 	  this.firstElementChild.classList.remove("o-angle-down-1");
 	  this.firstElementChild.classList.add("o-angle-up-1");
-	  // this.style.backgroundColor = "#e7eaed"; // for phone
-	  // console.log("this: ", this);
-	  // console.log("firstElementChild: ", this.firstElementChild);
-	  // this.getElementsByClassName("accordionIcon").classList.toggle("o-angle-up-1");
-	  // this.getElementsByClassName("accordionIcon").innerText = "+";
-	  // console.log("accordionIcon: ", this.getElementsByClassName("accordionIcon").innerText, this.getElementsByClassName("accordionIcon"), this.getElementsByClassName("accordionIcon").nextElementSibling);
 	}
 	else {
 	  accordionContent.style.display = "block";
 	  this.firstElementChild.classList.remove("o-angle-up-1");
 	  this.firstElementChild.classList.add("o-angle-down-1");
-	  // console.log("this: ", this);
-	  // console.log("firstElementChild: ", this.firstElementChild);
-	  // this.getElementsByClassName("accordionIcon").classList.toggle("o-angle-up-1");
-	  // this.getElementsByClassName("accordionIcon").innerText = "-";
-	  // console.log("accordionIcon: ", this.getElementsByClassName("accordionIcon").innerText, this.getElementsByClassName("accordionIcon"), this.getElementsByClassName("accordionIcon").nextElementSibling);
 	}
   }
 						 );
