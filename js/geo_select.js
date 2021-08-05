@@ -192,20 +192,57 @@ function loadCountySet(selobj, url, stValsubstr) {
 		   );
 }
 // loadCountySet
-function loadMSA(selobj, url) {
+async function loadMSA(selobj, url) {
+
+  /** Get suppressed MSAs (100k only for now) */
+  let suppressedMsasFile = '';
+  if (isTableSet2) { // edit when table sets 7+ added
+    suppressedMsasFile = './geos/suppressed-msas-100k.json';
+  } else {
+    suppressedMsasFile = './geos/suppressed-msas-50k.json';
+  }
+  const suppressedMsasRaw = await $.ajax({
+    url: suppressedMsasFile,
+    dataType: 'json',
+    error: function() { console.log(`cannot get data from ${suppressedMsasFile}`) }
+  });
+  
+  let suppressedMsas = [];
+  suppressedMsasRaw.forEach(function(msaObj) {
+    suppressedMsas.push(['suppressed', msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg
+  });
+
+  /** Assemble list of all MSAs for this table's dropdown */
   select = $(selobj).empty();
-  $.getJSON(url, {
-  }
-			, function (data) {
-	$.each(data, function (i, obj) {
-	  select.append(
-		$('<option></option>').val(obj[0]).html(obj[1]));
-	}
-		  );
-	$("#firstLevelGeoList").sortSelect();
-	$('#firstLevelGeoList :nth-child(1)').before("<option selected>Select an MSA</option>");
-  }
-		   )
+  $.getJSON(url, {}, function (data) {
+
+    // concat suppressed msas (100k) w/ available msas before alphabetizing
+    data = data.concat(suppressedMsas);
+
+    data = data.sort(function alphabetizeStates(a, b) {
+      a = a[1];
+      b = b[1];
+      if (a > b) {
+        return 1;
+      } else if (b > a) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+    // console.log('data:');
+    // console.log(data);
+    $.each(data, function (i, obj) {
+        let optionVal = obj[0];
+        let optionText = obj[1];
+        let newOption = $('<option></option>');
+        $(newOption).val(optionVal).html(optionText);
+        select.append(newOption);
+    });
+    
+    $('#firstLevelGeoList :nth-child(1)').before("<option selected>Select an MSA</option>");
+  });
   $.fn.dropdownCh();
 }
 // loadMSA
@@ -486,6 +523,8 @@ var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
 $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(function() {
   $(".geo_selected").empty();
+  $("#get_EEO_data").slideDown();
+  $("#suppressionMsg").slideUp();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
   $("#viewGeo").slideUp();
@@ -574,6 +613,19 @@ $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLeve
 	$("#viewSecondLevelGeo").slideDown();
 	$.fn.dropdownCh();
   }
+  else if ( (geo_RadioValue) === "msa" ) {
+    msaVal = $("#firstLevelGeoList").val();
+    // console.log('msa selected');
+    if (msaVal === 'suppressed') {
+      console.log(`msa selected is suppressed`)
+      // replace Get EEO Table button w/ msg about suppression
+      $("#get_EEO_data").slideUp();
+      $("#suppressionMsg").slideDown();
+    }
+  }
+  else {
+	  console.log('Error: no geo radio val selected');
+  }
 }
 );
 // on change for file or sumlevel
@@ -583,6 +635,8 @@ $.fn.dropdownCh = (function () {
   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
 	  $(".geo_selected").empty();
+	  $("#get_EEO_data").slideDown();
+      $("#suppressionMsg").slideUp();
 	  dd_str = $(this).text();
 	  $(".geo_selected").text(dd_str).change();
 	  $("#viewGeo").slideDown();

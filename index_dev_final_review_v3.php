@@ -3650,6 +3650,8 @@ display: block;;">
                           <div class="col-md-8 col-xs-12">
                             <button id="get_EEO_data" style="text-transform:uppercase; color: #fff; font-weight: 700; font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" title="Table Opens in New Tab or Window" type="button">Get EEO Table
                             </button>
+                            <!-- eeo_red class not working here for some reason... -->
+                            <p id="suppressionMsg" class="eeo_red acs_content" style="display: none; color: #ff7043;">We're sorry, this geography is not available. Please see the "Where's my geography?" section below.</p>
                           </div>
                           <div class="col-md-8">
                           </div>
