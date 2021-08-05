@@ -138,7 +138,7 @@
             "timeOfDay" : twoDigits(d.getHours()) + ":" + twoDigits(d.getMinutes()),
             "tool" : "",
             "dayOfWeek" : days[d.getDay()],
-            "siteSection" : "programs-surveys","subSectionOne" : "acs","subSectionTwo" : "data","subSectionThree" : "data-tables-and-tools"
+            "siteSection" : "programs-surveys","subSectionOne" : "acs","subSectionTwo" : "data","subSectionThree" : "eeo-data"
           }
           ,
           "pageTag" : {
@@ -393,8 +393,7 @@
     <link href="/acs/www/css/acsNSstyle2.css"    rel="stylesheet" type="text/css" />
     <link rel="stylesheet" type="text/css" href="/acs/www/data/eeo-data/eeo-tables-2018/css/2018_custom.css"/>
   </head>
-  <!--------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------Begin Body Head ----------------------------------------------->
+  <!--Begin Body Head -->
   <body id="innerPage" class="   ">
     <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/clientlibs/granite/jquery.js">
     </script>
@@ -406,8 +405,7 @@
     </script>
     <a name="skipfooter" class="skip">
     </a>
-    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <!-----------------------------------------------Start USCB Main Container -- No Customizations -- Census Header ----------------------------------------------->
+    <!--    Start USCB Main Container  No Customizations  Census Header -->
     <!-- ends line 1718 -->
     <div class="uscb-main-container">
       <div class="censusheader universalheader">
@@ -1185,8 +1183,7 @@
         </script>
       </div>
     </div>
-    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <!-----------------------------------------------Start Container Fluid-- Many Customizations -- Content Area ----------------------------------------------->
+    <!--Start Container Fluid   Many Customizations   Content Area  -->
     <div class="container-fluid">
       <div class="topBg">
       </div>
@@ -1369,7 +1366,7 @@
           </script>
           <div class="hidden-xs hidden-sm hidden-md col-lg-2">
           </div>
-          <!----------------------------------------------- Needs Customization ---------------------------------------------------------->  
+          <!--   Needs Customization   -->  
           <div class="col-lg-9 hidden-xs hidden-sm hidden-md uscb-layout-row">  
             <!-- container for breadcrumbs and language container?-->
             <div class="uscb-margin-T-5">
@@ -1425,9 +1422,9 @@
         <!-- end of sectionRowTitle?-->
         <div id="listPageContent" class="belowHeader row no-gutter">
           <!--beginning of main content columns -->
-          <!-----------------------------------------------  Start Left  Column  Container ---------------------------------------------------------->  
+          <!--   Start Left  Column  Container  -->  
           <div id="leftColumn" class="col-lg-2 uscb-margin-T-gt-lg-25 uscb-margin-T-lg-0 listPageLocalNav">
-            <!-----------------------------------------------  Hidden Large PAGE Title Needs Customization ---------------------------------------------------------->  
+            <!--    Hidden Large PAGE Title Needs Customization  -->  
             <div class="hidden-lg uscb-margin-T--5 uscb-layout-row uscb-layout-align-space-between">
               <div class="titlecore title">
                 <div class="cmp-title" id="titlecore-457e7c1d0e">
@@ -1437,13 +1434,13 @@
                     <span style="font-size:70%">ACS 5-Year Data
                       </h1>
                     </div>
-                  <!----------------------------------------------- End Hidden Large PAGE Title Needs Customization ---------------------------------------------------------->   
+                  <!--  End Hidden Large PAGE Title Needs Customization  -->   
                 </div>
                 <div id="mobileLanguageSelectorContainer">
                 </div>
               </div>
-              <!----------------------------------------------- End Hidden Large PAGE Title Needs Customization ---------------------------------------------------------->  
-              <!----------------------------------------------- Start Large View Nav Container ---------------------------------------------------------->  
+              <!--  End Hidden Large PAGE Title Needs Customization   -->  
+              <!--   Start Large View Nav Container   -->  
               <div class="grid_navInnerLandingHolder">
                 <div class="grid_navInnerLandingLinks">  
                   <a id="uscb-nav-skip-local" class="uscb-nav-skip uscb-button-medium uscb-secondary-button uscb-position-absolute" href="#content">Skip Navigation
@@ -2934,10 +2931,10 @@ display: block;;">
                 </a>
                 <!-- s logo removed -->
               </div>
-              <!----------------------------------------------- End Large View Nav Container ---------------------------------------------------------->  
+              <!--   End Large View Nav Container   -->  
             </div> 
-            <!----------------------------------------------- End  Left  Column  Container ---------------------------------------------------------->  
-            <!-----------------------------------------------  Start Main Contennt Area Container ---------------------------------------------------------->
+            <!--  End  Left  Column  Container  -->  
+            <!--    Start Main Contennt Area Container  -->
             <div id="listContent" class="belowHeader col-lg-10 listPageListContent">
               <div class="pageTitle">
                 <div class="hidden-xs hidden-sm hidden-md uscb-layout-row uscb-layout-align-space-between uscb-layout-align-vert-center">
@@ -3780,11 +3777,11 @@ display: block;;">
                     them in conjunction with identifying County Sets would result in showing data for an area of under 50,000 population.
                   </p>
                   <p class="acs_eeo_L_30">
-                    <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2003.26.2021.xlsx">List of suppressed places
+                    <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20places%20suppressed%2007.26.2021.xlsx">List of suppressed places
                     </a>  
                   </p>
                   <p class="acs_eeo_L_30">
-                    <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2003.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)
+                    <a href="https://www2.census.gov/EEO_2014_2018/EEO_FTP_Site_Documentation/List%20of%20suppressed%20geographies/EEO%20Tab%20List%20of%20CBSAs%20suppressed%2007.26.2021.xlsx">List of suppressed metropolitan areas (CBSA's)
                     </a> 
                   </p>
                   <h3>Changes to Occupations
@@ -3835,7 +3832,7 @@ display: block;;">
           </div>
           <!--List content end extended to 10 row on large -->
         </div>
-        <!-----------------------------------------------  End Main Content Area Container ---------------------------------------------------------->
+        <!-- End Main Content Area Container -->
       </div>
       <!-- end of container for left and main content area -->
       <div id="pdfAndExternalLinkDiv" class="hidden-xs hidden-sm hidden-md visible-lg">
@@ -3844,13 +3841,9 @@ display: block;;">
     <!-- wrapper -->
     </div> 
   <!-- container-fluid -->
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------End Container Fluid-- Many Customizations -- Content Area ----------------------------------------------->
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------Start 2nd instance of USCB Main Container -- Holds Footer ---------------------------------------------------------->
+  
   <div class="uscb-main-container">
-    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <!-----------------------------------------------Start Census Footer Container -- Witin USCB Main Container ---------------------------------------------------------->  
+    <!--Start Census Footer Container  Within USCB Main Container -->  
     <div class="censusfooter universalfooter">
       <div id="ratingtooljquery">
       </div>
@@ -4054,13 +4047,7 @@ display: block;;">
         </div>
       </footer>
     </div>
-    <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-    <!----------------------------------------------- End Census Footer Container -- Witin USCB Main Container ---------------------------------------------------------->
-  </div>
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------      End 2nd instance of USCB Main Container -- Holds Footer      ----------------------------------------------->
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------       Start Javascript Code Area  and Misc Tools               ----------------------------------------------->
+    
   <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/census/clientlibs/jquery.js">
   </script>
   <script type="text/javascript" src="https://www.census.gov/etc.clientlibs/census/components/common/shared/sharethis/clientlibs/component.js">
@@ -4137,7 +4124,7 @@ display: block;;">
                              );
     }
     // Accordion JS: close all & open all buttons
-    console.log("here i am");
+
     let closeAcc = document.getElementById("closeAccordions");
     closeAcc.addEventListener("click", function() {
       const accContent = document.getElementsByClassName("accordionContent");
@@ -4156,21 +4143,7 @@ display: block;;">
       }
     }
                             );
-    var stArr_data = [];
-    /* collapsable div */
-    /*var coll = document.getElementsByClassName("collapsible");
-	var i;
-	for (i = 0; i < coll.length; i++) {
-		coll[i].addEventListener("click", function() {
-			this.classList.toggle("active");
-			var content = this.nextElementSibling;
-			if (content.style.display === "block") {
-				content.style.display = "none";
-			} else {
-				content.style.display = "block";
-			}
-		});
-	} */
+
     function openEEOTable() {
       var hostname = window.location.origin
       var url = hostname + "/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?";
@@ -4481,8 +4454,8 @@ display: block;;">
       $("#viewGeo").slideUp();
       $("#viewResults").slideUp();
       $(".geo_selected").empty();
-      $("#secondLevelGeoList").empty();
-      console.log("is dd string full here?" + dd_str);
+      $("#secondLevelGeoList").empty();  //first level geo lists empty?
+   
       $("#viewSecondLevelGeo").slideUp();
       if( (geo_RadioValue) === "nation" ) {
         $("#viewFirstLevelGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
@@ -4703,7 +4676,7 @@ display: block;;">
 	);
     // on change for file or sumlevel
     var dd_str = "";
-    console.log("did it empty" + dd_str);
+
     $.fn.dropdownCh = (function () {
       $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
         $("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
@@ -4737,7 +4710,5 @@ display: block;;">
     <script type="text/javascript">_satellite.pageBottom();
     </script>
   </div>
-  <!-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------->
-  <!-----------------------------------------------       Start Javascript Code Area  and Misc Tools               ----------------------------------------------->
   </body>
 </html>
