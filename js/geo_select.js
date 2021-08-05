@@ -32,7 +32,7 @@ closeAcc.addEventListener("click", function() {
   const accContent = document.getElementsByClassName("accordionContent");
   for (var i = 0; i < accContent.length; i++) {
 	accContent[i].style.display = "none";
-	console.log("hiding ", accContent[i]);
+	// console.log("hiding ", accContent[i]);
   }
 }
 						 );
@@ -41,7 +41,7 @@ openAcc.addEventListener("click", function() {
   const accContent = document.getElementsByClassName("accordionContent");
   for (var i = 0; i < accContent.length; i++) {
 	accContent[i].style.display = "block";
-	console.log("showing ", accContent[i]);
+	// console.log("showing ", accContent[i]);
   }
 }
 						);
