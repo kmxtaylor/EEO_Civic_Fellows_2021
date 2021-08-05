@@ -33,57 +33,7 @@
         top.location = self.location
       }
     </script>
-    <style type="text/css">
-      .content_area{
-        display:block;
-      }
-      /* Accordion CSS */
-      #tableSelectForm .accordion, .accordionControl {
-        margin: 1rem 0;
-      }
-      #tableSelectForm .accordion, #openAccordions, #closeAccordions {
-        border: thin solid hsl(200, 15%, 72%);
-      }
-      #openAccordions, #closeAccordions {
-        margin-right: .5rem;
-        margin-left: 0;
-        padding: 0.5rem;
-        font-size: 1rem;
-        font-weight: 500;
-      }
-      #tableSelectForm .accordionHeader {
-        width: 100%;
-        border: none;
-        padding: 1rem;
-        font-size: 1.25rem;
-        font-weight: 600;
-      }
-      #tableSelectForm button {
-        background-color: #e7eaed;
-        color: #112e51;
-        cursor: pointer;
-        text-align: left;
-        outline: none;
-        /* font-family: "Roboto", sans-serif !important; */
-        transition: 0.4s;
-      }
-      .openPanel, #tableSelectForm button:hover {
-        background-color: #ccc;
-      }
-      .accordionIcon {
-        display: inline-block;
-        padding-right: 0.25rem;
-        vertical-align: middle;
-      }
-      .accordionContent {
-        display: none;
-        padding: 0 18px;
-        background-color: white;
-        color: #333;
-        /* font-family: "Roboto", sans-serif !important; */
-        overflow: hidden;
-      }
-    </style>
+
     <link href="/etc.clientlibs/census/clientlibs/census-css/resources/print.css" rel="stylesheet" type="text/css" media="print"/>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="DC.title" property="og:title" content="2014—2018 EEO Tables" />
