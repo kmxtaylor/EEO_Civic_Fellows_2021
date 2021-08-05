@@ -523,11 +523,11 @@ var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
 $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(function() {
   $(".geo_selected").empty();
-  $("#get_EEO_data").slideDown();
-  $("#suppressionMsg").slideUp();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
   $("#viewGeo").slideUp();
+  $("#suppressionMsg").slideUp();
+  $("#get_EEO_data").slideDown('slow'); // slight overlap w/ #viewGeo sliding up
   //console.log("what is stVal here" + stVal);
   //console.log("what is stVal here" + geo_RadioValue);
   //stValsubstr = stVal.substring(7);
@@ -635,8 +635,6 @@ $.fn.dropdownCh = (function () {
   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
 	  $(".geo_selected").empty();
-	  $("#get_EEO_data").slideDown();
-      $("#suppressionMsg").slideUp();
 	  dd_str = $(this).text();
 	  $(".geo_selected").text(dd_str).change();
 	  $("#viewGeo").slideDown();
