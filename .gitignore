@@ -1,0 +1,4 @@
+# ignore my html symbolic links
+*.html
+
+~$msa-components-2018.csv
