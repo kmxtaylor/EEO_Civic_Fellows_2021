@@ -79,7 +79,7 @@ function openEEOTable() {
 	return;
   }
   if( (geo_RadioValue) === "msa") {
-	msaVal = $("#msaList").val();
+	msaVal = $("[name='msaList']").val();
 	url += "geotype=msa&msa=" + msaVal + "&filetype=" + fileType + "&geoName=" + geoString;
 	window.open(url, "_blank");
 	return;
@@ -453,6 +453,7 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	let tableSetNum = eeo_filetype.slice(3,4);
 	loadMSA('#msaList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""); // conditional condensing only applied here to avoid introducing bugs
+	$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
 	$("#viewMsaGeo").slideDown();
   }
   if ( (geo_RadioValue) === "place" ) {
@@ -596,7 +597,7 @@ $("#msaList, #firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, 
 	$.fn.dropdownCh();
   }
   else if ( geo_RadioValue === "msa" ) {
-	 msaVal = $("#msaList").val();
+	 msaVal = $("[name='msaList']").val();
 	// console.log('msa selected');
 	if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
 		console.log(`msa selected is suppressed`)
