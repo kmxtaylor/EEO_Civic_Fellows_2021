@@ -505,7 +505,7 @@ var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
 $("#msaList").change(function() {
-	msaVal = $("#firstLevelGeoList").val();
+	msaVal = $("#msaList").val();
 	// console.log('msa selected');
 	if (msaVal === 'suppressed') {
 		console.log(`msa selected is suppressed`)
