@@ -452,25 +452,8 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "msa" ) {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
-	if (isTableSet1) {
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1_msa.json", "");
-	}
-	else if (isTableSet2){
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_msa.json", "");
-	  // Katie: I guessed at the URLs for those below based on the established pattern
-	}
-	else if (isTableSet3){
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_msa.json", "");
-	}
-	else if (isTableSet4){
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_msa.json", "");
-	}
-	else if (isTableSet5){
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_msa.json", "");
-	}
-	else if (isTableSet6){
-	  loadMSA('#msaList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_msa.json", "");
-	}
+	let tableSetNum = tabletype.slice(3,4);
+	loadMSA('#msaList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""); // conditional condensing only applied here to avoid introducing bugs
 	$("#viewMsaGeo").slideDown();
   }
   if ( (geo_RadioValue) === "place" ) {
