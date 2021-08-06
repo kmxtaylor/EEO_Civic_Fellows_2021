@@ -240,7 +240,9 @@ async function loadMSA(selobj, url) {
         select.append(newOption);
     });
     
-    $('#msaList :nth-child(1)').before("<option selected>Select an MSA</option>");
+	$('#msaList :nth-child(1)').before("<option value='' selected>Type/Select an MSA</option>"); // transforms into placeholder w/ no option initially selected
+    // $('#msaList :nth-child(1)').before("<option selected>Select an MSA</option>");
+	$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
   });
   $.fn.dropdownCh();
 }
@@ -453,7 +455,6 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	let tableSetNum = eeo_filetype.slice(3,4);
 	loadMSA('#msaList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""); // conditional condensing only applied here to avoid introducing bugs
-	$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
 	$("#viewMsaGeo").slideDown();
   }
   if ( (geo_RadioValue) === "place" ) {
