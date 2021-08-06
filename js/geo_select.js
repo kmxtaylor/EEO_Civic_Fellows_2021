@@ -452,7 +452,7 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "msa" ) {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
-	let tableSetNum = tabletype.slice(3,4);
+	let tableSetNum = eeo_filetype.slice(3,4);
 	loadMSA('#msaList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""); // conditional condensing only applied here to avoid introducing bugs
 	$("#viewMsaGeo").slideDown();
   }
