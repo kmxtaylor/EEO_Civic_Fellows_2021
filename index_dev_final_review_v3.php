@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/core-overrides.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-combobox.css" type="text/css"/> <!-- Bootstrap combobox CSS -->
     <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
     <link rel="icon" sizes="256x256" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-256x256.png">
     <link rel="shortcut icon" sizes="32x32" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/favicon.ico">
@@ -4053,7 +4054,8 @@ display: block;;">
   </script>
   
   <!-- Geography and table selection JS -->
-  <script src="js/geo_select.js"> </script>
+  <script type="text/javascript" src="js/geo_select.js"></script>
+  <script type="text/javascript" src="js/bootstrap-combobox.js"></script>   <!-- Bootstrap combobox JS -->
   
   <script type="text/javascript">
     var referrer=document.referrer;
