@@ -3268,6 +3268,14 @@ display: block;;">
                               </label>
                             </div>	 
                           </div>
+                          <div id="viewMsaGeo" style="padding-top:25px;display:none;">	  
+                            <div class="row">
+                              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+                                <select name="msaList" class="form-control form-inline" id="msaList" size="1">
+                                </select>
+                              </div>	
+                            </div>
+                          </div>
                           <div id="viewFirstLevelGeo" style="padding-top:25px;display:none;">	  
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
