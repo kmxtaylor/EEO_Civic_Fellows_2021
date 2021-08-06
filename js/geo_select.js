@@ -4,8 +4,7 @@
  * 8/5/2021
  */
 
-
-// Accordion JS
+/** Accordion JS */
 const acc = document.getElementsByClassName("accordionHeader");
 for (let i = 0; i < acc.length; i++) {
   acc[i].addEventListener("click", function() {
@@ -25,8 +24,8 @@ for (let i = 0; i < acc.length; i++) {
   }
 						 );
 }
-// Accordion JS: close all & open all buttons
 
+// Accordion JS: close all & open all buttons
 let closeAcc = document.getElementById("closeAccordions");
 closeAcc.addEventListener("click", function() {
   const accContent = document.getElementsByClassName("accordionContent");
@@ -504,17 +503,7 @@ $("input[name='geoSumLevel']").change(function () {
 var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
-$("#msaList").change(function() {
-	msaVal = $("#msaList").val();
-	// console.log('msa selected');
-	if (msaVal === 'suppressed') {
-		console.log(`msa selected is suppressed`)
-		// replace Get EEO Table button w/ msg about suppression
-		$("#get_EEO_data").slideUp();
-		$("#suppressionMsg").slideDown();
-	}
-})
-$("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(function() {
+$("#msaList, #firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(function() {
   $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
@@ -605,6 +594,16 @@ $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLeve
 	loadCountySet('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1r_countyset.json", stValsubstr);
 	$("#viewSecondLevelGeo").slideDown();
 	$.fn.dropdownCh();
+  }
+  else if ( geo_RadioValue === "msa" ) {
+	 msaVal = $("#msaList").val();
+	// console.log('msa selected');
+	if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
+		console.log(`msa selected is suppressed`)
+		// replace Get EEO Table button w/ msg about suppression
+		$("#get_EEO_data").slideUp();
+		$("#suppressionMsg").slideDown();
+	}
   }
   else {
 	  console.log('Error: no geo radio val selected');
