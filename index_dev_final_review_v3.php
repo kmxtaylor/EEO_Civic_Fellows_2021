@@ -3271,11 +3271,8 @@ display: block;;">
                           </div>
                           <div id="viewMsaGeo" style="padding-top:25px;display:none;">	  
                             <div class="row">
-                              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                                <select name="msaList" id="msaList" class="combobox input-large form-control form-inline" size="1">
-				  <!-- Placeholder added by js toward end of option population -->
-                                  <!-- <option value="">Start typing an MSA name...</option> -->
-                                </select>
+                              <div id="msaSelection" class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+								<!-- populated by js -->
                               </div>	
                             </div>
                           </div>

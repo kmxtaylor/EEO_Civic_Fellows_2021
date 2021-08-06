@@ -192,6 +192,11 @@ function loadCountySet(selobj, url, stValsubstr) {
 }
 // loadCountySet
 async function loadMSA(selobj, url) {
+  /** Renew msaSelection contents (work around bootstrap-combobox repopulation bugs) */
+  $('#msaSelection').empty();
+  $("#msaSelection").append(
+	'<select name="msaList" id="msaList" class="combobox input-large form-control form-inline" size="1"> </select>'
+  );
 
   /** Get suppressed MSAs (100k only for now) */
   let suppressedMsasFile = '';
@@ -207,8 +212,8 @@ async function loadMSA(selobj, url) {
   });
   
   let suppressedMsas = [];
-  suppressedMsasRaw.forEach(function(msaObj) {
-    suppressedMsas.push(['suppressed', msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg
+  suppressedMsasRaw.forEach(function(msaObj, i) {
+    suppressedMsas.push(['suppressed'+i, msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg
   });
 
   /** Assemble list of all MSAs for this table's dropdown */
@@ -218,7 +223,7 @@ async function loadMSA(selobj, url) {
     // concat suppressed msas (100k) w/ available msas before alphabetizing
     data = data.concat(suppressedMsas);
 
-    data = data.sort(function alphabetizeStates(a, b) {
+    data = data.sort(function alphabetizeData(a, b) {
       a = a[1];
       b = b[1];
       if (a > b) {
@@ -242,7 +247,10 @@ async function loadMSA(selobj, url) {
     
 	$('#msaList :nth-child(1)').before("<option value='' selected>Type/Select an MSA</option>"); // transforms into placeholder w/ no option initially selected
     // $('#msaList :nth-child(1)').before("<option selected>Select an MSA</option>");
-	$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
+	// if (!($('#viewMsaGeo .combobox-container').length)) { // if hasn't been converted to combobox already
+		console.log('initing msa dropdown as combobox');
+		$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
+	//}
   });
   $.fn.dropdownCh();
 }
@@ -403,7 +411,7 @@ $("input[name='geoSumLevel']").change(function () {
 	var geoNation = "United States";
 	$(".geo_selected").text(geoNation);
 	$("#suppressionMsg").slideUp();
-	$("#get_EEO_data").slideDown('slow'); // slight overlap w/ #viewGeo sliding up
+	$("#get_EEO_data").slideDown('slow');
 	$("#viewGeo").slideDown();
 	$("#viewResults").slideDown();
 	console.log(geo_RadioValue);
@@ -622,6 +630,7 @@ $.fn.dropdownCh = (function () {
 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected, #msaList option:selected").each(function(){
 	  $(".geo_selected").empty();
 	  dd_str = $(this).text();
+	  console.log('geo selected: '+dd_str);
 	  $(".geo_selected").text(dd_str).change();
 	  $("#viewGeo").slideDown();
 	  $("#viewResults").slideDown();
