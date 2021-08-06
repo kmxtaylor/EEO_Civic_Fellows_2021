@@ -402,6 +402,8 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#msaList, #firstLevelGeoList, #secondLevelGeoList").empty();
 	var geoNation = "United States";
 	$(".geo_selected").text(geoNation);
+	$("#suppressionMsg").slideUp();
+	$("#get_EEO_data").slideDown('slow'); // slight overlap w/ #viewGeo sliding up
 	$("#viewGeo").slideDown();
 	$("#viewResults").slideDown();
 	console.log(geo_RadioValue);
