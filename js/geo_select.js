@@ -253,7 +253,7 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
 		$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
 	//}
   });
-  $.fn.dropdownCh();
+  $.fn.dropdownChMsa();
 }
 // loadMSA
 $.fn.extend({
@@ -630,8 +630,8 @@ $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLeve
 var dd_str = "";
 
 $.fn.dropdownCh = (function () {
-  $("#msaList, #secondLevelGeoList, #firstLevelGeoList").change(function(){
-	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected, #msaList option:selected").each(function(){
+  $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
+	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
 	  $(".geo_selected").empty();
 	  dd_str = $(this).text();
 	  // console.log('geo selected: '+dd_str);
@@ -639,8 +639,18 @@ $.fn.dropdownCh = (function () {
 	  $("#viewGeo").slideDown();
 	  $("#viewResults").slideDown();
 	  geoString = dd_str;
-	}
-																					 )
-  }
-													 )}
-				  );
+	})
+  })
+ });
+ 
+ $.fn.dropdownChMsa = (function () { // separate from dropdownCh due to bugs
+  $("#msaList").change(function(){
+	  $(".geo_selected").empty();
+	  dd_str = $('#msaList option:selected').text();
+	  // console.log('geo selected: '+dd_str);
+	  $(".geo_selected").text(dd_str).change();
+	  $("#viewGeo").slideDown();
+	  $("#viewResults").slideDown();
+	  geoString = dd_str;
+  });
+ });
