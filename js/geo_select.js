@@ -191,12 +191,13 @@ function loadCountySet(selobj, url, stValsubstr) {
 		   );
 }
 // loadCountySet
-async function loadMSA(selobj, url) {
+async function loadMSA(msaListName, url) { // msaListName = str used to set up / select msa list (currently "msaList")
   /** Renew msaSelection contents (work around bootstrap-combobox repopulation bugs) */
   $('#msaSelection').empty();
-  $("#msaSelection").append(
-	'<select name="msaList" id="msaList" class="combobox input-large form-control form-inline" size="1"> </select>'
+  $('#msaSelection').append(
+	`<select name="${msaListName}" id="${msaListName}" class="combobox input-large form-control form-inline" size="1"> </select>`
   );
+  $(`#${msaListName}`).change(respondToFirstDD) // necessary to rebind function to new element
 
   /** Get suppressed MSAs (100k only for now) */
   let suppressedMsasFile = '';
@@ -213,11 +214,11 @@ async function loadMSA(selobj, url) {
   
   let suppressedMsas = [];
   suppressedMsasRaw.forEach(function(msaObj, i) {
-    suppressedMsas.push(['suppressed'+i, msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg
+    suppressedMsas.push(['suppressed'+i, msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg b/c it doesn't start w/ a num
   });
 
   /** Assemble list of all MSAs for this table's dropdown */
-  select = $(selobj).empty();
+  select = $(`#${msaListName}`).empty();
   $.getJSON(url, {}, function (data) {
 
     // concat suppressed msas (100k) w/ available msas before alphabetizing
@@ -245,7 +246,7 @@ async function loadMSA(selobj, url) {
         select.append(newOption);
     });
     
-	$('#msaList :nth-child(1)').before("<option value='' selected>Type/Select an MSA</option>"); // transforms into placeholder w/ no option initially selected
+	$(`#${msaListName} :nth-child(1)`).before("<option value='' selected>Type/Select an MSA</option>"); // transforms into placeholder w/ no option initially selected
     // $('#msaList :nth-child(1)').before("<option selected>Select an MSA</option>");
 	// if (!($('#viewMsaGeo .combobox-container').length)) { // if hasn't been converted to combobox already
 		console.log('initing msa dropdown as combobox');
@@ -464,7 +465,10 @@ $("input[name='geoSumLevel']").change(function () {
   if ( (geo_RadioValue) === "msa" ) {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	let tableSetNum = eeo_filetype.slice(3,4);
-	loadMSA('#msaList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""); // conditional condensing only applied here to avoid introducing bugs
+	loadMSA(
+		'msaList', // msaListName, needs to be str, not id selector
+		`/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""
+	); // conditional condensing only applied here to avoid introducing bugs
 	$("#viewMsaGeo").slideDown();
   }
   if ( (geo_RadioValue) === "place" ) {
@@ -515,7 +519,7 @@ $("input[name='geoSumLevel']").change(function () {
 var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
-$("#msaList, #firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(function() {
+function respondToFirstDD() { // gets reattached to msaList everytime it gets reset
   $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
@@ -621,7 +625,7 @@ $("#msaList, #firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, 
 	  console.log('Error: no geo radio val selected');
   }
 }
-);
+$("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(respondToFirstDD);
 // on change for file or sumlevel
 var dd_str = "";
 
@@ -630,7 +634,7 @@ $.fn.dropdownCh = (function () {
 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected, #msaList option:selected").each(function(){
 	  $(".geo_selected").empty();
 	  dd_str = $(this).text();
-	  console.log('geo selected: '+dd_str);
+	  // console.log('geo selected: '+dd_str);
 	  $(".geo_selected").text(dd_str).change();
 	  $("#viewGeo").slideDown();
 	  $("#viewResults").slideDown();
