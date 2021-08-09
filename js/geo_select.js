@@ -389,7 +389,8 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
   $("#viewGeo").slideUp();
   $("#viewResults").slideUp();
   $(".geo_selected").empty();
-  $("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+  $("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
+//   $("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
   $("#msaList, #firstLevelGeoList, #secondLevelGeoList").empty();
 }
 							  );
@@ -424,7 +425,8 @@ $("input[name='geoSumLevel']").change(function () {
 
   $("#viewSecondLevelGeo").slideUp();
   if( (geo_RadioValue) === "nation" ) {
-	$("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	$("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
+	// $("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	$("#msaList, #firstLevelGeoList, #secondLevelGeoList").empty();
 	var geoNation = "United States";
 	$(".geo_selected").text(geoNation);
@@ -437,7 +439,8 @@ $("input[name='geoSumLevel']").change(function () {
   }
   var url_state = "/acs/www/data/eeo-data/eeo-tables-2018/geos/state.json";
   if ( (geo_RadioValue) === "state" ) {
-	$("#viewMsaGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
+	// $("#viewMsaGeo, #viewSecondLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	console.log("val" + geo_RadioValue);
 	$(".sumLevel").text(" a State");
 	loadStates('#firstLevelGeoList', url_state, "");
@@ -487,7 +490,8 @@ $("input[name='geoSumLevel']").change(function () {
   let noCountiesGroup1 = [];
   let noCountiesGroup2 = [];
   if ( (geo_RadioValue) === "msa" ) {
-	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	// $("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	$("#viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
 	loadMSA(
 		'msaList', // msaListName, needs to be str, not id selector
 		`/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""
@@ -496,29 +500,33 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no places for any tables
-	  loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
-	  $("#viewFirstLevelGeoAlt2").slideDown();
-	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt3").slideUp();
-	}
-	else if (isTableSet2) { // no places for 2s
-	  loadStates('#firstLevelGeoListAlt', url_state, " to begin");
-	  $("#viewFirstLevelGeoAlt").slideDown();
-	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
-	}
+	$("#viewFirstLevelGeo").slideDown();
+	loadStates('#firstLevelGeoListAlt2', url_state, " to begin", "places");
+	// if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no places for any tables
+	//   loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
+	//   $("#viewFirstLevelGeoAlt2").slideDown();
+	//   $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt3").slideUp();
+	// }
+	// else if (isTableSet2) { // no places for 2s
+	//   loadStates('#firstLevelGeoListAlt', url_state, " to begin");
+	//   $("#viewFirstLevelGeoAlt").slideDown();
+	//   $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	// }
   }
   if ( (geo_RadioValue) === "county" ) { // not all1r
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no counties for any tables
-	  loadStates('#firstLevelGeoList', url_state, " to begin");
-	  $("#viewFirstLevelGeo").slideDown();
-	  $("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
-	}
-	else if ( isTableSet2 ) { // no counties for 2s
-	  loadStates('#firstLevelGeoListAlt3', url_state, " to begin");
-	  $("#viewFirstLevelGeoAlt3").slideDown();
-	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2").slideUp();
-	}
+	$("#viewFirstLevelGeo").slideDown();
+	loadStates('#firstLevelGeoList', url_state, " to begin", "counties");
+	// if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no counties for any tables
+	//   loadStates('#firstLevelGeoList', url_state, " to begin");
+	//   $("#viewFirstLevelGeo").slideDown();
+	//   $("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	// }
+	// else if ( isTableSet2 ) { // no counties for 2s
+	//   loadStates('#firstLevelGeoListAlt3', url_state, " to begin");
+	//   $("#viewFirstLevelGeoAlt3").slideDown();
+	//   $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2").slideUp();
+	// }
   }
   if ( (geo_RadioValue) === "countyset" ) { // all1r only
 	console.log("url?" + url_state);
@@ -526,7 +534,7 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	loadStates('#firstLevelGeoList', url_state, " to begin");
 	$("#viewFirstLevelGeo").slideDown();
-	$("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
+	// $("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
   }
 }
 									 );
@@ -547,32 +555,38 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
   if ( (geo_RadioValue) === "place" ) {
 	$(".sumLevel").text(" a Place");
 	if ( isTableSet1 ){
-	  stVal = $("#firstLevelGeoListAlt2").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt2").val();
 	  console.log("in places 1s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1_place.json", stVal.substring(7));
 	}
 	else if ( isTableSet2 ) {
-	  stVal = $("#firstLevelGeoListAlt").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt").val();
 	  console.log("in places 2s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_place.json", stVal.substring(7));
 	}
 	else if ( isTableSet3 ) {
-	  stVal = $("#firstLevelGeoListAlt2").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt2").val();
 	  console.log("in places 3s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_place.json", stVal.substring(7));
 	}
 	else if ( isTableSet4 ) {
-	  stVal = $("#firstLevelGeoListAlt2").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt2").val();
 	  console.log("in places 4s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_place.json", stVal.substring(7));
 	}
 	else if ( isTableSet5 ) {
-	  stVal = $("#firstLevelGeoListAlt2").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt2").val();
 	  console.log("in places 5s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_place.json", stVal.substring(7));
 	}
 	else if ( isTableSet6 ) {
-	  stVal = $("#firstLevelGeoListAlt2").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt2").val();
 	  console.log("in places 6s" + stVal);
 	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
 	}
@@ -588,7 +602,8 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1w_county.json", stValsubstr);
 	}
 	else if ( isTableSet2 ) {
-	  stVal = $("#firstLevelGeoListAlt3").val();
+	  stVal = $("#firstLevelGeoList").val();
+	//   stVal = $("#firstLevelGeoListAlt3").val();
 	  console.log("in county 2s" + stVal);
 	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_county.json", stVal.substring(7));
 	}
@@ -639,7 +654,8 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	  console.log('Error: no geo radio val selected');
   }
 }
-$("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(respondToFirstDD);
+$("#firstLevelGeoList").change(respondToFirstDD);
+// $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(respondToFirstDD);
 // on change for file or sumlevel
 var dd_str = "";
 
