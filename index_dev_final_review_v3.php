@@ -3284,7 +3284,7 @@ display: block;;">
                               </div>	
                             </div>
                           </div>
-                          <div id="viewFirstLevelGeoAlt" style="padding-top:25px;display:none;">	  
+                          <!-- <div id="viewFirstLevelGeoAlt" style="padding-top:25px;display:none;">	  
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
                                 <select name="firstLevelGeoListAlt" class="form-control form-inline" id="firstLevelGeoListAlt" size="1">						
@@ -3397,9 +3397,9 @@ display: block;;">
                                 </select>
                               </div>	
                             </div>
-                          </div>   
+                          </div>    -->
                           <!--missing ">" at the end of this div tag  -->
-                          <div id="viewFirstLevelGeoAlt2" style="padding-top:25px;display:none;">	  
+                          <!-- <div id="viewFirstLevelGeoAlt2" style="padding-top:25px;display:none;">	  
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
                                 <select name="firstLevelGeoListAlt2" class="form-control form-inline" id="firstLevelGeoListAlt2" size="1">						
@@ -3512,8 +3512,8 @@ display: block;;">
                                 </select>
                               </div>	
                             </div>
-                          </div>					
-                          <div id="viewFirstLevelGeoAlt3" style="padding-top:25px;display:none;">	  
+                          </div>					 -->
+                          <!-- <div id="viewFirstLevelGeoAlt3" style="padding-top:25px;display:none;">	  
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
                                 <select name="firstLevelGeoListAlt3" class="form-control form-inline" id="firstLevelGeoListAlt3" size="1">						
@@ -3626,7 +3626,7 @@ display: block;;">
                                 </select>
                               </div>	
                             </div>
-                          </div>					
+                          </div>					 -->
                           <div id="viewSecondLevelGeo" style="padding-top:10px;display:none;">
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
