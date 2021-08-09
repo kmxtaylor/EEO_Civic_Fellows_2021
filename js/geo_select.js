@@ -96,13 +96,20 @@ $("#get_EEO_data").click(function() {
 //console.log(fileSubstr);
 function loadStates(selobj, url, extra, geoSelection) {
 
-    const noPlacesGroup1 = [
+	// table sets fall into 2 groups for the sets of states w/ suppression of places & tables, most likely based on data threshold
+	const group1Tables = ["1", "3", "4", "5", "6"];
+	const group2Tables = ["2", "7", "8", "9", "10", "11", "12"]; // not confirmed
+
+    const group1StatesNoPlaces = [
       "04000us30","04000us46","04000us50","04000us54","04000us56","04000us72"
-    ]; // these states have no places for 1s and 3-6s
-    const noPlacesGroup2 = [
+    ]; // these states have no places for the tables in group1Tables
+    const group2StatesNoPlaces = [
       "04000us10","04000us23","04000us28","04000us30","04000us31","04000us35","04000us38","04000us46","04000us50","04000us54","04000us56","04000us72"
-    ]; // these states have no places for 2s and likely 7-12s
-    const wyomingCode = "04000us56"; // counties unavailable for tableset 2 (& maybe 7-12s)
+    ]; // these states have no places for the tablesets in group2Tables
+
+    const group2StatesNoCounties = ["04000us56"]; // these states have no counties for tables in group2Tables
+
+	let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
 
   select = $(selobj).empty();
   $.getJSON(url, {}, function (data) {
@@ -122,8 +129,9 @@ function loadStates(selobj, url, extra, geoSelection) {
       }
     });
 
-    console.log('data:');
-    console.log(data);
+    // console.log('data:');
+    // console.log(data);
+
     $.each(data, function (i, obj) {
       if (i != 0) {
         let optionVal = obj[0];
@@ -131,9 +139,9 @@ function loadStates(selobj, url, extra, geoSelection) {
         let newOption = $('<option></option>');
         //.attr('disabled', true).addClass('eeo_red').text(`${option} (no ${geoSelection} available)`)
         if (
-            (optionVal === wyomingCode && isTableSet2 && geoSelection === 'counties') || // formerly #firstLevelGeoListAlt3
-            (noPlacesGroup1.includes(optionVal) && geoSelection === 'places') || // formerly #firstLevelGeoListAlt2
-            (noPlacesGroup2.includes(optionVal) && isTableSet2 && geoSelection === 'places') // formerly #firstLevelGeoListAlt
+            (geoSelection === 'counties' && group2Tables.includes(tableSetNum) && group2StatesNoCounties.includes(optionVal)) || // formerly #firstLevelGeoListAlt3
+            (geoSelection === 'places' && group1StatesNoPlaces.includes(optionVal)) || // formerly #firstLevelGeoListAlt2
+            (group2Tables.includes(tableSetNum) && geoSelection === 'places' && group2StatesNoPlaces.includes(optionVal)) // formerly #firstLevelGeoListAlt
         ) {
             optionText = optionText + ` (no ${geoSelection} available)`;
             $(newOption).attr('disabled', true).addClass('eeo_red');
@@ -401,23 +409,23 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
 var geo_RadioValue = "";
 // Keeping these variables globals a temporary fix for multiple functions below needing to use them
 const numTableSets = 6 // could probably make this not a constant
-let [
-  isTableSet1,
-  isTableSet2,
-  isTableSet3,
-  isTableSet4,
-  isTableSet5,
-  isTableSet6
-] = Array(numTableSets).fill(false);
+// let [
+//   isTableSet1,
+//   isTableSet2,
+//   isTableSet3,
+//   isTableSet4,
+//   isTableSet5,
+//   isTableSet6
+// ] = Array(numTableSets).fill(false);
 $("input[name='geoSumLevel']").change(function () {
-	[
-	  isTableSet1,
-	  isTableSet2,
-	  isTableSet3,
-	  isTableSet4,
-	  isTableSet5,
-	  isTableSet6
-	] = Array(numTableSets).fill(false); // reset in case table changed
+	// [
+	//   isTableSet1,
+	//   isTableSet2,
+	//   isTableSet3,
+	//   isTableSet4,
+	//   isTableSet5,
+	//   isTableSet6
+	// ] = Array(numTableSets).fill(false); // reset in case table changed
   geo_RadioValue = $("input:radio[name='geoSumLevel']:checked").attr('id');
   $('#tableSelectForm').addClass('disabled');
   $('#refreshTableSelect').slideDown();
@@ -451,47 +459,44 @@ $("input[name='geoSumLevel']").change(function () {
   }
   // determine which tableset eeo_filetype is part of
   // removes dedundancy & improves readability in subsequent code that relies on these booleans
-  switch (eeo_filetype) {
-	case 'all1w': 
-	case 'all1r': 
-	  isTableSet1 = true;
-	  break;
-	case 'all2w':
-	case 'all2r':
-	case 'cit2w':
-	case 'cit2r':
-	  isTableSet2 = true;
-	  break;
-	case 'all3w':
-	case 'all3r':
-	case 'cit3w':
-	case 'cit3r':
-	  isTableSet3 = true;
-	  break;
-	case 'all4w':
-	case 'all4r':
-	  isTableSet4 = true;
-	  break;
-	case 'all5w':
-	case 'all5r':
-	case 'cit5w':
-	case 'cit5r':
-	  isTableSet5 = true;
-	  break;
-	case 'all6w':
-	case 'all6r':
-	case 'cit6w':
-	case 'cit6r':
-	  isTableSet6 = true;
-	  break;
-  }
+//   switch (eeo_filetype) {
+// 	case 'all1w': 
+// 	case 'all1r': 
+// 	  isTableSet1 = true;
+// 	  break;
+// 	case 'all2w':
+// 	case 'all2r':
+// 	case 'cit2w':
+// 	case 'cit2r':
+// 	  isTableSet2 = true;
+// 	  break;
+// 	case 'all3w':
+// 	case 'all3r':
+// 	case 'cit3w':
+// 	case 'cit3r':
+// 	  isTableSet3 = true;
+// 	  break;
+// 	case 'all4w':
+// 	case 'all4r':
+// 	  isTableSet4 = true;
+// 	  break;
+// 	case 'all5w':
+// 	case 'all5r':
+// 	case 'cit5w':
+// 	case 'cit5r':
+// 	  isTableSet5 = true;
+// 	  break;
+// 	case 'all6w':
+// 	case 'all6r':
+// 	case 'cit6w':
+// 	case 'cit6r':
+// 	  isTableSet6 = true;
+// 	  break;
+//   }
   // instead of isTableSet# vars for each table set, directly (not yet fully in-use):
   let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
   console.log(`selected table set number ${tableSetNum}`); 
-  let noPlacesGroup1 = [];
-  let noPlacesGroup2 = [];
-  let noCountiesGroup1 = [];
-  let noCountiesGroup2 = [];
+
   if ( (geo_RadioValue) === "msa" ) {
 	// $("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	$("#viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
@@ -557,89 +562,103 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
   //console.log(stValsubstr);
   if ( (geo_RadioValue) === "place" ) {
 	$(".sumLevel").text(" a Place");
-	if ( isTableSet1 ){
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt2").val();
-	  console.log("in places 1s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1_place.json", stVal.substring(7));
-	}
-	else if ( isTableSet2 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt").val();
-	  console.log("in places 2s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_place.json", stVal.substring(7));
-	}
-	else if ( isTableSet3 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt2").val();
-	  console.log("in places 3s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_place.json", stVal.substring(7));
-	}
-	else if ( isTableSet4 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt2").val();
-	  console.log("in places 4s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_place.json", stVal.substring(7));
-	}
-	else if ( isTableSet5 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt2").val();
-	  console.log("in places 5s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_place.json", stVal.substring(7));
-	}
-	else if ( isTableSet6 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt2").val();
-	  console.log("in places 6s" + stVal);
-	  loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
-	}
+	let stVal = $("#firstLevelGeoList").val();
+	let stValSubStr = stVal.substring(7);
+	console.log(`in places ${tableSetNum}s ${stVal}`);
+	loadPlace('#secondLevelGeoList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_place.json`, stValSubStr);
+
+	// if ( isTableSet1 ){
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt2").val();
+	//   console.log("in places 1s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1_place.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet2 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt").val();
+	//   console.log("in places 2s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_place.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet3 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt2").val();
+	//   console.log("in places 3s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_place.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet4 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt2").val();
+	//   console.log("in places 4s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_place.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet5 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt2").val();
+	//   console.log("in places 5s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_place.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet6 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt2").val();
+	//   console.log("in places 6s" + stVal);
+	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
+	// }
 	$("#viewSecondLevelGeo").slideDown();
 	$.fn.dropdownCh();
   }
   else if ( (geo_RadioValue) === "county" ) {
 	$(".sumLevel").text(" a County");
-	if (eeo_filetype === "all1w") {
-	  stVal = $("#firstLevelGeoList").val();
-	  console.log("in county 1s" + stVal);
-	  var stValsubstr = stVal.substring(7);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1w_county.json", stValsubstr);
+	let stVal = $("#firstLevelGeoList").val();
+	console.log(`in county ${tableSetNum}s ${stVal}`);
+	let stValSubStr = stVal.substring(7);
+	if (tableSetNum === "1") { // all1w has special county json file name
+		loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1w_county.json", stValSubStr);
+	} else {
+		loadCounty('#secondLevelGeoList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t${tableSetNum}_county.json`, stValSubStr);
 	}
-	else if ( isTableSet2 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	//   stVal = $("#firstLevelGeoListAlt3").val();
-	  console.log("in county 2s" + stVal);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_county.json", stVal.substring(7));
-	}
-	else if ( isTableSet3 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	  console.log("in county 3s" + stVal);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_county.json", stVal.substring(7));
-	}
-	else if ( isTableSet4 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	  console.log("in county 4s" + stVal);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_county.json", stVal.substring(7));
-	}
-	else if ( isTableSet5 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	  console.log("in county 5s" + stVal);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_county.json", stVal.substring(7));
-	}
-	else if ( isTableSet6 ) {
-	  stVal = $("#firstLevelGeoList").val();
-	  console.log("in county 6s" + stVal);
-	  loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_county.json", stVal.substring(7));
-	}
+
+	// if (eeo_filetype === "all1w") {
+	//   stVal = $("#firstLevelGeoList").val();
+	//   console.log("in county 1s" + stVal);
+	//   var stValsubstr = stVal.substring(7);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1w_county.json", stValsubstr);
+	// }
+	// else if ( isTableSet2 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	// //   stVal = $("#firstLevelGeoListAlt3").val();
+	//   console.log("in county 2s" + stVal);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table2/t2_county.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet3 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	//   console.log("in county 3s" + stVal);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table3/t3_county.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet4 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	//   console.log("in county 4s" + stVal);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table4/t4_county.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet5 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	//   console.log("in county 5s" + stVal);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table5/t5_county.json", stVal.substring(7));
+	// }
+	// else if ( isTableSet6 ) {
+	//   stVal = $("#firstLevelGeoList").val();
+	//   console.log("in county 6s" + stVal);
+	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_county.json", stVal.substring(7));
+	// }
 	$("#viewSecondLevelGeo").slideDown();
 	$.fn.dropdownCh();
   }
   else if ( (geo_RadioValue) === "countyset" ) {
 	$(".sumLevel").text(" a County Set");
 	stVal = $("#firstLevelGeoList").val();
-	var stValsubstr = stVal.substring(7);
+	var stValSubStr = stVal.substring(7);
 	console.log("in county st" + stVal);
-	console.log("in county sub" + stValsubstr);
-	loadCountySet('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1r_countyset.json", stValsubstr);
+	console.log("in county sub" + stValSubStr);
+	loadCountySet('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1r_countyset.json", stValSubStr);
 	$("#viewSecondLevelGeo").slideDown();
 	$.fn.dropdownCh();
   }
