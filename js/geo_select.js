@@ -501,7 +501,7 @@ $("input[name='geoSumLevel']").change(function () {
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	$("#viewFirstLevelGeo").slideDown();
-	loadStates('#firstLevelGeoListAlt2', url_state, " to begin", "places");
+	loadStates('#firstLevelGeoList', url_state, " to begin", "places");
 	// if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no places for any tables
 	//   loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
 	//   $("#viewFirstLevelGeoAlt2").slideDown();
