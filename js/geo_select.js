@@ -462,9 +462,15 @@ $("input[name='geoSumLevel']").change(function () {
 	  isTableSet6 = true;
 	  break;
   }
+  // instead of isTableSet# vars for each table set, directly (not yet fully in-use):
+  let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
+  console.log(`selected table set number ${tableSetNum}`); 
+  let noPlacesGroup1 = [];
+  let noPlacesGroup2 = [];
+  let noCountiesGroup1 = [];
+  let noCountiesGroup2 = [];
   if ( (geo_RadioValue) === "msa" ) {
 	$("#viewSecondLevelGeo, #viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
-	let tableSetNum = eeo_filetype.slice(3,4);
 	loadMSA(
 		'msaList', // msaListName, needs to be str, not id selector
 		`/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_msa.json`, ""
@@ -473,31 +479,31 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
+	if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no places for any tables
 	  loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt2").slideDown();
 	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt3").slideUp();
 	}
-	else if (isTableSet2){
+	else if (isTableSet2) { // no places for 2s
 	  loadStates('#firstLevelGeoListAlt', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt").slideDown();
 	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	}
   }
-  if ( (geo_RadioValue) === "county" ) {
+  if ( (geo_RadioValue) === "county" ) { // not all1r
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
+	if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no counties for any tables
 	  loadStates('#firstLevelGeoList', url_state, " to begin");
 	  $("#viewFirstLevelGeo").slideDown();
 	  $("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	}
-	else if ( isTableSet2 ){
+	else if ( isTableSet2 ) { // no counties for 2s
 	  loadStates('#firstLevelGeoListAlt3', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt3").slideDown();
 	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2").slideUp();
 	}
   }
-  if ( (geo_RadioValue) === "countyset" ) {
+  if ( (geo_RadioValue) === "countyset" ) { // all1r only
 	console.log("url?" + url_state);
 	console.log("url?" + geo_RadioValue);
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
