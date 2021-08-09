@@ -503,8 +503,8 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	$("#viewFirstLevelGeo").slideDown();
 	loadStates('#firstLevelGeoList', url_state, " to begin", "places");
+	$("#viewFirstLevelGeo").slideDown();
 	// if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no places for any tables
 	//   loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
 	//   $("#viewFirstLevelGeoAlt2").slideDown();
@@ -518,8 +518,8 @@ $("input[name='geoSumLevel']").change(function () {
   }
   if ( (geo_RadioValue) === "county" ) { // not all1r
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
-	$("#viewFirstLevelGeo").slideDown();
 	loadStates('#firstLevelGeoList', url_state, " to begin", "counties");
+	$("#viewFirstLevelGeo").slideDown();
 	// if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6) { // no counties for any tables
 	//   loadStates('#firstLevelGeoList', url_state, " to begin");
 	//   $("#viewFirstLevelGeo").slideDown();
