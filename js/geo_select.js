@@ -106,8 +106,11 @@ function loadStates(selobj, url, extra, geoSelection) {
 
   select = $(selobj).empty();
   $.getJSON(url, {}, function (data) {
-    /** mismatch solution method 1: */
-    data = data.sort(function alphabetizeStates(a, b) {
+
+	if (data[0][0] === "01000us" || data[0][1] === "United States") { // remove 'United States' entry from state data
+		data = data.slice(1);
+	}
+	data = data.sort(function alphabetizeStates(a, b) {
       a = a[1];
       b = b[1];
       if (a > b) {
