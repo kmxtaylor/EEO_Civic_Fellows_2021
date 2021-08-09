@@ -1,142 +1,142 @@
 [
-    {
-      "CBSA code": 12580,
-      "CBSA description": "Baltimore-Columbia-Towson, MD Metro Area"
-    },
-    {
-      "CBSA code": 12940,
-      "CBSA description": "Baton Rouge, LA Metro Area"
-    },
-    {
-      "CBSA code": 13720,
-      "CBSA description": "Big Stone Gap, VA Micro Area"
-    },
-    {
-      "CBSA code": 13740,
-      "CBSA description": "Billings, MT Metro Area"
-    },
-    {
-      "CBSA code": 14010,
-      "CBSA description": "Bloomington, IL Metro Area"
-    },
-    {
-      "CBSA code": 14700,
-      "CBSA description": "Branson, MO Micro Area"
-    },
-    {
-      "CBSA code": 16020,
-      "CBSA description": "Cape Girardeau, MO-IL Metro Area"
-    },
-    {
-      "CBSA code": 16060,
-      "CBSA description": "Carbondale-Marion, IL Metro Area"
-    },
-    {
-      "CBSA code": 16740,
-      "CBSA description": "Charlotte-Concord-Gastonia, NC-SC Metro Area"
-    },
-    {
-      "CBSA code": 16820,
-      "CBSA description": "Charlottesville, VA Metro Area"
-    },
-    {
-      "CBSA code": 17140,
-      "CBSA description": "Cincinnati, OH-KY-IN Metro Area"
-    },
-    {
-      "CBSA code": 17300,
-      "CBSA description": "Clarksville, TN-KY Metro Area"
-    },
-    {
-      "CBSA code": 17980,
-      "CBSA description": "Columbus, GA-AL Metro Area"
-    },
-    {
-      "CBSA code": 18580,
-      "CBSA description": "Corpus Christi, TX Metro Area"
-    },
-    {
-      "CBSA code": 19060,
-      "CBSA description": "Cumberland, MD-WV Metro Area"
-    },
-    {
-      "CBSA code": 19780,
-      "CBSA description": "Des Moines-West Des Moines, IA Metro Area"
-    },
-    {
-      "CBSA code": 20260,
-      "CBSA description": "Duluth, MN-WI Metro Area"
-    },
-    {
-      "CBSA code": 21780,
-      "CBSA description": "Evansville, IN-KY Metro Area"
-    },
-    {
-      "CBSA code": 22220,
-      "CBSA description": "Fayetteville-Springdale-Rogers, AR-MO Metro Area"
-    },
-    {
-      "CBSA code": 22800,
-      "CBSA description": "Fort Madison-Keokuk, IA-IL-MO Micro Area"
-    },
-    {
-      "CBSA code": 22900,
-      "CBSA description": "Fort Smith, AR-OK Metro Area"
-    },
-    {
-      "CBSA code": 23060,
-      "CBSA description": "Fort Wayne, IN Metro Area"
-    },
-    {
-      "CBSA code": 23540,
-      "CBSA description": "Gainesville, FL Metro Area"
-    },
-    {
-      "CBSA code": 25060,
-      "CBSA description": "Gulfport-Biloxi-Pascagoula, MS Metro Area"
-    },
-    {
-      "CBSA code": 25180,
-      "CBSA description": "Hagerstown-Martinsburg, MD-WV Metro Area"
-    },
-    {
-      "CBSA code": 25620,
-      "CBSA description": "Hattiesburg, MS Metro Area"
-    },
-    {
-      "CBSA code": 26580,
-      "CBSA description": "Huntington-Ashland, WV-KY-OH Metro Area"
-    },
-    {
-      "CBSA code": 27140,
-      "CBSA description": "Jackson, MS Metro Area"
-    },
-    {
-      "CBSA code": 27180,
-      "CBSA description": "Jackson, TN Metro Area"
-    },
-    {
-      "CBSA code": 28700,
-      "CBSA description": "Kingsport-Bristol-Bristol, TN-VA Metro Area"
-    },
-    {
-      "CBSA code": 30300,
-      "CBSA description": "Lewiston, ID-WA Metro Area"
-    },
-    {
-      "CBSA code": 30860,
-      "CBSA description": "Logan, UT-ID Metro Area"
-    },
-    {
-      "CBSA code": 30940,
-      "CBSA description": "London, KY Micro Area"
-    },
-    {
-      "CBSA code": 31140,
-      "CBSA description": "Louisville/Jefferson County, KY-IN Metro Area"
-    },
-    {
-      "CBSA code": 31940,
-      "CBSA description": "Marinette, WI-MI Micro Area"
-    }
+  {
+    "CBSA code": 12580,
+    "CBSA description": "Baltimore-Columbia-Towson, MD Metro Area"
+  },
+  {
+    "CBSA code": 12940,
+    "CBSA description": "Baton Rouge, LA Metro Area"
+  },
+  {
+    "CBSA code": 13720,
+    "CBSA description": "Big Stone Gap, VA Micro Area"
+  },
+  {
+    "CBSA code": 13740,
+    "CBSA description": "Billings, MT Metro Area"
+  },
+  {
+    "CBSA code": 14010,
+    "CBSA description": "Bloomington, IL Metro Area"
+  },
+  {
+    "CBSA code": 14700,
+    "CBSA description": "Branson, MO Micro Area"
+  },
+  {
+    "CBSA code": 16020,
+    "CBSA description": "Cape Girardeau, MO-IL Metro Area"
+  },
+  {
+    "CBSA code": 16060,
+    "CBSA description": "Carbondale-Marion, IL Metro Area"
+  },
+  {
+    "CBSA code": 16740,
+    "CBSA description": "Charlotte-Concord-Gastonia, NC-SC Metro Area"
+  },
+  {
+    "CBSA code": 16820,
+    "CBSA description": "Charlottesville, VA Metro Area"
+  },
+  {
+    "CBSA code": 17140,
+    "CBSA description": "Cincinnati, OH-KY-IN Metro Area"
+  },
+  {
+    "CBSA code": 17300,
+    "CBSA description": "Clarksville, TN-KY Metro Area"
+  },
+  {
+    "CBSA code": 17980,
+    "CBSA description": "Columbus, GA-AL Metro Area"
+  },
+  {
+    "CBSA code": 18580,
+    "CBSA description": "Corpus Christi, TX Metro Area"
+  },
+  {
+    "CBSA code": 19060,
+    "CBSA description": "Cumberland, MD-WV Metro Area"
+  },
+  {
+    "CBSA code": 19780,
+    "CBSA description": "Des Moines-West Des Moines, IA Metro Area"
+  },
+  {
+    "CBSA code": 20260,
+    "CBSA description": "Duluth, MN-WI Metro Area"
+  },
+  {
+    "CBSA code": 21780,
+    "CBSA description": "Evansville, IN-KY Metro Area"
+  },
+  {
+    "CBSA code": 22220,
+    "CBSA description": "Fayetteville-Springdale-Rogers, AR-MO Metro Area"
+  },
+  {
+    "CBSA code": 22800,
+    "CBSA description": "Fort Madison-Keokuk, IA-IL-MO Micro Area"
+  },
+  {
+    "CBSA code": 22900,
+    "CBSA description": "Fort Smith, AR-OK Metro Area"
+  },
+  {
+    "CBSA code": 23060,
+    "CBSA description": "Fort Wayne, IN Metro Area"
+  },
+  {
+    "CBSA code": 23540,
+    "CBSA description": "Gainesville, FL Metro Area"
+  },
+  {
+    "CBSA code": 25060,
+    "CBSA description": "Gulfport-Biloxi-Pascagoula, MS Metro Area"
+  },
+  {
+    "CBSA code": 25180,
+    "CBSA description": "Hagerstown-Martinsburg, MD-WV Metro Area"
+  },
+  {
+    "CBSA code": 25620,
+    "CBSA description": "Hattiesburg, MS Metro Area"
+  },
+  {
+    "CBSA code": 26580,
+    "CBSA description": "Huntington-Ashland, WV-KY-OH Metro Area"
+  },
+  {
+    "CBSA code": 27140,
+    "CBSA description": "Jackson, MS Metro Area"
+  },
+  {
+    "CBSA code": 27180,
+    "CBSA description": "Jackson, TN Metro Area"
+  },
+  {
+    "CBSA code": 28700,
+    "CBSA description": "Kingsport-Bristol-Bristol, TN-VA Metro Area"
+  },
+  {
+    "CBSA code": 30300,
+    "CBSA description": "Lewiston, ID-WA Metro Area"
+  },
+  {
+    "CBSA code": 30860,
+    "CBSA description": "Logan, UT-ID Metro Area"
+  },
+  {
+    "CBSA code": 30940,
+    "CBSA description": "London, KY Micro Area"
+  },
+  {
+    "CBSA code": 31140,
+    "CBSA description": "Louisville/Jefferson County, KY-IN Metro Area"
+  },
+  {
+    "CBSA code": 31940,
+    "CBSA description": "Marinette, WI-MI Micro Area"
+  }
 ]
