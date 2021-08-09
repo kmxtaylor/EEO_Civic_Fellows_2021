@@ -94,41 +94,58 @@ $("#get_EEO_data").click(function() {
 // onclick get_EEO_data	
 // var fileSubstr = eeo_filetype.substring(3,4);
 //console.log(fileSubstr);
-function loadStates(selobj, url, extra) {
+function loadStates(selobj, url, extra, geoSelection) {
+
+    const noPlacesGroup1 = [
+      "04000us30","04000us46","04000us50","04000us54","04000us56","04000us72"
+    ]; // these states have no places for 1s and 3-6s
+    const noPlacesGroup2 = [
+      "04000us10","04000us23","04000us28","04000us30","04000us31","04000us35","04000us38","04000us46","04000us50","04000us54","04000us56","04000us72"
+    ]; // these states have no places for 2s and likely 7-12s
+    const wyomingCode = "04000us56"; // counties unavailable for tableset 2 (& maybe 7-12s)
+
   select = $(selobj).empty();
-  $.getJSON(url, {
-  }
-			, function (data) {
-	$.each(data, function (i, obj) {
-	  if (i != 0) {
-		select.append(
-		  $('<option></option>').val(obj[0]).html(obj[1]));
-	  }
-	}
-		  );
-	$("#firstLevelGeoList").sortSelect();
-	$('#firstLevelGeoList :nth-child(1)').before("<option selected>Select a State" + extra +"</option>");
-  }
-		   )
+  $.getJSON(url, {}, function (data) {
+    /** mismatch solution method 1: */
+    data = data.sort(function alphabetizeStates(a, b) {
+      a = a[1];
+      b = b[1];
+      if (a > b) {
+        return 1;
+      } else if (b > a) {
+        return -1;
+      } else {
+        return 0;
+      }
+    });
+
+    console.log('data:');
+    console.log(data);
+    $.each(data, function (i, obj) {
+      if (i != 0) {
+        let optionVal = obj[0];
+        let optionText = obj[1];
+        let newOption = $('<option></option>');
+        //.attr('disabled', true).addClass('eeo_red').text(`${option} (no ${geoSelection} available)`)
+        if (
+            (optionVal === wyomingCode && isTableSet2 && geoSelection === 'counties') || // formerly #firstLevelGeoListAlt3
+            (noPlacesGroup1.includes(optionVal) && geoSelection === 'places') || // formerly #firstLevelGeoListAlt2
+            (noPlacesGroup2.includes(optionVal) && isTableSet2 && geoSelection === 'places') // formerly #firstLevelGeoListAlt
+        ) {
+            optionText = optionText + ` (no ${geoSelection} available)`;
+            $(newOption).attr('disabled', true).addClass('eeo_red');
+            // console.log(`adding new DISABLED option for ${optionText} (${optionVal}):`);
+        } else {
+            // console.log(`adding new enabled option for ${optionText} (${optionVal})`);
+        }
+        $(newOption).val(optionVal).html(optionText);
+        select.append(newOption);
+      }
+    });
+    
+    $('#firstLevelGeoList :nth-child(1)').before("<option selected>Select a State" + extra +"</option>");
+  });
   $.fn.dropdownCh();
-};
-function loadStatesSub(selobj, url, extra) {
-  select = $(selobj).empty();
-  $.getJSON(url, {
-  }
-			, function (data) {
-	$.each(data, function (i, obj) {
-	  if (i != 0) {
-		select.append(
-		  $('<option></option>').val(obj[0]).html(obj[1]));
-	  }
-	}
-		  );
-	// missing closing brackets parentheses semicolon 
-	$("#firstLevelGeoList").sortSelect();
-	$('#firstLevelGeoList :nth-child(1)').before("<option selected>Select a State" + extra +"</option>");
-  }
-		   );
 }
 // loadStates		 
 function loadPlace(selobj, url, stValsubstr) {
