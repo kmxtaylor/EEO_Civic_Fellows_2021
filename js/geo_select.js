@@ -474,17 +474,14 @@ $("input[name='geoSumLevel']").change(function () {
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	if (isTableSet1 || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
+	  loadStates('#firstLevelGeoListAlt2', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt2").slideDown();
-	  $("#viewFirstLevelGeo").slideUp();
-	  $("#viewFirstLevelGeoAlt").slideUp();
-	  $("#viewFirstLevelGeoAlt3").slideUp();
-	  //empty?
+	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt3").slideUp();
 	}
 	else if (isTableSet2){
+	  loadStates('#firstLevelGeoListAlt', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt").slideDown();
-	  $("#viewFirstLevelGeo").slideUp();
-	  $("#viewFirstLevelGeoAlt2").slideUp();
-	  $("#viewFirstLevelGeoAlt3").slideUp();
+	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	}
   }
   if ( (geo_RadioValue) === "county" ) {
@@ -492,16 +489,12 @@ $("input[name='geoSumLevel']").change(function () {
 	if (eeo_filetype === "all1w" || isTableSet3 || isTableSet4 || isTableSet5 || isTableSet6)	{
 	  loadStates('#firstLevelGeoList', url_state, " to begin");
 	  $("#viewFirstLevelGeo").slideDown();
-	  $("#viewFirstLevelGeoAlt2").slideUp();
-	  $("#viewFirstLevelGeoAlt").slideUp();
-	  $("#viewFirstLevelGeoAlt3").slideUp();
-	  //empty?
+	  $("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
 	}
 	else if ( isTableSet2 ){
+	  loadStates('#firstLevelGeoListAlt3', url_state, " to begin");
 	  $("#viewFirstLevelGeoAlt3").slideDown();
-	  $("#viewFirstLevelGeo").slideUp();
-	  $("#viewFirstLevelGeoAlt2").slideUp();
-	  $("#viewFirstLevelGeoAlt").slideUp();
+	  $("#viewFirstLevelGeo, #viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2").slideUp();
 	}
   }
   if ( (geo_RadioValue) === "countyset" ) {
@@ -510,9 +503,7 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	loadStates('#firstLevelGeoList', url_state, " to begin");
 	$("#viewFirstLevelGeo").slideDown();
-	$("#viewFirstLevelGeoAlt2").slideUp();
-	$("#viewFirstLevelGeoAlt").slideUp();
-	$("#viewFirstLevelGeoAlt3").slideUp();
+	$("#viewFirstLevelGeoAlt, #viewFirstLevelGeoAlt2, #viewFirstLevelGeoAlt3").slideUp();
   }
 }
 									 );
