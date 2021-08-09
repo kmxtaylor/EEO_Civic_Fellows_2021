@@ -138,5 +138,105 @@
   {
     "CBSA code": 31940,
     "CBSA description": "Marinette, WI-MI Micro Area"
+  },
+  {
+    "CBSA code": 32620,
+    "CBSA description": "McComb, MS Micro Area"
+  },
+  {
+    "CBSA code": 32820,
+    "CBSA description": "Memphis, TN-MS-AR Metro Area"
+  },
+  {
+    "CBSA code": 34100,
+    "CBSA description": "Morristown, TN Metro Area"
+  },
+  {
+    "CBSA code": 34980,
+    "CBSA description": "Nashville-Davidson--Murfreesboro--Franklin, TN Metro Area"
+  },
+  {
+    "CBSA code": 35020,
+    "CBSA description": "Natchez, MS-LA Micro Area"
+  },
+  {
+    "CBSA code": 36620,
+    "CBSA description": "Ontario, OR-ID Micro Area"
+  },
+  {
+    "CBSA code": 37140,
+    "CBSA description": "Paducah, KY-IL Micro Area"
+  },
+  {
+    "CBSA code": 37460,
+    "CBSA description": "Panama City, FL Metro Area"
+  },
+  {
+    "CBSA code": 37900,
+    "CBSA description": "Peoria, IL Metro Area"
+  },
+  {
+    "CBSA code": 38300,
+    "CBSA description": "Pittsburgh, PA Metro Area"
+  },
+  {
+    "CBSA code": 38580,
+    "CBSA description": "Point Pleasant, WV-OH Micro Area"
+  },
+  {
+    "CBSA code": 38660,
+    "CBSA description": "Ponce, PR Metro Area"
+  },
+  {
+    "CBSA code": 39500,
+    "CBSA description": "Quincy, IL-MO Micro Area"
+  },
+  {
+    "CBSA code": 40060,
+    "CBSA description": "Richmond, VA Metro Area"
+  },
+  {
+    "CBSA code": 40080,
+    "CBSA description": "Richmond-Berea, KY Micro Area"
+  },
+  {
+    "CBSA code": 41140,
+    "CBSA description": "St. Joseph, MO-KS Metro Area"
+  },
+  {
+    "CBSA code": 41980,
+    "CBSA description": "San Juan-Carolina-Caguas, PR Metro Area"
+  },
+  {
+    "CBSA code": 43340,
+    "CBSA description": "Shreveport-Bossier City, LA Metro Area"
+  },
+  {
+    "CBSA code": 43580,
+    "CBSA description": "Sioux City, IA-NE-SD Metro Area"
+  },
+  {
+    "CBSA code": 43900,
+    "CBSA description": "Spartanburg, SC Metro Area"
+  },
+  {
+    "CBSA code": 45180,
+    "CBSA description": "Talladega-Sylacauga, AL Micro Area"
+  },
+  {
+    "CBSA code": 45460,
+    "CBSA description": "Terre Haute, IN Metro Area"
+  },
+  {
+    "CBSA code": 45780,
+    "CBSA description": "Toledo, OH Metro Area"
+  },
+  {
+    "CBSA code": 47260,
+    "CBSA description": "Virginia Beach-Norfolk-Newport News, VA-NC Metro Area"
+  },
+  {
+    "CBSA code": 47900,
+    "CBSA description": "Washington-Arlington-Alexandria, DC-VA-MD-WV Metro Area"
   }
 ]
