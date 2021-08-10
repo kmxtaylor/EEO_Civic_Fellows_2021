@@ -486,6 +486,7 @@ var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
 function respondToFirstDD() { // gets reattached to msaList everytime it gets reset
+  let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
   $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
