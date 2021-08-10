@@ -239,7 +239,7 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
 
   /** Get suppressed MSAs (100k only for now) */
   let suppressedMsasFile = '';
-  let tableSetNum = tabletype.match(/\d+/).join("");
+  let tableSetNum = eeo_filetype.match(/\d+/).join("");
   const tables100k = ["2", "7", "8", "9", "10", "11", "12"]; // not confirmed
 
   if (tables100k.includes(tableSetNum)) { // edit when table sets 7+ added
