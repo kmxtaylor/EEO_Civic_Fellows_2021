@@ -513,7 +513,7 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	if (tableSetNum === "1") { // all1w has special county json file name
 		loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1w_county.json", stValSubStr);
 	} else {
-		loadCounty('#secondLevelGeoList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t${tableSetNum}_county.json`, stValSubStr);
+		loadCounty('#secondLevelGeoList', `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}/t${tableSetNum}_county.json`, stValSubStr);
 	}
 	$("#viewSecondLevelGeo").slideDown();
   }
