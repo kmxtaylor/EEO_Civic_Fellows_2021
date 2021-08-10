@@ -239,7 +239,10 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
 
   /** Get suppressed MSAs (100k only for now) */
   let suppressedMsasFile = '';
-  if (isTableSet2) { // edit when table sets 7+ added
+  let tableSetNum = tabletype.match(/\d+/).join("");
+  const tables100k = ["2", "7", "8", "9", "10", "11", "12"]; // not confirmed
+
+  if (tables100k.includes(tableSetNum)) { // edit when table sets 7+ added
     suppressedMsasFile = './geos/suppressed-msas-100k.json';
   } else {
     suppressedMsasFile = './geos/suppressed-msas-50k.json';
@@ -418,25 +421,7 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
 							  );
 // Selected a summary Level Start
 var geo_RadioValue = "";
-// Keeping these variables globals a temporary fix for multiple functions below needing to use them
-const numTableSets = 6 // could probably make this not a constant
-// let [
-//   isTableSet1,
-//   isTableSet2,
-//   isTableSet3,
-//   isTableSet4,
-//   isTableSet5,
-//   isTableSet6
-// ] = Array(numTableSets).fill(false);
 $("input[name='geoSumLevel']").change(function () {
-	// [
-	//   isTableSet1,
-	//   isTableSet2,
-	//   isTableSet3,
-	//   isTableSet4,
-	//   isTableSet5,
-	//   isTableSet6
-	// ] = Array(numTableSets).fill(false); // reset in case table changed
   geo_RadioValue = $("input:radio[name='geoSumLevel']:checked").attr('id');
   $('#tableSelectForm').addClass('disabled');
   $('#refreshTableSelect').slideDown();
@@ -468,43 +453,8 @@ $("input[name='geoSumLevel']").change(function () {
 	loadStates('#firstLevelGeoList', url_state, "");
 	$("#viewFirstLevelGeo").slideDown();
   }
-  // determine which tableset eeo_filetype is part of
-  // removes dedundancy & improves readability in subsequent code that relies on these booleans
-//   switch (eeo_filetype) {
-// 	case 'all1w': 
-// 	case 'all1r': 
-// 	  isTableSet1 = true;
-// 	  break;
-// 	case 'all2w':
-// 	case 'all2r':
-// 	case 'cit2w':
-// 	case 'cit2r':
-// 	  isTableSet2 = true;
-// 	  break;
-// 	case 'all3w':
-// 	case 'all3r':
-// 	case 'cit3w':
-// 	case 'cit3r':
-// 	  isTableSet3 = true;
-// 	  break;
-// 	case 'all4w':
-// 	case 'all4r':
-// 	  isTableSet4 = true;
-// 	  break;
-// 	case 'all5w':
-// 	case 'all5r':
-// 	case 'cit5w':
-// 	case 'cit5r':
-// 	  isTableSet5 = true;
-// 	  break;
-// 	case 'all6w':
-// 	case 'all6r':
-// 	case 'cit6w':
-// 	case 'cit6r':
-// 	  isTableSet6 = true;
-// 	  break;
-//   }
-  // instead of isTableSet# vars for each table set, directly (not yet fully in-use):
+
+  // instead of sTableSet# vars for each table set, directly:
   let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
   console.log(`selected table set number ${tableSetNum}`); 
 
