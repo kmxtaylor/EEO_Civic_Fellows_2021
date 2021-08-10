@@ -2975,8 +2975,9 @@ $(document).ready(function(){
     
 
 });
-</script>	  
-<div class="row hidden-md visible-lg " style="margin: 8px 0px 8px 5px; padding: 8px 0px 8px 5px; border: 1px dotted #333;" >
+</script>
+<div id="TempHide">	  
+<div class="row hidden-md visible-lg " id="allToolTips" style="margin: 8px 0px 8px 5px; padding: 8px 0px 8px 5px; border: 1px dotted #333;" >
 <div class="acs_content  col-lg-12"> 
 
 <p class="acs_wwa" style="font-weight:normal; text-align:center; padding-bottom: 30px; font-style:italic;"> <a style="cursor: pointer;" class="eeo_toolbox"><span class="openEEOToolTip">** Open Quick Guide to Using Table Tools **</span></a></p>
@@ -3032,7 +3033,7 @@ $(document).ready(function(){
 </div>
 						
 						</div>		<!-- end tool tips section -->						
-						
+</div>						
 						
 						
 						
@@ -3145,29 +3146,7 @@ $(document).ready(function(){
 <br />
 <div class="uscb-padding-B-130"></div> 
 	
-							<!--	
-								
-								<h3>Changes to Occupations</h3>
-								
-								
-								
-								<p class="acs_eeo" >Paragraph of text briefly explaining in plain language why there are many fewer occupations.... Curabitur sagittis in mi vitae volutpat. Aenean quis lectus ipsum. Integer ac nibh non velit fringilla dapibus.  
-								nec tempus blandit. Duis sed est dolor. Etiam lorem urna, vestibulum a est id, accumsan porttitor ante.
-								Aenean commodo ornare mi sit amet feugiat. Sed ac lacus tincidunt, ultrices velit et, dictum tortor. Morbi euismod metus ut viverra vehicula. </p>
-								
-								<p class="acs_eeo_L_30"><a>Link to Occupations Crosswalk</a>  </p>
-								
-								<br><br><span style="font-size:70%;">Note for team The crosswalk will also be available for use above the table but there is no room for explaining there</span></p>
-								
-								<h3>EEO Tabulation Documentation</h3>
-									
-								<p class="acs_eeo" >Curabitur sagittis in mi vitae volutpat. Aenean quis lectus ipsum. Integer ac nibh non velit fringilla dapibus.  
-								nec tempus blandit. Duis sed est dolor. Etiam lorem urna, vestibulum a est id, accumsan porttitor ante.
-								Aenean commodo ornare mi sit amet feugiat. Sed ac lacus tincidunt, ultrices velit et, dictum tortor. Morbi euismod metus ut viverra vehicula. </p>
-									
-									<p class="acs_eeo_L_30"><a>Link 1 to EEO topic page</a>  </p>
-									<p class="acs_eeo_L_30"><a>Link 1 to EEO topic page</a>  </p>
-									-->
+			
 									<div class="uscb-padding-B-130"></div> 
 								</div>
 							</div>
@@ -3975,7 +3954,7 @@ $.when(call1,call2).done(function(res1,res2){
 
 	let detailedSearchTextPost = '(%d) ' + displayedLabelPlural + ' Selected'; // button text post-selection
 		
-	let detailedSearchTextHover = 'Click to Select Multiple/Many ' + displayedLabelPlural; // button text on-hover
+	let detailedSearchTextHover = 'Click to Select Multiple ' + displayedLabelPlural; // button text on-hover
 
 	// table defaults
 	$.extend($.fn.dataTable.defaults, {
@@ -3996,6 +3975,7 @@ $.when(call1,call2).done(function(res1,res2){
 						displayedLabelPlural+ ': <span style="color:#ff7043;" class="label_count">' + labelCount + '</span>'
 					);
 					$("#quickSearchGuide").hide(); 
+					$("#TempHide").hide();
 				}
 				$("#View_Est").slideDown(4000);
 				// console.log("this:", this);
@@ -4036,6 +4016,7 @@ $.when(call1,call2).done(function(res1,res2){
 				{
 					extend: 'excel',
 					text: 'Download',
+					titleAttr: 'Download to Excel',
 					className: 'acs_button download',
 					title: geoStr + "    " + tableStr + "    2014-2018 ACS 5-Year EEO Estimates",
 					exportOptions: {
