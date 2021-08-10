@@ -3603,7 +3603,11 @@ $(document).ready(function(){
 	} 
 		
 	else if ( (sumlevel) === "place") {
-		let tableSetNum = tabletype.match(/\d+/).join("");
+		// if (tabletype.slice(3,4) === "1")
+		// 	{var geosloc = "table1/t1_"}
+		// else if (isTableSet2)
+		// 	{var geosloc = "table2/t2_"}
+		let tableSetNum = tabletype.slice(3,4);
 		let geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		var geoCall = '160/eeo' + tabletype + "_" +  plVal;
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
@@ -3616,7 +3620,7 @@ $(document).ready(function(){
 			geosloc = "table1/t1w_";
 		}
 		else {
-			let tableSetNum = tabletype.match(/\d+/).join("");
+			let tableSetNum = tabletype.slice(3,4);
 			geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		}
 		var geoCall = '050/eeo'  + tabletype + "_" +   coVal;
@@ -3633,7 +3637,7 @@ $(document).ready(function(){
 	}						
 		
 	else if ( (sumlevel) === "msa") {
-		let tableSetNum = tabletype.match(/\d+/).join("");
+		let tableSetNum = tabletype.slice(3,4);
 		let geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		var geoCall = '310/eeo'  + tabletype + "_" +   msaVal;
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
