@@ -94,7 +94,7 @@ $("#get_EEO_data").click(function() {
 // onclick get_EEO_data	
 // var fileSubstr = eeo_filetype.substring(3,4);
 //console.log(fileSubstr);
-function loadStates(selobj, url, extra, geoSelection) {
+function loadStates(selobj, url, extra, SecondGeoSelection=null) {
 
 	// table sets fall into 2 groups for the sets of states w/ suppression of places & tables, most likely based on data threshold
 	const group1Tables = ["1", "3", "4", "5", "6"];
@@ -139,11 +139,11 @@ function loadStates(selobj, url, extra, geoSelection) {
         let newOption = $('<option></option>');
         //.attr('disabled', true).addClass('eeo_red').text(`${option} (no ${geoSelection} available)`)
         if (
-            (geoSelection === 'counties' && group2Tables.includes(tableSetNum) && group2StatesNoCounties.includes(optionVal)) || // formerly #firstLevelGeoListAlt3
-            (geoSelection === 'places' && group1StatesNoPlaces.includes(optionVal)) || // formerly #firstLevelGeoListAlt2
-            (group2Tables.includes(tableSetNum) && geoSelection === 'places' && group2StatesNoPlaces.includes(optionVal)) // formerly #firstLevelGeoListAlt
+            (SecondGeoSelection === 'counties' && group2Tables.includes(tableSetNum) && group2StatesNoCounties.includes(optionVal)) || // formerly #firstLevelGeoListAlt3
+            (SecondGeoSelection === 'places' && group1StatesNoPlaces.includes(optionVal)) || // formerly #firstLevelGeoListAlt2
+            (group2Tables.includes(tableSetNum) && SecondGeoSelection === 'places' && group2StatesNoPlaces.includes(optionVal)) // formerly #firstLevelGeoListAlt
         ) {
-            optionText = optionText + ` (no ${geoSelection} available)`;
+            optionText = optionText + ` (no ${SecondGeoSelection} available)`;
             $(newOption).attr('disabled', true).addClass('eeo_red');
             // console.log(`adding new DISABLED option for ${optionText} (${optionVal}):`);
         } else {
@@ -156,7 +156,11 @@ function loadStates(selobj, url, extra, geoSelection) {
     
     $('#firstLevelGeoList :nth-child(1)').before("<option selected>Select a State" + extra +"</option>");
   });
-  $.fn.dropdownCh();
+  let has2DDs = true;
+  if (SecondGeoSelection === null) { // no 2nd dropdown
+	has2DDs = false;
+  }
+  $.fn.dropdownCh(has2DDs);
 }
 // loadStates		 
 function loadPlace(selobj, url, stValsubstr) {
@@ -179,6 +183,8 @@ function loadPlace(selobj, url, stValsubstr) {
 	}
   }
 		   );
+	let has2DDs = true;
+	$.fn.dropdownCh(has2DDs);
 }
 // loadPlace
 function loadCounty(selobj, url, stValsubstr) {
@@ -198,6 +204,8 @@ function loadCounty(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select a County </option>");
   }
 		   );
+	let has2DDs = true;
+	$.fn.dropdownCh(has2DDs);
 }
 // loadCounty
 function loadCountySet(selobj, url, stValsubstr) {
@@ -217,6 +225,8 @@ function loadCountySet(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select County Set (1R)</option>");
   }
 		   );
+	let has2DDs = true;
+	$.fn.dropdownCh(has2DDs);
 }
 // loadCountySet
 async function loadMSA(msaListName, url) { // msaListName = str used to set up / select msa list (currently "msaList")
@@ -281,7 +291,8 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
 		$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
 	//}
   });
-  $.fn.dropdownChMsa();
+  let has2DDs = false;
+  $.fn.dropdownCh(has2DDs);
 }
 // loadMSA
 $.fn.extend({
@@ -604,7 +615,6 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	//   loadPlace('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_place.json", stVal.substring(7));
 	// }
 	$("#viewSecondLevelGeo").slideDown();
-	$.fn.dropdownCh();
   }
   else if ( (geo_RadioValue) === "county" ) {
 	$(".sumLevel").text(" a County");
@@ -650,7 +660,6 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	//   loadCounty('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table6/t6_county.json", stVal.substring(7));
 	// }
 	$("#viewSecondLevelGeo").slideDown();
-	$.fn.dropdownCh();
   }
   else if ( (geo_RadioValue) === "countyset" ) {
 	$(".sumLevel").text(" a County Set");
@@ -660,7 +669,6 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	console.log("in county sub" + stValSubStr);
 	loadCountySet('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1r_countyset.json", stValSubStr);
 	$("#viewSecondLevelGeo").slideDown();
-	$.fn.dropdownCh();
   }
   else if ( geo_RadioValue === "msa" ) {
 	 msaVal = $("[name='msaList']").val();
@@ -679,30 +687,45 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 $("#firstLevelGeoList").change(respondToFirstDD);
 // $("#firstLevelGeoList, #firstLevelGeoListAlt, #firstLevelGeoListAlt2, #firstLevelGeoListAlt3").change(respondToFirstDD);
 // on change for file or sumlevel
-var dd_str = "";
+// var dd_str = "";
 
-$.fn.dropdownCh = (function () {
-  $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
-	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
-	  $(".geo_selected").empty();
-	  dd_str = $(this).text();
-	  // console.log('geo selected: '+dd_str);
-	  $(".geo_selected").text(dd_str).change();
-	  $("#viewGeo").slideDown();
-	  $("#viewResults").slideDown();
-	  geoString = dd_str;
-	})
-  })
+function updateResultsDisplayed(dd_str) {
+	$(".geo_selected").empty();
+	console.log(`geo selected: ${dd_str}`);
+	$(".geo_selected").text(dd_str).change();
+	$("#viewGeo").slideDown();
+	$("#viewResults").slideDown();
+	geoString = dd_str;
+}
+
+$.fn.dropdownCh = (function (has2DDS) {
+	if (has2DDS) { // if has 2nd dropdown
+	  $("#secondLevelGeoList").change(function(){
+		updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() ); 
+	  });
+	} else if (geo_RadioValue === 'msa') {
+	  $("#msaList").change(function(){
+		updateResultsDisplayed( $("#msaList option:selected").text() );
+	  });
+	} else { // isn't msa & doesn't have 2nd dropdown
+	  $("#firstLevelGeoList").change(function(){
+		updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() );
+	  });
+	}
+//   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
+// 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
+// 	})
+//   })
  });
  
- $.fn.dropdownChMsa = (function () { // separate from dropdownCh due to bugs
-  $("#msaList").change(function(){
-	  $(".geo_selected").empty();
-	  dd_str = $('#msaList option:selected').text();
-	  // console.log('geo selected: '+dd_str);
-	  $(".geo_selected").text(dd_str).change();
-	  $("#viewGeo").slideDown();
-	  $("#viewResults").slideDown();
-	  geoString = dd_str;
-  });
- });
+//  $.fn.dropdownChMsa = (function () { // separate from dropdownCh due to bugs
+//   $("#msaList").change(function(){
+// 	  $(".geo_selected").empty();
+// 	  dd_str = $('#msaList option:selected').text();
+// 	  // console.log('geo selected: '+dd_str);
+// 	  $(".geo_selected").text(dd_str).change();
+// 	  $("#viewGeo").slideDown();
+// 	  $("#viewResults").slideDown();
+// 	  geoString = dd_str;
+//   });
+//  });
