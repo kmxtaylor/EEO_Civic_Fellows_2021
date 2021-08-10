@@ -3570,6 +3570,8 @@ $(document).ready(function(){
 
 	//var geoURL = URL_geos_base + tabletype + "/" + sumlevel + ".json";
 
+	let tableSetNum = tabletype.match(/\d+/).join(""); // extract number from tabletype
+	let RorW = tabletype.slice(-1);
 	if ( (sumlevel) === "nation") {
 		var sumlevelStr = "_01000us";
 		var geoCall = '010/eeo' + tabletype  + sumlevelStr;
@@ -3582,11 +3584,6 @@ $(document).ready(function(){
 	} 
 		
 	else if ( (sumlevel) === "place") {
-		// if (tabletype.slice(3,4) === "1")
-		// 	{var geosloc = "table1/t1_"}
-		// else if (isTableSet2)
-		// 	{var geosloc = "table2/t2_"}
-		let tableSetNum = tabletype.slice(3,4);
 		let geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		var geoCall = '160/eeo' + tabletype + "_" +  plVal;
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
@@ -3599,7 +3596,6 @@ $(document).ready(function(){
 			geosloc = "table1/t1w_";
 		}
 		else {
-			let tableSetNum = tabletype.slice(3,4);
 			geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		}
 		var geoCall = '050/eeo'  + tabletype + "_" +   coVal;
@@ -3616,7 +3612,6 @@ $(document).ready(function(){
 	}						
 		
 	else if ( (sumlevel) === "msa") {
-		let tableSetNum = tabletype.slice(3,4);
 		let geosloc = "table" + tableSetNum + "/t" + tableSetNum + "_";
 		var geoCall = '310/eeo'  + tabletype + "_" +   msaVal;
 		var checkGeoUrl = URL_geos_base + "/" + geosloc + sumlevel + ".json";
@@ -3624,7 +3619,8 @@ $(document).ready(function(){
 	};
 
 	/** Build table description string (displayed at top of page) and displayedLabel (displayed throughout the page) */
-	tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + "0" + tabletype.slice(-2).toUpperCase() + " - ";
+	let formattedTableSetNum = tableSetNum.padStart(2, '0'); // if not double-digits, pad table set number with a 0
+	tableStr = "EEO-" + tabletype.slice(0,3).toUpperCase() + formattedTableSetNum + RorW.toUpperCase() + " - ";
 
 	/** Set the displayed label */
 	const labelTypes = [ // used both here and after table initialized (as displayed label)
@@ -3643,12 +3639,12 @@ $(document).ready(function(){
 	if (displayedLabel.slice(-5) === "Group") {
 		descriptionRemainder = "s" + descriptionRemainder;
 	}
-	if (tabletype.slice(-1) === "r") {
+	if (RorW === "r") {
 		descriptionRemainder  += " for Residence Geography";
-	} else if (tabletype.slice(-1) === "w") {
+	} else if (RorW === "w") {
 		descriptionRemainder  += " for Worksite Geography";
 	}
-	if (tabletype.slice(-2, -1) !== "1") {
+	if (tableSetNum !== "1") {
 		if (tabletype.slice(0,3) === "all") {
 		descriptionRemainder  += ", Total Population";
 		} else if (tabletype.slice(0,3) === "cit") {
@@ -3670,13 +3666,13 @@ $(document).ready(function(){
 	console.log("geotest", geoCall);
 	function getEEOData(){
 		var userSelectData = URL_server + URL_base + tabletype + "/" + geoCall + "_databytype.json"
-		categoryType = tabletype.slice(-2);
 		let isTableSet1Or2 = false;
-		if (categoryType[0] === "1" || categoryType[0] === "2") { // 2s use same category file as 1s
+		let catNum = tableSetNum;
+		if (tableSetNum === "1" || tableSetNum === "2") { // 2s use same category file as 1s
+			catNum = "1";
 			isTableSet1Or2 = true;
-			categoryType = "1" + categoryType[1];
 		}
-		var userSelectLabel = URL_server + URL_base + "cat" + categoryType + ".json"
+		var userSelectLabel = URL_server + URL_base + "cat" + catNum + RorW + ".json"
 		
 
 	console.log(userSelectLabel);
