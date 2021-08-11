@@ -409,6 +409,21 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
 							  );
 // Selected a summary Level Start
 var geo_RadioValue = "";
+
+function imitate1stLevelSlide(){
+/** immitate firstLevelGeo sliding over itself
+  * even though it's the same element
+  */
+	if ($("#viewFirstLevelGeo").css("display") != "none") {
+		let clone = $("#viewFirstLevelGeo").clone().attr("id", "test");
+		
+		$(clone).insertAfter("#viewFirstLevelGeo");
+		$(clone).slideUp(function(){
+			clone.remove();
+		});
+		$("#viewFirstLevelGeo").hide(); 
+	}
+}
 $("input[name='geoSumLevel']").change(function () {
   geo_RadioValue = $("input:radio[name='geoSumLevel']:checked").attr('id');
   $('#tableSelectForm').addClass('disabled');
@@ -438,7 +453,6 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#get_EEO_data").slideDown('slow');
 	$("#viewGeo").slideDown();
 	$("#viewResults").slideDown();
-	$("#viewResults").slideDown();
 	console.log(geo_RadioValue);
 	//console.log(geo_RadioID);
   }
@@ -448,6 +462,7 @@ $("input[name='geoSumLevel']").change(function () {
 	console.log("val" + geo_RadioValue);
 	$(".sumLevel").text(" a State");
 	loadStates('#firstLevelGeoList', url_state, "");
+	imitate1stLevelSlide();
 	$("#viewFirstLevelGeo").slideDown();
   }
 
@@ -466,11 +481,13 @@ $("input[name='geoSumLevel']").change(function () {
   if ( (geo_RadioValue) === "place" ) {
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	loadStates('#firstLevelGeoList', url_state, " to begin", "places");
+	imitate1stLevelSlide();
 	$("#viewFirstLevelGeo").slideDown();
   }
   if ( (geo_RadioValue) === "county" ) { // not all1r
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	loadStates('#firstLevelGeoList', url_state, " to begin", "counties");
+	imitate1stLevelSlide();
 	$("#viewFirstLevelGeo").slideDown();
   }
   if ( (geo_RadioValue) === "countyset" ) { // all1r only
@@ -478,6 +495,7 @@ $("input[name='geoSumLevel']").change(function () {
 	console.log("url?" + geo_RadioValue);
 	$("#viewMsaGeo, #viewSecondLevelGeo").slideUp();
 	loadStates('#firstLevelGeoList', url_state, " to begin");
+	imitate1stLevelSlide();
 	$("#viewFirstLevelGeo").slideDown();
   }
 }
@@ -546,7 +564,7 @@ function updateResultsDisplayed(dd_str) {
 	geoString = dd_str;
 }
 
-/** Determine dropdown behavior */
+/** Determine first level dropdown behavior */
 $.fn.dropdownCh = (function () {
 
 	// determine if current geo has 2 dropdowns
