@@ -183,8 +183,6 @@ function loadPlace(selobj, url, stValsubstr) {
 	}
   }
 		   );
-	// let has2DDs = true;
-	// $.fn.dropdownCh(has2DDs);
 }
 // loadPlace
 function loadCounty(selobj, url, stValsubstr) {
@@ -204,8 +202,7 @@ function loadCounty(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select a County </option>");
   }
 		   );
-	// let has2DDs = true;
-	// $.fn.dropdownCh(has2DDs);
+	//console.log('counties loaded');
 }
 // loadCounty
 function loadCountySet(selobj, url, stValsubstr) {
@@ -225,8 +222,6 @@ function loadCountySet(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select County Set (1R)</option>");
   }
 		   );
-	// let has2DDs = true;
-	// $.fn.dropdownCh(has2DDs);
 }
 // loadCountySet
 async function loadMSA(msaListName, url) { // msaListName = str used to set up / select msa list (currently "msaList")
@@ -427,11 +422,18 @@ $("input[name='geoSumLevel']").change(function () {
   $("#viewResults").slideUp();
   $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();  //first level geo lists empty?
+  $("#viewSecondLevelGeo").slideUp();
   // reset Get EEO Data button
   $("#suppressionMsg").hide();
   $("#get_EEO_data").show(); 
+  
+  // at beginning of geo selection, unbind event handlers from dropdowns so they can be set anew based on the geo selected
+  // not necessary to include msaList b/c the combobox is destroyed and recreated every time loadMSA() is called
+  $("#firstLevelGeoList, #secondLevelGeoList").each(function() {
+	  $(this).off(); 
+	  //console.log('unbound ' + this.id);
+  });
 
-  $("#viewSecondLevelGeo").slideUp();
   if( (geo_RadioValue) === "nation" ) {
 	$("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
 	$("#msaList, #firstLevelGeoList, #secondLevelGeoList").empty();
@@ -440,6 +442,7 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#suppressionMsg").slideUp();
 	$("#get_EEO_data").slideDown('slow');
 	$("#viewGeo").slideDown();
+	$("#viewResults").slideDown();
 	$("#viewResults").slideDown();
 	console.log(geo_RadioValue);
 	//console.log(geo_RadioID);
@@ -455,7 +458,7 @@ $("input[name='geoSumLevel']").change(function () {
 
   // instead of sTableSet# vars for each table set, directly:
   let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
-  console.log(`selected table set number ${tableSetNum}`); 
+  //console.log(`selected table set number ${tableSetNum}`); 
 
   if ( (geo_RadioValue) === "msa" ) {
 	$("#viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
@@ -495,10 +498,10 @@ function prep2ndLevelGeo() {
   //console.log(stValsubstr);
 
   /** Reset previously set values */
-  $(".geo_selected").empty();
+  // $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
-//   $("#viewResults").slideUp();
-//   $("#viewGeo").slideUp();
+  $("#viewResults").slideUp();
+  $("#viewGeo").slideUp();
 //   $("#suppressionMsg").slideUp();
 //   $("#get_EEO_data").slideDown('slow'); 
 
@@ -550,20 +553,29 @@ function updateResultsDisplayed(dd_str) {
 }
 
 $.fn.dropdownCh = (function (has2DDs) { // set listener to display results
+
 	if (has2DDs) { // if has 2nd dropdown
-	  $("#firstLevelGeoList").change(prep2ndLevelGeo); // on 1st level geo option select
-	  $("#secondLevelGeoList").change( // on 2nd level geo option select
-		  updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() )
-	  );
-	} else if (geo_RadioValue === 'msa') { // msa doesn't have 2nd dropdown
-	  $("#msaList").change(function(){ // on (only level) geo option select
+	  
+	    $("#firstLevelGeoList").change(function() {
+	    	//console.log('about to show 2nd level geo');
+	    	$("#secondLevelGeoList").off();
+	    	prep2ndLevelGeo();
+
+			$("#secondLevelGeoList").change(function() { // on 2nd level geo option selection
+			  //console.log('changed secondLevelGeoList');
+			  let currentChoice = $("#firstLevelGeoList option:selected").text();
+			  //console.log('final selection: ' + currentChoice);
+			  updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() )
+			});
+	    });  
+		
+	} else if (geo_RadioValue === 'msa') { // msa doesn't have 2nd dropdown but has separate geo list
+	  $("#msaList").change(function(){ // on (only level) geo option select (change event works for combobox)
 
 		/** deal with msa suppression behavior */
 		msaVal = $("[name='msaList']").val();
-		// console.log('msa selected');
 		if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
 			console.log(`msa selected is suppressed`)
-			// replace Get EEO Table button w/ msg about suppression
 			$("#get_EEO_data").slideUp();
 			$("#suppressionMsg").slideDown();
 		} else { // msa not suppressed, so show button
@@ -574,12 +586,27 @@ $.fn.dropdownCh = (function (has2DDs) { // set listener to display results
 		updateResultsDisplayed( $("#msaList option:selected").text() );
 	  });
 	} else { // isn't msa & doesn't have 2nd dropdown
-	  $("#firstLevelGeoList").change( // on (only level) geo option select
-		updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() )
-	  );
+		  $("#firstLevelGeoList").change(function() { // on (only level) geo option change
+			let currentChoice = $("#firstLevelGeoList option:selected").text();
+			//console.log('final selection: ' + currentChoice);
+			updateResultsDisplayed( currentChoice )
+		  });
+
+		/**
+		$("#firstLevelGeoList").focusin( function(){
+			$("#firstLevelGeoList option").click( function(){
+				updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() )
+			});
+		});
+		
+		// trigger click event on enter key press (for typeahead selection)
+		$("#firstLevelGeoList option").keypress(function(event) {
+            if (event.keyCode === 13) {
+				console.log('enter key pressed');
+                //$("#firstLevelGeoList").click();
+            }
+        });
+		*/	
+
 	}
-//   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
-// 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
-// 	})
-//   })
  });
