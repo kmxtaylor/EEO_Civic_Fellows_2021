@@ -156,11 +156,7 @@ function loadStates(selobj, url, extra, SecondGeoSelection=null) {
     
     $('#firstLevelGeoList :nth-child(1)').before("<option selected>Select a State" + extra +"</option>");
   });
-  let has2DDs = true;
-  if (SecondGeoSelection === null) { // no 2nd dropdown
-	has2DDs = false;
-  }
-  $.fn.dropdownCh(has2DDs);
+  $.fn.dropdownCh();
 }
 // loadStates		 
 function loadPlace(selobj, url, stValsubstr) {
@@ -288,8 +284,7 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
 		$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
 	//}
   });
-  let has2DDs = false;
-  $.fn.dropdownCh(has2DDs);
+  $.fn.dropdownCh();
 }
 // loadMSA
 $.fn.extend({
@@ -539,7 +534,6 @@ function prep2ndLevelGeo() {
 	  console.log('Error: invalid radio value: ' + geo_RadioValue);
   }
 };
-// $("#firstLevelGeoList").change(prep2ndLevelGeo);
 // on change for file or sumlevel
 // var dd_str = "";
 
@@ -552,9 +546,13 @@ function updateResultsDisplayed(dd_str) {
 	geoString = dd_str;
 }
 
-$.fn.dropdownCh = (function (has2DDs) { // set listener to display results
+/** Determine dropdown behavior */
+$.fn.dropdownCh = (function () {
 
-	if (has2DDs) { // if has 2nd dropdown
+	// determine if current geo has 2 dropdowns
+	let geosWith2DDs = ["county", "countyset", "place"];
+	
+	if (geosWith2DDs.includes(geo_RadioValue)) { // if has 2 dropdowns
 	  
 	    $("#firstLevelGeoList").change(function() {
 	    	//console.log('about to show 2nd level geo');
@@ -562,14 +560,14 @@ $.fn.dropdownCh = (function (has2DDs) { // set listener to display results
 	    	prep2ndLevelGeo();
 
 			$("#secondLevelGeoList").change(function() { // on 2nd level geo option selection
-			  //console.log('changed secondLevelGeoList');
-			  let currentChoice = $("#firstLevelGeoList option:selected").text();
+			  let currentChoice = $("#secondLevelGeoList option:selected").text();
 			  //console.log('final selection: ' + currentChoice);
-			  updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() )
+			  updateResultsDisplayed( currentChoice )
 			});
 	    });  
 		
-	} else if (geo_RadioValue === 'msa') { // msa doesn't have 2nd dropdown but has separate geo list
+	} else if (geo_RadioValue === 'msa') { // temporary condition due to combobox
+		// msa doesn't have 2nd dropdown but has separate geo list
 	  $("#msaList").change(function(){ // on (only level) geo option select (change event works for combobox)
 
 		/** deal with msa suppression behavior */
@@ -591,22 +589,5 @@ $.fn.dropdownCh = (function (has2DDs) { // set listener to display results
 			//console.log('final selection: ' + currentChoice);
 			updateResultsDisplayed( currentChoice )
 		  });
-
-		/**
-		$("#firstLevelGeoList").focusin( function(){
-			$("#firstLevelGeoList option").click( function(){
-				updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() )
-			});
-		});
-		
-		// trigger click event on enter key press (for typeahead selection)
-		$("#firstLevelGeoList option").keypress(function(event) {
-            if (event.keyCode === 13) {
-				console.log('enter key pressed');
-                //$("#firstLevelGeoList").click();
-            }
-        });
-		*/	
-
 	}
  });
