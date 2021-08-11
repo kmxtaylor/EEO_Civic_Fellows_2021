@@ -183,8 +183,8 @@ function loadPlace(selobj, url, stValsubstr) {
 	}
   }
 		   );
-	let has2DDs = true;
-	$.fn.dropdownCh(has2DDs);
+	// let has2DDs = true;
+	// $.fn.dropdownCh(has2DDs);
 }
 // loadPlace
 function loadCounty(selobj, url, stValsubstr) {
@@ -204,8 +204,8 @@ function loadCounty(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select a County </option>");
   }
 		   );
-	let has2DDs = true;
-	$.fn.dropdownCh(has2DDs);
+	// let has2DDs = true;
+	// $.fn.dropdownCh(has2DDs);
 }
 // loadCounty
 function loadCountySet(selobj, url, stValsubstr) {
@@ -225,8 +225,8 @@ function loadCountySet(selobj, url, stValsubstr) {
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select County Set (1R)</option>");
   }
 		   );
-	let has2DDs = true;
-	$.fn.dropdownCh(has2DDs);
+	// let has2DDs = true;
+	// $.fn.dropdownCh(has2DDs);
 }
 // loadCountySet
 async function loadMSA(msaListName, url) { // msaListName = str used to set up / select msa list (currently "msaList")
@@ -235,7 +235,6 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
   $('#msaSelection').append(
 	`<select name="${msaListName}" id="${msaListName}" class="combobox input-large form-control form-inline" size="1"> </select>`
   );
-  $(`#${msaListName}`).change(respondToFirstDD) // necessary to rebind function to new element
 
   /** Get suppressed MSAs (100k only for now) */
   let suppressedMsasFile = '';
@@ -488,14 +487,14 @@ $("input[name='geoSumLevel']").change(function () {
 var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
-function respondToFirstDD() { // gets reattached to msaList everytime it gets reset
+function prep2ndLevelGeo() {
   let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
   //console.log("what is stVal here" + stVal);
   //console.log("what is stVal here" + geo_RadioValue);
   //stValsubstr = stVal.substring(7);
   //console.log(stValsubstr);
 
-  /** Reset */
+  /** Reset previously set values */
   $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
 //   $("#viewResults").slideUp();
@@ -533,23 +532,11 @@ function respondToFirstDD() { // gets reattached to msaList everytime it gets re
 	loadCountySet('#secondLevelGeoList', "/acs/www/data/eeo-data/eeo-tables-2018/geos/table1/t1r_countyset.json", stValSubStr);
 	$("#viewSecondLevelGeo").slideDown();
   }
-//   else if ( geo_RadioValue === "msa" ) {
-// 	msaVal = $("[name='msaList']").val();
-// 	// console.log('msa selected');
-// 	if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
-// 		console.log(`msa selected is suppressed`)
-// 		// replace Get EEO Table button w/ msg about suppression
-// 		$("#get_EEO_data").slideUp();
-// 		$("#suppressionMsg").slideDown();
-// 	}
-//   }
   else {
-	  console.log('Error: no geo radio val selected');
+	  console.log('Error: invalid radio value: ' + geo_RadioValue);
   }
-
-
-}
-$("#firstLevelGeoList").change(respondToFirstDD);
+};
+// $("#firstLevelGeoList").change(prep2ndLevelGeo);
 // on change for file or sumlevel
 // var dd_str = "";
 
@@ -562,14 +549,16 @@ function updateResultsDisplayed(dd_str) {
 	geoString = dd_str;
 }
 
-$.fn.dropdownCh = (function (has2DDS) { // set listener to display results
-	if (has2DDS) { // if has 2nd dropdown
-	  $("#secondLevelGeoList").change(function(){
-		updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() ); 
-	  });
+$.fn.dropdownCh = (function (has2DDs) { // set listener to display results
+	if (has2DDs) { // if has 2nd dropdown
+	  $("#firstLevelGeoList").change(prep2ndLevelGeo); // on 1st level geo option select
+	  $("#secondLevelGeoList").change( // on 2nd level geo option select
+		  updateResultsDisplayed( $("#secondLevelGeoList option:selected").text() )
+	  );
 	} else if (geo_RadioValue === 'msa') { // msa doesn't have 2nd dropdown
-	  $("#msaList").change(function(){
-		/**  */
+	  $("#msaList").change(function(){ // on (only level) geo option select
+
+		/** deal with msa suppression behavior */
 		msaVal = $("[name='msaList']").val();
 		// console.log('msa selected');
 		if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
@@ -581,27 +570,16 @@ $.fn.dropdownCh = (function (has2DDS) { // set listener to display results
 			$("#suppressionMsg").slideUp();
 			$("#get_EEO_data").slideDown('slow'); 
 		}
+		
 		updateResultsDisplayed( $("#msaList option:selected").text() );
 	  });
 	} else { // isn't msa & doesn't have 2nd dropdown
-	  $("#firstLevelGeoList").change(function(){
-		updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() );
-	  });
+	  $("#firstLevelGeoList").change( // on (only level) geo option select
+		updateResultsDisplayed( $("#firstLevelGeoList option:selected").text() )
+	  );
 	}
 //   $("#secondLevelGeoList, #firstLevelGeoList").change(function(){
 // 	$("#secondLevelGeoList option:selected, #firstLevelGeoList option:selected").each(function(){
 // 	})
 //   })
  });
- 
-//  $.fn.dropdownChMsa = (function () { // separate from dropdownCh due to bugs
-//   $("#msaList").change(function(){
-// 	  $(".geo_selected").empty();
-// 	  dd_str = $('#msaList option:selected').text();
-// 	  // console.log('geo selected: '+dd_str);
-// 	  $(".geo_selected").text(dd_str).change();
-// 	  $("#viewGeo").slideDown();
-// 	  $("#viewResults").slideDown();
-// 	  geoString = dd_str;
-//   });
-//  });
