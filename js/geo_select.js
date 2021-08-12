@@ -245,7 +245,7 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
   
   let suppressedMsas = [];
   suppressedMsasRaw.forEach(function(msaObj, i) {
-    suppressedMsas.push(['suppressed'+i, msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg b/c it doesn't start w/ a num
+    suppressedMsas.push(['suppressed'+i, msaObj['CBSA description']]); // keyword 'suppressed' is geo selection trigger for suppression msg b/c doesn't start w/ num
   });
 
   /** Assemble list of all MSAs for this table's dropdown */
@@ -278,11 +278,8 @@ async function loadMSA(msaListName, url) { // msaListName = str used to set up /
     });
     
 	$(`#${msaListName} :nth-child(1)`).before("<option value='' selected>Type/Select an MSA</option>"); // transforms into placeholder w/ no option initially selected
-    // $('#msaList :nth-child(1)').before("<option selected>Select an MSA</option>");
-	// if (!($('#viewMsaGeo .combobox-container').length)) { // if hasn't been converted to combobox already
-		console.log('initing msa dropdown as combobox');
-		$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
-	//}
+	// console.log('initing msa dropdown as combobox');
+	$('.combobox').combobox({bsVersion:'3'}); // convert reg dropdown to combobox
   });
   $.fn.dropdownCh();
 }
@@ -411,7 +408,7 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
 var geo_RadioValue = "";
 
 function imitate1stLevelSlide(){
-/** immitate firstLevelGeo sliding over itself
+/** imitate firstLevelGeo sliding over itself
   * even though it's the same element
   */
 	if ($("#viewFirstLevelGeo").css("display") != "none") {
@@ -431,7 +428,7 @@ $("input[name='geoSumLevel']").change(function () {
   $("#viewGeo").slideUp();
   $("#viewResults").slideUp();
   $(".geo_selected").empty();
-  $("#secondLevelGeoList").empty();  //first level geo lists empty?
+  $("#secondLevelGeoList").empty();
   $("#viewSecondLevelGeo").slideUp();
   // reset Get EEO Data button
   $("#suppressionMsg").hide();
@@ -454,7 +451,6 @@ $("input[name='geoSumLevel']").change(function () {
 	$("#viewGeo").slideDown();
 	$("#viewResults").slideDown();
 	console.log(geo_RadioValue);
-	//console.log(geo_RadioID);
   }
   var url_state = "/acs/www/data/eeo-data/eeo-tables-2018/geos/state.json";
   if ( (geo_RadioValue) === "state" ) {
@@ -498,8 +494,7 @@ $("input[name='geoSumLevel']").change(function () {
 	imitate1stLevelSlide();
 	$("#viewFirstLevelGeo").slideDown();
   }
-}
-									 );
+});
 var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
@@ -511,12 +506,9 @@ function prep2ndLevelGeo() {
   //console.log(stValsubstr);
 
   /** Reset previously set values */
-  // $(".geo_selected").empty();
   $("#secondLevelGeoList").empty();
   $("#viewResults").slideUp();
   $("#viewGeo").slideUp();
-//   $("#suppressionMsg").slideUp();
-//   $("#get_EEO_data").slideDown('slow'); 
 
   /** Deal with value selected in 1st dropdown */
   if ( (geo_RadioValue) === "place" ) {
@@ -570,7 +562,7 @@ $.fn.dropdownCh = (function () {
 	// determine if current geo has 2 dropdowns
 	let geosWith2DDs = ["county", "countyset", "place"];
 	
-	if (geosWith2DDs.includes(geo_RadioValue)) { // if has 2 dropdowns
+	if (geosWith2DDs.includes(geo_RadioValue)) { /** if has 2 dropdowns */
 	  
 	    $("#firstLevelGeoList").change(function() {
 	    	//console.log('about to show 2nd level geo');
@@ -584,14 +576,17 @@ $.fn.dropdownCh = (function () {
 			});
 	    });  
 		
-	} else if (geo_RadioValue === 'msa') { // temporary condition due to combobox
+	} else if (geo_RadioValue === 'msa') { /** if has combobox instead of simple dd */
 		// msa doesn't have 2nd dropdown but has separate geo list
 	  $("#msaList").change(function(){ // on (only level) geo option select (change event works for combobox)
 
 		/** deal with msa suppression behavior */
 		msaVal = $("[name='msaList']").val();
-		if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
-			console.log(`msa selected is suppressed`)
+		if (msaVal = "") { // if no value selected
+			// console.log("No msa value selected");
+			$("#get_EEO_data, #suppressionMsg").slideUp();
+		} else if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
+			// console.log(`msa selected is suppressed`)
 			$("#get_EEO_data").slideUp();
 			$("#suppressionMsg").slideDown();
 		} else { // msa not suppressed, so show button
@@ -601,7 +596,7 @@ $.fn.dropdownCh = (function () {
 		
 		updateResultsDisplayed( $("#msaList option:selected").text() );
 	  });
-	} else { // isn't msa & doesn't have 2nd dropdown
+	} else { /** isn't msa & doesn't have 2nd dropdown */
 		  $("#firstLevelGeoList").change(function() { // on (only level) geo option change
 			let currentChoice = $("#firstLevelGeoList option:selected").text();
 			//console.log('final selection: ' + currentChoice);
