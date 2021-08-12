@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-css.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census-core/clientlibs.css" type="text/css"/>
     <link rel="stylesheet" href="https://www.census.gov/etc.clientlibs/census/clientlibs/core-overrides.css" type="text/css"/>
+    <link rel="stylesheet" href="css/bootstrap-combobox.css" type="text/css"/> <!-- Bootstrap combobox CSS -->
     <link rel="icon" sizes="192x192" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-192x192.png">
     <link rel="icon" sizes="256x256" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/android-chrome-256x256.png">
     <link rel="shortcut icon" sizes="32x32" href="https://www.census.gov/etc.clientlibs/census/clientlibs/census-pattern-library/resources/images/icons/favicon.ico">
@@ -3268,6 +3269,13 @@ display: block;;">
                               </label>
                             </div>	 
                           </div>
+                          <div id="viewMsaGeo" style="padding-top:25px;display:none;">	  
+                            <div class="row">
+                              <div id="msaSelection" class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
+								<!-- populated by js -->
+                              </div>	
+                            </div>
+                          </div>
                           <div id="viewFirstLevelGeo" style="padding-top:25px;display:none;">	  
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
@@ -3276,349 +3284,6 @@ display: block;;">
                               </div>	
                             </div>
                           </div>
-                          <div id="viewFirstLevelGeoAlt" style="padding-top:25px;display:none;">	  
-                            <div class="row">
-                              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                                <select name="firstLevelGeoListAlt" class="form-control form-inline" id="firstLevelGeoListAlt" size="1">						
-                                  <option selected="">Select a State to begin
-                                  </option>
-                                  <option value="04000us01">Alabama
-                                  </option>
-                                  <option value="04000us02">Alaska
-                                  </option>
-                                  <option value="04000us04">Arizona
-                                  </option>
-                                  <option value="04000us05">Arkansas
-                                  </option>
-                                  <option value="04000us06">California
-                                  </option>
-                                  <option value="04000us08">Colorado
-                                  </option>
-                                  <option value="04000us09">Connecticut
-                                  </option>
-                                  <option value="04000us10" disabled="" class="eeo_red">Delaware (no places available)
-                                  </option>
-                                  <option value="04000us11">District of Columbia
-                                  </option>
-                                  <option value="04000us12">Florida
-                                  </option>
-                                  <option value="04000us13">Georgia
-                                  </option>
-                                  <option value="04000us15">Hawaii
-                                  </option>
-                                  <option value="04000us16">Idaho
-                                  </option>
-                                  <option value="04000us17">Illinois
-                                  </option>
-                                  <option value="04000us18">Indiana
-                                  </option>
-                                  <option value="04000us19">Iowa
-                                  </option>
-                                  <option value="04000us20">Kansas
-                                  </option>
-                                  <option value="04000us21">Kentucky
-                                  </option>
-                                  <option value="04000us22">Louisiana
-                                  </option>
-                                  <option value="04000us23" disabled="" class="eeo_red">Maine (no places available)
-                                  </option>
-                                  <option value="04000us24">Maryland
-                                  </option>
-                                  <option value="04000us25">Massachusetts
-                                  </option>
-                                  <option value="04000us26">Michigan
-                                  </option>
-                                  <option value="04000us27">Minnesota
-                                  </option>
-                                  <option value="04000us28" disabled="" class="eeo_red">Mississippi (no places available)
-                                  </option>
-                                  <option value="04000us29">Missouri
-                                  </option>
-                                  <option value="04000us30" disabled="" class="eeo_red">Montana (no places available)
-                                  </option>
-                                  <option value="04000us31" disabled="" class="eeo_red">Nebraska (no places available)
-                                  </option>
-                                  <option value="04000us32">Nevada
-                                  </option>
-                                  <option value="04000us33">New Hampshire
-                                  </option>
-                                  <option value="04000us34">New Jersey
-                                  </option>
-                                  <option value="04000us35" disabled="" class="eeo_red">New Mexico (no places available)
-                                  </option>
-                                  <option value="04000us36">New York
-                                  </option>
-                                  <option value="04000us37">North Carolina
-                                  </option>
-                                  <option value="04000us38" disabled="" class="eeo_red">North Dakota (no places available)
-                                  </option>
-                                  <option value="04000us39">Ohio
-                                  </option>
-                                  <option value="04000us40">Oklahoma
-                                  </option>
-                                  <option value="04000us41">Oregon
-                                  </option>
-                                  <option value="04000us42">Pennsylvania
-                                  </option>
-                                  <option value="04000us72">Puerto Rico
-                                  </option>
-                                  <option value="04000us44">Rhode Island
-                                  </option>
-                                  <option value="04000us45">South Carolina
-                                  </option>
-                                  <option value="04000us46" disabled="" class="eeo_red">South Dakota (no places available)
-                                  </option>
-                                  <option value="04000us47">Tennessee
-                                  </option>
-                                  <option value="04000us48">Texas
-                                  </option>
-                                  <option value="04000us49">Utah
-                                  </option>
-                                  <option value="04000us50" disabled="" class="eeo_red">Vermont (no places available)
-                                  </option>
-                                  <option value="04000us51">Virginia
-                                  </option>
-                                  <option value="04000us53">Washington
-                                  </option>
-                                  <option value="04000us54" disabled="" class="eeo_red">West Virginia (no places available)
-                                  </option>
-                                  <option value="04000us55">Wisconsin
-                                  </option>
-                                  <option value="04000us56" disabled="" class="eeo_red" >Wyoming (no places available)
-                                  </option>
-                                </select>
-                              </div>	
-                            </div>
-                          </div>   
-                          <!--missing ">" at the end of this div tag  -->
-                          <div id="viewFirstLevelGeoAlt2" style="padding-top:25px;display:none;">	  
-                            <div class="row">
-                              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                                <select name="firstLevelGeoListAlt2" class="form-control form-inline" id="firstLevelGeoListAlt2" size="1">						
-                                  <option selected="">Select a State to begin
-                                  </option>
-                                  <option value="04000us01">Alabama
-                                  </option>
-                                  <option value="04000us02">Alaska
-                                  </option>
-                                  <option value="04000us04">Arizona
-                                  </option>
-                                  <option value="04000us05">Arkansas
-                                  </option>
-                                  <option value="04000us06">California
-                                  </option>
-                                  <option value="04000us08">Colorado
-                                  </option>
-                                  <option value="04000us09">Connecticut
-                                  </option>
-                                  <option value="04000us10">Delaware
-                                  </option>
-                                  <option value="04000us11">District of Columbia
-                                  </option>
-                                  <option value="04000us12">Florida
-                                  </option>
-                                  <option value="04000us13">Georgia
-                                  </option>
-                                  <option value="04000us15">Hawaii
-                                  </option>
-                                  <option value="04000us16">Idaho
-                                  </option>
-                                  <option value="04000us17">Illinois
-                                  </option>
-                                  <option value="04000us18">Indiana
-                                  </option>
-                                  <option value="04000us19">Iowa
-                                  </option>
-                                  <option value="04000us20">Kansas
-                                  </option>
-                                  <option value="04000us21">Kentucky
-                                  </option>
-                                  <option value="04000us22">Louisiana
-                                  </option>
-                                  <option value="04000us23">Maine
-                                  </option>
-                                  <option value="04000us24">Maryland
-                                  </option>
-                                  <option value="04000us25">Massachusetts
-                                  </option>
-                                  <option value="04000us26">Michigan
-                                  </option>
-                                  <option value="04000us27">Minnesota
-                                  </option>
-                                  <option value="04000us28">Mississippi
-                                  </option>
-                                  <option value="04000us29">Missouri
-                                  </option>
-                                  <option value="04000us30" disabled="" class="eeo_red">Montana (no places available)
-                                  </option>
-                                  <option value="04000us31">Nebraska
-                                  </option>
-                                  <option value="04000us32">Nevada
-                                  </option>
-                                  <option value="04000us33">New Hampshire
-                                  </option>
-                                  <option value="04000us34">New Jersey
-                                  </option>
-                                  <option value="04000us35">New Mexico
-                                  </option>
-                                  <option value="04000us36">New York
-                                  </option>
-                                  <option value="04000us37">North Carolina
-                                  </option>
-                                  <option value="04000us38">North Dakota
-                                  </option>
-                                  <option value="04000us39">Ohio
-                                  </option>
-                                  <option value="04000us40">Oklahoma
-                                  </option>
-                                  <option value="04000us41">Oregon
-                                  </option>
-                                  <option value="04000us42">Pennsylvania
-                                  </option>
-                                  <option value="04000us72" disabled="" class="eeo_red">Puerto Rico (no places available)
-                                  </option>
-                                  <option value="04000us44">Rhode Island
-                                  </option>
-                                  <option value="04000us45">South Carolina
-                                  </option>
-                                  <option value="04000us46" disabled="" class="eeo_red">South Dakota (no places available)
-                                  </option>
-                                  <option value="04000us47">Tennessee
-                                  </option>
-                                  <option value="04000us48">Texas
-                                  </option>
-                                  <option value="04000us49">Utah
-                                  </option>
-                                  <option value="04000us50" disabled="" class="eeo_red">Vermont (no places available) 
-                                  </option>
-                                  <option value="04000us51">Virginia
-                                  </option>
-                                  <option value="04000us53">Washington
-                                  </option>
-                                  <option value="04000us54" disabled="" class="eeo_red">West Virginia (no places available)
-                                  </option>
-                                  <option value="04000us55">Wisconsin
-                                  </option>
-                                  <option value="04000us56" disabled="" class="eeo_red" >Wyoming (no places available)
-                                  </option>
-                                </select>
-                              </div>	
-                            </div>
-                          </div>					
-                          <div id="viewFirstLevelGeoAlt3" style="padding-top:25px;display:none;">	  
-                            <div class="row">
-                              <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
-                                <select name="firstLevelGeoListAlt3" class="form-control form-inline" id="firstLevelGeoListAlt3" size="1">						
-                                  <option selected="">Select a State to begin
-                                  </option>
-                                  <option value="04000us01">Alabama
-                                  </option>
-                                  <option value="04000us02">Alaska
-                                  </option>
-                                  <option value="04000us04">Arizona
-                                  </option>
-                                  <option value="04000us05">Arkansas
-                                  </option>
-                                  <option value="04000us06">California
-                                  </option>
-                                  <option value="04000us08">Colorado
-                                  </option>
-                                  <option value="04000us09">Connecticut
-                                  </option>
-                                  <option value="04000us10">Delaware
-                                  </option>
-                                  <option value="04000us11">District of Columbia
-                                  </option>
-                                  <option value="04000us12">Florida
-                                  </option>
-                                  <option value="04000us13">Georgia
-                                  </option>
-                                  <option value="04000us15">Hawaii
-                                  </option>
-                                  <option value="04000us16">Idaho
-                                  </option>
-                                  <option value="04000us17">Illinois
-                                  </option>
-                                  <option value="04000us18">Indiana
-                                  </option>
-                                  <option value="04000us19">Iowa
-                                  </option>
-                                  <option value="04000us20">Kansas
-                                  </option>
-                                  <option value="04000us21">Kentucky
-                                  </option>
-                                  <option value="04000us22">Louisiana
-                                  </option>
-                                  <option value="04000us23">Maine
-                                  </option>
-                                  <option value="04000us24">Maryland
-                                  </option>
-                                  <option value="04000us25">Massachusetts
-                                  </option>
-                                  <option value="04000us26">Michigan
-                                  </option>
-                                  <option value="04000us27">Minnesota
-                                  </option>
-                                  <option value="04000us28">Mississippi
-                                  </option>
-                                  <option value="04000us29">Missouri
-                                  </option>
-                                  <option value="04000us30">Montana
-                                  </option>
-                                  <option value="04000us31">Nebraska
-                                  </option>
-                                  <option value="04000us32">Nevada
-                                  </option>
-                                  <option value="04000us33">New Hampshire
-                                  </option>
-                                  <option value="04000us34">New Jersey
-                                  </option>
-                                  <option value="04000us35">New Mexico
-                                  </option>
-                                  <option value="04000us36">New York
-                                  </option>
-                                  <option value="04000us37">North Carolina
-                                  </option>
-                                  <option value="04000us38">North Dakota
-                                  </option>
-                                  <option value="04000us39">Ohio
-                                  </option>
-                                  <option value="04000us40">Oklahoma
-                                  </option>
-                                  <option value="04000us41">Oregon
-                                  </option>
-                                  <option value="04000us42">Pennsylvania
-                                  </option>
-                                  <option value="04000us72">Puerto Rico
-                                  </option>
-                                  <option value="04000us44">Rhode Island
-                                  </option>
-                                  <option value="04000us45">South Carolina
-                                  </option>
-                                  <option value="04000us46">South Dakota
-                                  </option>
-                                  <option value="04000us47">Tennessee
-                                  </option>
-                                  <option value="04000us48">Texas
-                                  </option>
-                                  <option value="04000us49">Utah
-                                  </option>
-                                  <option value="04000us50">Vermont
-                                  </option>
-                                  <option value="04000us51">Virginia
-                                  </option>
-                                  <option value="04000us53">Washington
-                                  </option>
-                                  <option value="04000us54">West Virginia
-                                  </option>
-                                  <option value="04000us55">Wisconsin
-                                  </option>
-                                  <option value="04000us56" disabled="" class="eeo_red" >Wyoming (no counties available)
-                                  </option>
-                                </select>
-                              </div>	
-                            </div>
-                          </div>					
                           <div id="viewSecondLevelGeo" style="padding-top:10px;display:none;">
                             <div class="row">
                               <div class="col-lg-4 col-md-6 col-sm-8 col-xs-12">
@@ -3650,6 +3315,8 @@ display: block;;">
                           <div class="col-md-8 col-xs-12">
                             <button id="get_EEO_data" style="text-transform:uppercase; color: #fff; font-weight: 700; font-family: Roboto Condensed, sans-serif;" class="uscb-primary-button acs_content" title="Table Opens in New Tab or Window" type="button">Get EEO Table
                             </button>
+                            <!-- eeo_red class not working here for some reason... -->
+                            <p id="suppressionMsg" class="eeo_red acs_content" style="display: none; color: #ff7043; font-size:1rem; line-height: 1.25rem;">We are unable to publish data for the selected geography due to disclosure protection. Please see the "Where's my geography?" section below.</p>
                           </div>
                           <div class="col-md-8">
                           </div>
@@ -4043,7 +3710,8 @@ display: block;;">
   </script>
   
   <!-- Geography and table selection JS -->
-  <script src="js/geo_select.js"> </script>
+  <script type="text/javascript" src="js/geo_select.js"></script>
+  <script type="text/javascript" src="js/bootstrap-combobox.js"></script>   <!-- Bootstrap combobox JS -->
   
   <script type="text/javascript">
     var referrer=document.referrer;
