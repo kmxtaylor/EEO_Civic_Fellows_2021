@@ -615,7 +615,7 @@ $.fn.dropdownCh = (function () {
 
 		/** deal with msa suppression behavior */
 		msaVal = $("[name='msaList']").val();
-		if (msaVal = "") { // if no value selected
+		if (msaVal === "") { // if no value selected
 			// console.log("No msa value selected");
 			$("#get_EEO_data, #suppressionMsg").slideUp();
 		} else if (isNaN(msaVal.charAt(0))) { // if msaVal doesn't start w/ a num (as all msa GEOIDs start w/ nums)
