@@ -1,99 +1,98 @@
 /**
  * Configure geography and table selection on index.php page
  * Katie Taylor and Peggy Gill
- * 8/5/2021
+ * 8/12/2021
  */
 
-/** Accordion JS */
-const acc = document.getElementsByClassName("accordionHeader");
-for (let i = 0; i < acc.length; i++) {
-  acc[i].addEventListener("click", function() {
-	this.classList.toggle("openPanel");
-	let accordionContent = this.nextElementSibling;
-	// console.log("accordionContent: ", accordionContent);
-	if (accordionContent.style.display === "block") {
-	  accordionContent.style.display = "none";
-	  this.firstElementChild.classList.remove("o-angle-down-1");
-	  this.firstElementChild.classList.add("o-angle-up-1");
+/** 
+ * Control table selection accordions
+*/
+$(document).ready( function() {
+	const acc = document.getElementsByClassName("accordionHeader");
+	for (let i = 0; i < acc.length; i++) {
+	acc[i].addEventListener("click", function() {
+		this.classList.toggle("openPanel");
+		let accordionContent = this.nextElementSibling;
+		// console.log("accordionContent: ", accordionContent);
+		if (accordionContent.style.display === "block") {
+		accordionContent.style.display = "none";
+		this.firstElementChild.classList.remove("o-angle-down-1");
+		this.firstElementChild.classList.add("o-angle-up-1");
+		}
+		else {
+		accordionContent.style.display = "block";
+		this.firstElementChild.classList.remove("o-angle-up-1");
+		this.firstElementChild.classList.add("o-angle-down-1");
+		}
+	});
 	}
-	else {
-	  accordionContent.style.display = "block";
-	  this.firstElementChild.classList.remove("o-angle-up-1");
-	  this.firstElementChild.classList.add("o-angle-down-1");
+
+	// Accordion JS: close all & open all buttons
+	let closeAcc = document.getElementById("closeAccordions");
+	closeAcc.addEventListener("click", function() {
+	const accContent = document.getElementsByClassName("accordionContent");
+	for (var i = 0; i < accContent.length; i++) {
+		accContent[i].style.display = "none";
+		// console.log("hiding ", accContent[i]);
 	}
-  }
-						 );
-}
-
-// Accordion JS: close all & open all buttons
-let closeAcc = document.getElementById("closeAccordions");
-closeAcc.addEventListener("click", function() {
-  const accContent = document.getElementsByClassName("accordionContent");
-  for (var i = 0; i < accContent.length; i++) {
-	accContent[i].style.display = "none";
-	// console.log("hiding ", accContent[i]);
-  }
-}
-						 );
-let openAcc = document.getElementById("openAccordions");
-openAcc.addEventListener("click", function() {
-  const accContent = document.getElementsByClassName("accordionContent");
-  for (var i = 0; i < accContent.length; i++) {
-	accContent[i].style.display = "block";
-	// console.log("showing ", accContent[i]);
-  }
-}
-						);
-
+	});
+	let openAcc = document.getElementById("openAccordions");
+	openAcc.addEventListener("click", function() {
+	const accContent = document.getElementsByClassName("accordionContent");
+	for (var i = 0; i < accContent.length; i++) {
+		accContent[i].style.display = "block";
+		// console.log("showing ", accContent[i]);
+	}
+	});
+});
+/**
+ * Redirects user to tableview page displaying their selected data table
+ */
 function openEEOTable() {
   var hostname = window.location.origin
   var url = hostname + "/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?";
   var fileType = eeo_filetype;
-  if( (geo_RadioValue) === "nation") {
+  if ( geo_RadioValue === "nation") {
 	url += 'geotype=nation&usVal=us' + "&filetype=" + fileType + "&geoName=United States";
-	window.open(url, "_blank");
-	return;
   }
-  if( (geo_RadioValue) === "state") {
+  else if ( geo_RadioValue === "state") {
 	stVal = $("#firstLevelGeoList").val();
 	url += "geotype=state&state="  + stVal + "&filetype=" + fileType + "&geoName=" + geoString;
-	window.open(url, "_blank");
-	return;
   }
-  if( (geo_RadioValue) === "place") {
+  else if ( geo_RadioValue === "place") {
 	plVal = $("#secondLevelGeoList").val();
 	url += "geotype=place&place=" + plVal + "&filetype=" + fileType + "&geoName=" + geoString;
-	window.open(url, "_blank");
-	return;
   }
-  if( (geo_RadioValue) === "county") {
+  else if ( geo_RadioValue === "county") {
 	coVal = $("#secondLevelGeoList").val();
 	url += "geotype=county&county=" + coVal + "&filetype=" + fileType + "&geoName=" + geoString;
-	window.open(url, "_blank");
-	return;
   }
-  if( (geo_RadioValue) === "countyset") {
+  else if ( geo_RadioValue === "countyset") {
 	cosetVal = $("#secondLevelGeoList").val();
 	url += "geotype=countyset&countyset=" + cosetVal + "&filetype=" + fileType + "&geoName=" + geoString;
-	window.open(url, "_blank");
-	return;
   }
-  if( (geo_RadioValue) === "msa") {
+  else if ( geo_RadioValue === "msa") {
 	msaVal = $("[name='msaList']").val();
 	url += "geotype=msa&msa=" + msaVal + "&filetype=" + fileType + "&geoName=" + geoString;
-	window.open(url, "_blank");
-	return;
   }
+  window.open(url, "_blank");
+  return;
 }
 // openEEOTable
 $("#get_EEO_data").click(function() {
   // assumes element with id='button'
   openEEOTable();
-}
-						);
+});
 // onclick get_EEO_data	
 // var fileSubstr = eeo_filetype.substring(3,4);
 //console.log(fileSubstr);
+/**
+ * Populate dropdown with state options
+ * @param {string} selobj element to populate with options
+ * @param {string} url location to source options from
+ * @param {string} extra text that is appended to placeholder
+ * @param {string} SecondGeoSelection text that indicates if state option has no available places/counties
+ */
 function loadStates(selobj, url, extra, SecondGeoSelection=null) {
 
 	// table sets fall into 2 groups for the sets of states w/ suppression of places & tables, most likely based on data threshold
@@ -158,7 +157,13 @@ function loadStates(selobj, url, extra, SecondGeoSelection=null) {
   });
   $.fn.dropdownCh();
 }
-// loadStates		 
+// loadStates	
+/**
+ * Populate dropdown with place options
+ * @param {string} selobj dropdown to populate with place options
+ * @param {string} url location to source place options from
+ * @param {string} stValsubstr value that corresponds to state
+ */
 function loadPlace(selobj, url, stValsubstr) {
   select = $(selobj).empty();
   $.getJSON(url, {
@@ -171,16 +176,20 @@ function loadPlace(selobj, url, stValsubstr) {
 		select.append(
 		  $('<option></option>').val(obj[0]).html(obj[1]));
 	  }
-	}
-		  );
+	});
 	$("#secondLevelGeoList").sortSelect();
 	{
 	  $('#secondLevelGeoList :nth-child(1)').before("<option selected>Select a Place</option>");
 	}
-  }
-		   );
+  });
 }
 // loadPlace
+/**
+ * Populate dropdown with county options
+ * @param {string} selobj dropdown to populate with county options
+ * @param {string} url location to source county options from
+ * @param {string} stValsubstr value that corresponds to state
+ */
 function loadCounty(selobj, url, stValsubstr) {
   select = $(selobj).empty();
   $.getJSON(url, {
@@ -192,15 +201,19 @@ function loadCounty(selobj, url, stValsubstr) {
 		select.append(
 		  $('<option></option>').val(obj[0]).html(obj[1]));
 	  }
-	}
-		  );
+	});
 	$("#secondLevelGeoList").sortSelect();
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select a County </option>");
-  }
-		   );
+  });
 	//console.log('counties loaded');
 }
 // loadCounty
+/**
+ * Populate dropdown with county set options
+ * @param {string} selobj dropdown to populate with options
+ * @param {string} url location to source county set options from
+ * @param {string} stValsubstr value that corresponds to state
+ */
 function loadCountySet(selobj, url, stValsubstr) {
   select = $(selobj).empty();
   $.getJSON(url, {
@@ -212,15 +225,18 @@ function loadCountySet(selobj, url, stValsubstr) {
 		select.append(
 		  $('<option></option>').val(obj[0]).html(obj[1]));
 	  }
-	}
-		  );
+	});
 	$("#secondLevelGeoList").sortSelect();
 	$('#secondLevelGeoList :nth-child(1)').before("<option selected>Select County Set (1R)</option>");
-  }
-		   );
+  });
 }
 // loadCountySet
-async function loadMSA(msaListName, url) { // msaListName = str used to set up / select msa list (currently "msaList")
+/**
+ * Populate dropdown with MSA options
+ * @param {string} msaListName string used to set up/select msa list (currently "msaList")
+ * @param {string} url location to source msa options from
+ */
+async function loadMSA(msaListName, url) {
   /** Renew msaSelection contents (work around bootstrap-combobox repopulation bugs) */
   $('#msaSelection').empty();
   $('#msaSelection').append(
@@ -359,12 +375,14 @@ $(document).ready(function(){
   $('input[type="radio"]').prop('checked', false);
   //$("[name='filegroup2018']").removeAttr("checked");
   //$("[name='geoSumLevel']".removeAttr("checked");
-}
-				 );
+});
 // document.ready
 var eeo_filetype = "";
 var eeo_filetypeL
-$("input[name='filegroup2018']").change(function () { // on table selected
+/**
+ * On table selected
+ */
+$("input[name='filegroup2018']").change(function () {
   eeo_filetypeL = $("input:radio[name='filegroup2018']:checked").attr('id');
   eeo_filetype = $("input:radio[name='filegroup2018']:checked").attr('value');
   if ((eeo_filetype === "all1r"))
@@ -391,7 +409,10 @@ $("input[name='filegroup2018']").change(function () { // on table selected
 									   );
 var fileSubstr = eeo_filetype.substring(3,4);
 console.log(fileSubstr);
-$("#refreshTableSelect").click(function () { // on click: Change Table Selection
+/**
+ * On click: Change Table Selection
+ */
+$("#refreshTableSelect").click(function () {
   $(".file_typeL").html('<span style="font-style: italic; color: grey; text-transform: lowercase;">pending new selection</span>'); // "Selected Table: pending new selection" displayed
   $("input[name='filegroup2018']").prop('checked',false);
   $('#tableSelectForm').removeClass('disabled');
@@ -402,15 +423,14 @@ $("#refreshTableSelect").click(function () { // on click: Change Table Selection
   $(".geo_selected").empty();
   $("#viewMsaGeo, #viewFirstLevelGeo, #viewSecondLevelGeo").slideUp();
   $("#msaList, #firstLevelGeoList, #secondLevelGeoList").empty();
-}
-							  );
+});
 // Selected a summary Level Start
 var geo_RadioValue = "";
 
+/** 
+ * Imitate firstLevelGeo sliding over itself even though it's the same element
+ */
 function imitate1stLevelSlide(){
-/** imitate firstLevelGeo sliding over itself
-  * even though it's the same element
-  */
 	if ($("#viewFirstLevelGeo").css("display") != "none") {
 		let clone = $("#viewFirstLevelGeo").clone().attr("id", "test");
 		
@@ -421,6 +441,9 @@ function imitate1stLevelSlide(){
 		$("#viewFirstLevelGeo").hide(); 
 	}
 }
+/**
+ * First level response after a new geo is selected
+ */
 $("input[name='geoSumLevel']").change(function () {
   geo_RadioValue = $("input:radio[name='geoSumLevel']:checked").attr('id');
   $('#tableSelectForm').addClass('disabled');
@@ -498,6 +521,10 @@ $("input[name='geoSumLevel']").change(function () {
 var stVal = "";
 var stValsubstr = stVal.substring(7);
 /** end selection of summary Level and showing drop down. */
+/**
+ * Trigger configuration of 2nd dropdown the based on geo selected
+ * Only triggered for geos with 2 dropdowns
+ */
 function prep2ndLevelGeo() {
   let tableSetNum = eeo_filetype.match(/\d+/).join(""); // get tableSetNum from table type
   //console.log("what is stVal here" + stVal);
@@ -547,16 +574,22 @@ function prep2ndLevelGeo() {
 // on change for file or sumlevel
 // var dd_str = "";
 
+/**
+ * Display selected geography
+ * @param {string} dd_str text to display as geo
+ */
 function updateResultsDisplayed(dd_str) {
 	$(".geo_selected").empty();
-	console.log(`geo selected: ${dd_str}`);
+	// console.log(`geo selected: ${dd_str}`);
 	$(".geo_selected").text(dd_str).change();
 	$("#viewGeo").slideDown();
 	$("#viewResults").slideDown();
 	geoString = dd_str;
 }
-
-/** Determine first level dropdown behavior */
+/** 
+ * Determine first level dropdown behavior
+ * Called at the end of loadState() and loadMSA()
+ */
 $.fn.dropdownCh = (function () {
 
 	// determine if current geo has 2 dropdowns
