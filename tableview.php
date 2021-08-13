@@ -3631,7 +3631,7 @@ $(document).ready(function(){
 		"Federal Sector Job Group",
 		"State/Local Government Job Group"
 	]
-	const labelIndex = tabletype[3]-1;
+	const labelIndex = tableSetNum-1;
 	let displayedLabel = labelTypes[labelIndex];
 
 	/** Build the rest of the table description */
