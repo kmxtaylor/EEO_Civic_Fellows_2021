@@ -4293,8 +4293,152 @@ display: block;;">
       // assumes element with id='button'
       openEEOTable();
     }
-                            );
-    // onclick get_EEO_data	
+	
+	$(document).ready(function() {
+      populateLookupDropDown();
+    });
+	
+    /** Display MSA Lookup Results */
+    function displayLookupResults(components) {
+      // console.log(components);
+
+      if ($("#msaResultLine").css('display') === 'none') {
+        // alert("sliding down msa results");
+        $("#msaResultLine").slideDown();
+      }
+      $("#msaResultsList").empty();
+      // $("#msaResultsList").append('<h4 style="margin-bottom: 20px;">Results:</h4>')
+
+      if (components === undefined || components.length === 0) { // shouldn't matter w/ the dropdown, but here just in case
+        $("#msaResultsList").append('<p>No results found for that match!</p>');
+		//console.log(`No results found for ${}`);
+        // $("#msaResultsList").append(`<p>No results found that match "${userSelection}"!</p>`);
+      } else {
+        // display resulting counties
+        $("#msaResultsList").empty();
+
+        /** display option 2 */
+        components.forEach((comp) => {
+        
+          // check if comp is in list of suppressed counties
+          let countyIsAvailable = true;
+          $.getJSON('suppressed-counties.json', function(json) { // add error-handling when possible
+
+          countyIsAvailable = json.every(countyObj => { return countyObj.NAME != comp; });
+
+          }).always( function (data) { // chaining .always() maintains countyIsAvailable
+            // console.log(`countyIsAvailable === ${countyIsAvailable}`);
+            let compHtml;
+            if (countyIsAvailable) {
+              compHtml = $('<p class="singleResult">'+comp+'</p><hr>');
+              $(compHtml).css({color: '#112e51'}); // navy blue
+              // console.log("html: " + compHtml);
+            } else {
+              compHtml = $('<p class="singleResult">'+comp+' (suppressed)</p><hr>');
+              $(compHtml).css({color: 'rgb(255, 112, 67)', 'font-style': 'italic'}); // orange, italic
+            }
+            $(compHtml).css({display: 'none'});
+
+            $("#msaResultsList").append(compHtml);
+            $(compHtml).slideDown();
+            countyIsAvailable = true;
+          });
+        });
+      }
+      
+    }
+
+    async function fetchMSAComps(msaCode) {
+      //process the json
+      msaCode = msaCode.replace(" Metro Area", "");
+      let msaPromise = new Promise(function(res, rej) {
+        let countyEquivs = $.getJSON('msa-components.json', function(json) {
+          // console.log(json);
+          //filter to include only designated MSA 
+          let componentsArr = json[msaCode] || null;
+          // console.log(componentsArr);
+          /** return all the county components */
+          let countyEquivArr = [];
+          if (componentsArr != null) {
+            componentsArr.forEach((comp) => {
+              let countyName = comp['County']['County Equivalent'];
+              let stateName = comp['State Name'];
+              countyEquivArr.push(`${countyName}, ${stateName}`);
+            });
+            // console.log('The components in msa #', msaCode, 'are', countyEquivArr);
+          }
+          else {
+            alert("No matching MSAs found.");
+            // unsure if this is the best way of handling this
+          }
+          res(countyEquivArr);
+        }
+                                    );
+      }
+                                  );
+      let resMSA = await msaPromise;
+      displayLookupResults(resMSA);
+    }
+    $("#getMsaCompsBtn").click(function() {
+      let msaCode = $('[name="msaCombo"]').val().trim();
+      console.log("submitting: " + msaCode);
+      if (msaCode != null && msaCode != '') {
+        fetchMSAComps(msaCode);
+      }
+      else {
+        alert("No option selected. Please select an option.");
+      }
+    }
+                              );
+    // onclick fetch MSA Comps
+
+    function getGeoId(tableType, componentName){
+      let geoId = null;
+      let tableSetNum = tableType.slice(3,4);
+      let countiesUrl = `/acs/www/data/eeo-data/eeo-tables-2018/geos/table${tableSetNum}`;
+      if (tableSetNum === '1') {
+        tableSetNum += 'w'; // 1r doesn't have counties
+      }
+      countiesUrl += `/t${tableSetNum}_county.json`;
+      console.log(`getting json from ${countiesUrl}`);
+      $.getJSON(countiesUrl, function (data) {
+        // $.each(data, function (i, obj) { // I don't think this breaks early
+        //   if ( obj[1] === componentName ) {
+        //     geoId = obj[0];
+        //   }
+        // });
+
+        let countyObj = data.find(countyObj => { return countyObj[1] === componentName; })
+        console.log('found countyObj:');
+        console.log(countyObj);
+        geoId = countyObj[1];
+      }).always(function() { // maintains value of geoId
+        return geoId;
+      });
+    }
+
+    function getTableViewUrl(tableType, componentName){ // may make this triggered by clicking a button after selecting a table (for all results) and apply to hyperlinks for all of the results
+      var hostname = window.location.origin;
+      let tableViewUrl = hostname + '/acs/www/data/eeo-data/eeo-tables-2018/tableview.php?geotype=county&';
+      // let geoId = geoId.toLowerCase(); // us needs to be lowercase
+      let geoId = getGeoId(tableType, componentName);
+      componentName = encodeURIComponent(componentName);
+      tableViewUrl += `county=${geoId}&filetype=${tabletype}&geoName=${componentName}`;
+      console.log(tableViewUrl);
+      return tableViewUrl;
+    } // getTableViewUrl()
+
+    $('[name="msaTableSelect"]').on('change', function() {
+      let tableSelected = $('[name="msaTableSelect"]').val().trim();
+      $('#msaResultsList .singleResult').each(function(i, el) {
+        let componentName = $(el).text();
+        // let componentGeoId = $(el).getAttribute(geoId);
+        let tableViewUrl = getTableViewUrl(tableSelected, componentName);
+        // set tableViewUrl as href for link for this result
+        // maybe use slideUp() / slideDown() to indicate that the link changed
+      });
+    })
+
     // var fileSubstr = eeo_filetype.substring(3,4);
     //console.log(fileSubstr);
     function loadStates(selobj, url, extra) {
